@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { signUserUp } from '../../actions'
-import CenterCard363 from '../centerCard363'
+import CenterCard363 from '../../components/centerCard363'
 import useForm from '../../use-form-react'
 
 const Signup = props => {
