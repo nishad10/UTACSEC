@@ -1,4 +1,6 @@
-# UTA CSEC WEBSITE
+<img src="https://pbs.twimg.com/profile_images/887044871445295105/9bQlT5Xi_400x400.jpg" height="50" width="50">
+<h1 position="relative">UTA CSEC WEBSITE</h1>
+
 This will be the repo for the website for the Cybersecurity club for the University of Texas at Arlington.
 ### Contact
 Email- uta.csec@gmail.com
@@ -82,7 +84,8 @@ Discord- https://discord.gg/F9wZjBe
 If you want to add a feature to the website I would appreciate if you follow the code structure we have in place, if you have any questions about the structure of the code feel free to contact me. 
 
 Name- Nishad Aherrao
-Email-nishad.aherrao10@gmail.com
+
+Email- nishad.aherrao10@gmail.com
 
 ## License
 [MIT](https://github.com/nishad10/utacsec/blob/master/LICENSE)
