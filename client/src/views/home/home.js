@@ -5,23 +5,27 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Grid>
-          <Grid.Row centered color="black">
-            <Grid.Column floated="left" verticalAlign="middle" width={5}>
-              <Image src="https://pbs.twimg.com/profile_images/887044871445295105/9bQlT5Xi_400x400.jpg" />
-            </Grid.Column>
-            <Grid.Column floated="left" textAlign="center" width={10}>
-              <h1>University of Texas at Arlington</h1>
-              <h3>Cyber Security Club</h3>
-              <Button as={Link} to="/signup" animated color="green">
-                <Button.Content visible>Join Now</Button.Content>
-                <Button.Content hidden>
-                  <Icon name="arrow right" />
-                </Button.Content>
-              </Button>
+        <Grid style={{ fontSize: '1.5vw', backgroundColor: 'black', lineHeight: '2vw' }}>
+          <Grid.Row>
+            <Grid.Column textAlign="center">
+              <Segment inverted style={{ display: 'flex', justifyContent: 'center' }}>
+                <Image src="https://pbs.twimg.com/profile_images/887044871445295105/9bQlT5Xi_400x400.jpg" />
+                <Segment inverted style={{ alignSelf: 'center' }}>
+                  <Header style={{ fontSize: '3vw' }} inverted>
+                    University of Texas at Arlington
+                    <Header.Subheader style={{ fontSize: '2vw' }}>Cyber Security Club</Header.Subheader>
+                  </Header>
+                  <Button as={Link} to="/signup" animated color="green">
+                    <Button.Content visible>Join Now</Button.Content>
+                    <Button.Content hidden>
+                      <Icon name="arrow right" />
+                    </Button.Content>
+                  </Button>
+                </Segment>
+              </Segment>
             </Grid.Column>
           </Grid.Row>
-          <Grid.Row centered color="grey">
+          <Grid.Row centered>
             <Button size="huge" as="div" labelPosition="right">
               <Button color="twitter">
                 <Icon name="twitter" />
@@ -50,11 +54,12 @@ class Home extends Component {
               </Label>
             </Button>
           </Grid.Row>
+          <Divider inverted />
           <Grid.Row>
             <Grid celled="internally" columns="equal" stackable>
               <Grid.Row>
                 <Grid.Column floated="left">
-                  <Header as="h3" style={{ fontSize: '2em' }} block textAlign="center">
+                  <Header as="h3" style={{ fontSize: '2vw' }} block textAlign="center">
                     Activities
                   </Header>
                   <Segment inverted style={{ fontSize: '1em' }}>
@@ -94,10 +99,10 @@ class Home extends Component {
                   </Segment>
                 </Grid.Column>
                 <Grid.Column>
-                  <Header as="h3" style={{ fontSize: '2em' }} block textAlign="center">
+                  <Header as="h3" style={{ fontSize: '2vw' }} block textAlign="center">
                     Topics Covered
                   </Header>
-                  <Segment inverted style={{ fontSize: '1em' }}>
+                  <Segment inverted style={{ fontSize: '1vw' }}>
                     <List bulleted divided inverted relaxed>
                       <List.Item>
                         <List.Content>
@@ -147,13 +152,12 @@ class Home extends Component {
               </Grid.Row>
             </Grid>
           </Grid.Row>
-
           <Grid.Row centered>
-            <Segment vertical>
-              <Header as="h3" style={{ fontSize: '2em' }} block>
+            <Segment style={{ padding: '1em' }} vertical>
+              <Header as="h3" style={{ fontSize: '2vw' }} block>
                 FAQ
               </Header>
-              <Segment inverted textAlign="left" style={{ fontSize: '2em' }}>
+              <Segment inverted textAlign="left" style={{ fontSize: '1vw' }}>
                 <List bulleted divided inverted relaxed>
                   <List.Item>
                     <List.Content>
@@ -213,5 +217,26 @@ export default Home
               <Button>
                 <Icon name="mail" />
               </Button>
+            </Grid.Column>
+          </Grid.Row>*/
+
+/*
+          <Grid.Row>
+            <Grid.Column textAlign="center">
+              <Segment inverted style={{ display: 'flex', alignSelf: 'center' }}>
+                <Image src="https://pbs.twimg.com/profile_images/887044871445295105/9bQlT5Xi_400x400.jpg" />
+                <Segment inverted style={{ alignSelf: 'center', paddingLeft: '25vw' }}>
+                  <Header style={{ fontSize: '3vw' }} inverted>
+                    University of Texas at Arlington
+                    <Header.Subheader style={{ fontSize: '2vw' }}>Cyber Security Club</Header.Subheader>
+                  </Header>
+                  <Button as={Link} to="/signup" animated color="green">
+                    <Button.Content visible>Join Now</Button.Content>
+                    <Button.Content hidden>
+                      <Icon name="arrow right" />
+                    </Button.Content>
+                  </Button>
+                </Segment>
+              </Segment>
             </Grid.Column>
           </Grid.Row>*/
