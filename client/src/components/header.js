@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../actions'
 import { NavLink } from 'react-router-dom'
-
+import DarkModeToggle from '../views/DarkModeToogle'
+import '../../style/style.scss'
 class Header extends Component {
   renderSignButton() {
     if (this.props.authenticated) {
@@ -63,7 +64,12 @@ class Header extends Component {
               </NavLink>
             </li>
           </ul>
-          <ul className="navbar-nav">{this.renderSignButton()}</ul>
+
+          <ul className="navbar-nav">
+            {' '}
+            <DarkModeToggle />
+            {this.renderSignButton()}
+          </ul>
         </div>
       </nav>
     )
