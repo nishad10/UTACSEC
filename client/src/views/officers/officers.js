@@ -25,7 +25,7 @@ class Officers extends Component {
                 </Card.Content>
               </Card>
             </Grid.Column>
-            <Grid.Column>
+            <Grid.Column style={{ alignSelf: 'center' }}>
               <Segment inverted textAlign="left" style={{ fontSize: '2vw' }}>
                 I am an Assistant Professor in the Computer Science and Engineering Department at UT Arlington. My
                 research interests span cybersecurity and software engineering, with a focus on software security and
@@ -54,12 +54,9 @@ class Officers extends Component {
                 </Card.Content>
               </Card>
             </Grid.Column>
-            <Grid.Column>
+            <Grid.Column style={{ alignSelf: 'center' }}>
               <Segment inverted textAlign="left" style={{ fontSize: '2vw' }}>
-                I am an Assistant Professor in the Computer Science and Engineering Department at UT Arlington. My
-                research interests span cybersecurity and software engineering, with a focus on software security and
-                malware analysis. I am endeavoring to develop novel binary code analysis techniques to help people find
-                software vulnerabilities and defeat malicious software.
+                I am Zehra.
               </Segment>
             </Grid.Column>
           </Grid.Row>
@@ -83,12 +80,9 @@ class Officers extends Component {
                 </Card.Content>
               </Card>
             </Grid.Column>
-            <Grid.Column>
+            <Grid.Column style={{ alignSelf: 'center' }}>
               <Segment inverted textAlign="left" style={{ fontSize: '2vw' }}>
-                I am an Assistant Professor in the Computer Science and Engineering Department at UT Arlington. My
-                research interests span cybersecurity and software engineering, with a focus on software security and
-                malware analysis. I am endeavoring to develop novel binary code analysis techniques to help people find
-                software vulnerabilities and defeat malicious software.
+                I am Nishad.
               </Segment>
             </Grid.Column>
           </Grid.Row>
@@ -96,7 +90,7 @@ class Officers extends Component {
           <Grid.Row columns={'equal'} style={{ padding: '2vw' }}>
             <Grid.Column style={{ maxWidth: '400px' }}>
               <Card fluid>
-                <Image src="/statics/zehra-round.png" wrapped ui={false} />
+                <Image src="/statics/favicon.ico" wrapped ui={false} />
                 <Card.Content>
                   <Card.Header>Mario</Card.Header>
                   <Card.Meta style={{ paddingTop: '5px' }}>
@@ -112,12 +106,9 @@ class Officers extends Component {
                 </Card.Content>
               </Card>
             </Grid.Column>
-            <Grid.Column>
+            <Grid.Column style={{ alignSelf: 'center' }}>
               <Segment inverted textAlign="left" style={{ fontSize: '2vw' }}>
-                I am an Assistant Professor in the Computer Science and Engineering Department at UT Arlington. My
-                research interests span cybersecurity and software engineering, with a focus on software security and
-                malware analysis. I am endeavoring to develop novel binary code analysis techniques to help people find
-                software vulnerabilities and defeat malicious software.
+                I am Mario.
               </Segment>
             </Grid.Column>
           </Grid.Row>
