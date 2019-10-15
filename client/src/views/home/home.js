@@ -40,33 +40,35 @@ const Home = props => {
           </Grid.Column>
         </Grid.Row>
         <Grid.Row centered>
-          <Button as="div" labelPosition="right">
-            <Button color="twitter">
-              <Icon name="twitter" />
-              Twitter
+          <Segment inverted style={{ alignSelf: 'center', background: '#1b1c1d' }}>
+            <Button as="div" labelPosition="right">
+              <Button color="twitter">
+                <Icon name="twitter" />
+                Twitter
+              </Button>
+              <Label as="a" basic color="twitter" pointing="left">
+                {twitterCount}
+              </Label>
             </Button>
-            <Label as="a" basic color="twitter" pointing="left">
-              {twitterCount}
-            </Label>
-          </Button>
-          <Button as="div" labelPosition="right">
-            <Button color="black">
-              <Icon name="discord" />
-              Discord
+            <Button as="div" labelPosition="right">
+              <Button color="black">
+                <Icon name="discord" />
+                Discord
+              </Button>
+              <Label as="a" basic color="black" pointing="left">
+                2,048
+              </Label>
             </Button>
-            <Label as="a" basic color="black" pointing="left">
-              2,048
-            </Label>
-          </Button>
-          <Button as="div" labelPosition="right">
-            <Button color="red">
-              <Icon name="google" />
-              Gmail
+            <Button as="div" labelPosition="right">
+              <Button color="red">
+                <Icon name="google" />
+                Gmail
+              </Button>
+              <Label as="a" basic color="red" pointing="left">
+                2,048
+              </Label>
             </Button>
-            <Label as="a" basic color="red" pointing="left">
-              2,048
-            </Label>
-          </Button>
+          </Segment>
         </Grid.Row>
         <Divider inverted />
         <Grid.Row>

@@ -8,7 +8,7 @@ class Officers extends Component {
         <Grid style={{ fontSize: '1.5vw', backgroundColor: 'black', lineHeight: '2vw' }}>
           <Grid.Row columns={'equal'} style={{ padding: '2vw' }}>
             <Grid.Column style={{ maxWidth: '400px' }}>
-              <Card fluid>
+              <Card>
                 <Image src="/statics/jiang.jpg" wrapped ui={false} />
                 <Card.Content>
                   <Card.Header>Jiang Ming</Card.Header>
@@ -37,8 +37,8 @@ class Officers extends Component {
           <Divider inverted />
           <Grid.Row columns={'equal'} style={{ padding: '2vw' }}>
             <Grid.Column style={{ maxWidth: '400px' }}>
-              <Card fluid>
-                <Image src="/statics/zehra-round.png" wrapped ui={false} />
+              <Card>
+                <Image src="/statics/zehra.jpg" wrapped ui={false} />
                 <Card.Content>
                   <Card.Header>Zehra Jafri</Card.Header>
                   <Card.Meta style={{ paddingTop: '5px' }}>
@@ -63,7 +63,7 @@ class Officers extends Component {
           <Divider inverted />
           <Grid.Row columns={'equal'} style={{ padding: '2vw' }}>
             <Grid.Column style={{ maxWidth: '400px' }}>
-              <Card fluid>
+              <Card>
                 <Image src="/statics/nishad.jpg" wrapped ui={false} />
                 <Card.Content>
                   <Card.Header>Nishad Aherrao</Card.Header>
@@ -89,8 +89,8 @@ class Officers extends Component {
           <Divider inverted />
           <Grid.Row columns={'equal'} style={{ padding: '2vw' }}>
             <Grid.Column style={{ maxWidth: '400px' }}>
-              <Card fluid>
-                <Image src="/statics/favicon.ico" wrapped ui={false} />
+              <Card>
+                <Image src="/statics/mario.jpg" wrapped ui={false} />
                 <Card.Content>
                   <Card.Header>Mario</Card.Header>
                   <Card.Meta style={{ paddingTop: '5px' }}>
