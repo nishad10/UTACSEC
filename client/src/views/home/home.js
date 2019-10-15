@@ -1,68 +1,86 @@
-import React, { Component } from 'react'
+import React, { Component, useState, useEffect } from 'react'
 import { Grid, Image, Button, Icon, Label, Divider, Header, Segment, Container, List } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
-class Home extends Component {
-  render() {
-    return (
-      <div>
-        <Grid style={{ fontSize: '1.5vw', backgroundColor: 'black', lineHeight: '2vw' }}>
-          <Grid.Row>
-            <Grid.Column textAlign="center">
-              <Segment inverted style={{ display: 'flex', justifyContent: 'center' }}>
-                <Image src="https://pbs.twimg.com/profile_images/887044871445295105/9bQlT5Xi_400x400.jpg" />
-                <Segment inverted style={{ alignSelf: 'center' }}>
-                  <Header style={{ fontSize: '3vw' }} inverted>
-                    University of Texas at Arlington
-                    <Header.Subheader style={{ fontSize: '2vw' }}>Cyber Security Club</Header.Subheader>
-                  </Header>
-                  <Button as={Link} to="/signup" animated color="green">
-                    <Button.Content visible>Join Now</Button.Content>
-                    <Button.Content hidden>
-                      <Icon name="arrow right" />
-                    </Button.Content>
-                  </Button>
-                </Segment>
+import { upTwitter } from '../../actions'
+import { connect } from 'react-redux'
+import Discord from '../../components/discord'
+const Home = props => {
+  const { getTwitter, twitterCount } = props
+  const [twiiterCount, settwitterCount] = useState(false)
+
+  useEffect(() => {
+    getTwitter()
+  }, [twitterCount])
+  return (
+    <div>
+      <Grid style={{ fontSize: '1.5vw', backgroundColor: 'black', lineHeight: '2vw' }}>
+        <Grid.Row>
+          <Grid.Column textAlign="center">
+            <Segment inverted style={{ display: 'flex', justifyContent: 'center' }}>
+              <div style={{ width: '20vw', maxWidth: '200px' }}>
+                <Image
+                  floated="left"
+                  fluid
+                  src="https://pbs.twimg.com/profile_images/887044871445295105/9bQlT5Xi_400x400.jpg"
+                />
+              </div>
+              <Segment inverted style={{ alignSelf: 'center' }}>
+                <Header style={{ fontSize: '3vw' }} inverted>
+                  University of Texas at Arlington
+                  <Header.Subheader style={{ fontSize: '2vw' }}>Cyber Security Club</Header.Subheader>
+                </Header>
+                <Button as={Link} to="/signup" animated color="green">
+                  <Button.Content visible>Join Now</Button.Content>
+                  <Button.Content hidden>
+                    <Icon name="arrow right" />
+                  </Button.Content>
+                </Button>
               </Segment>
+            </Segment>
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row centered>
+          <Button as="div" labelPosition="right">
+            <Button color="twitter">
+              <Icon name="twitter" />
+              Twitter
+            </Button>
+            <Label as="a" basic color="twitter" pointing="left">
+              {twitterCount}
+            </Label>
+          </Button>
+          <Button as="div" labelPosition="right">
+            <Button color="black">
+              <Icon name="discord" />
+              Discord
+            </Button>
+            <Label as="a" basic color="black" pointing="left">
+              2,048
+            </Label>
+          </Button>
+          <Button as="div" labelPosition="right">
+            <Button color="red">
+              <Icon name="google" />
+              Gmail
+            </Button>
+            <Label as="a" basic color="red" pointing="left">
+              2,048
+            </Label>
+          </Button>
+        </Grid.Row>
+        <Divider inverted />
+        <Grid.Row>
+          <Grid celled="internally" columns="equal" style={{ display: 'flex' }}>
+            <Grid.Column floated="left" style={{ minWidth: '200px', maxWidth: '20vw', height: '100%' }}>
+              <Discord />
             </Grid.Column>
-          </Grid.Row>
-          <Grid.Row centered>
-            <Button size="huge" as="div" labelPosition="right">
-              <Button color="twitter">
-                <Icon name="twitter" />
-                Twitter
-              </Button>
-              <Label as="a" basic color="twitter" pointing="left">
-                2,048
-              </Label>
-            </Button>
-            <Button as="div" labelPosition="right">
-              <Button color="black">
-                <Icon name="discord" />
-                Discord
-              </Button>
-              <Label as="a" basic color="black" pointing="left">
-                2,048
-              </Label>
-            </Button>
-            <Button as="div" labelPosition="right">
-              <Button color="red">
-                <Icon name="google" />
-                Gmail
-              </Button>
-              <Label as="a" basic color="red" pointing="left">
-                2,048
-              </Label>
-            </Button>
-          </Grid.Row>
-          <Divider inverted />
-          <Grid.Row>
-            <Grid celled="internally" columns="equal" stackable>
+            <Grid.Column style={{}}>
               <Grid.Row>
-                <Grid.Column floated="left">
-                  <Header as="h3" style={{ fontSize: '2vw' }} block textAlign="center">
+                <Segment inverted style={{ width: '100%' }}>
+                  <Header as="h3" style={{ fontSize: '2vw' }} inverted block textAlign="center">
                     Activities
                   </Header>
-                  <Segment inverted style={{ fontSize: '1em' }}>
+                  <Segment inverted style={{ fontSize: '1vw' }}>
                     <List bulleted divided inverted relaxed>
                       <List.Item>
                         <List.Content>
@@ -97,9 +115,12 @@ class Home extends Component {
                       </List.Item>
                     </List>
                   </Segment>
-                </Grid.Column>
-                <Grid.Column>
-                  <Header as="h3" style={{ fontSize: '2vw' }} block textAlign="center">
+                </Segment>
+              </Grid.Row>
+
+              <Grid.Row>
+                <Segment inverted style={{ width: '100%' }}>
+                  <Header as="h3" style={{ fontSize: '2vw' }} inverted block textAlign="center">
                     Topics Covered
                   </Header>
                   <Segment inverted style={{ fontSize: '1vw' }}>
@@ -148,60 +169,71 @@ class Home extends Component {
                       </List.Item>
                     </List>
                   </Segment>
-                </Grid.Column>
+                </Segment>
               </Grid.Row>
-            </Grid>
-          </Grid.Row>
-          <Grid.Row centered>
-            <Segment style={{ padding: '1em' }} vertical>
-              <Header as="h3" style={{ fontSize: '2vw' }} block>
-                FAQ
-              </Header>
-              <Segment inverted textAlign="left" style={{ fontSize: '1vw' }}>
-                <List bulleted divided inverted relaxed>
-                  <List.Item>
-                    <List.Content>
-                      <List.Header>Do I need to know anything before hand to be part of the club?</List.Header>
-                      No, as long as you have some knowledge with coding or computers and interest in security you
-                      should be good to go.
-                    </List.Content>
-                  </List.Item>
-                  <List.Item>
-                    <List.Content>
-                      <List.Header>What equipment do I need while attending the club meetings?</List.Header>We use kali
-                      linux for most of the practical work so you will need to have a laptop that can run kali linux
-                      virtually(recommended) or on the system itself.
-                    </List.Content>
-                  </List.Item>
-                  <List.Item>
-                    <List.Content>
-                      <List.Header>How do I join the club?</List.Header>
-                      Click the join now button on the home page of our website.
-                    </List.Content>
-                  </List.Item>
-                </List>
-              </Segment>
-              <Divider
-                as="h4"
-                className="header"
-                horizontal
-                style={{ margin: '3em 0em', textTransform: 'uppercase' }}
-              ></Divider>
-              <Header as="h3" style={{ fontSize: '2em' }}>
-                Meetings Information
-              </Header>
-              <p style={{ fontSize: '1.33em' }}>Meetings are in ERB 316 every other Friday at 5 PM</p>
-              <Button as="a" size="large">
-                Email: uta.csec@gmail.com
-              </Button>
+            </Grid.Column>
+          </Grid>
+        </Grid.Row>
+        <Grid.Row centered>
+          <Segment style={{ padding: '1em' }} vertical>
+            <Header as="h3" style={{ fontSize: '2vw' }} block>
+              FAQ
+            </Header>
+            <Segment inverted textAlign="left" style={{ fontSize: '1vw' }}>
+              <List bulleted divided inverted relaxed>
+                <List.Item>
+                  <List.Content>
+                    <List.Header>Do I need to know anything before hand to be part of the club?</List.Header>
+                    No, as long as you have some knowledge with coding or computers and interest in security you should
+                    be good to go.
+                  </List.Content>
+                </List.Item>
+                <List.Item>
+                  <List.Content>
+                    <List.Header>What equipment do I need while attending the club meetings?</List.Header>We use kali
+                    linux for most of the practical work so you will need to have a laptop that can run kali linux
+                    virtually(recommended) or on the system itself.
+                  </List.Content>
+                </List.Item>
+                <List.Item>
+                  <List.Content>
+                    <List.Header>How do I join the club?</List.Header>
+                    Click the join now button on the home page of our website.
+                  </List.Content>
+                </List.Item>
+              </List>
             </Segment>
-          </Grid.Row>
-        </Grid>
-      </div>
-    )
-  }
+            <Divider
+              as="h4"
+              className="header"
+              horizontal
+              style={{ margin: '3em 0em', textTransform: 'uppercase' }}
+            ></Divider>
+            <Header as="h3" style={{ fontSize: '2em' }}>
+              Meetings Information
+            </Header>
+            <p style={{ fontSize: '1.33em' }}>Meetings are in ERB 316 every other Friday at 5 PM</p>
+            <Button as="a" size="large">
+              Email: uta.csec@gmail.com
+            </Button>
+          </Segment>
+        </Grid.Row>
+      </Grid>
+    </div>
+  )
 }
-export default Home
+const mapStateToProps = state => ({
+  twitterCount: state.general.twitterFollowers
+})
+const mapDispatchToProps = dispatch => ({
+  getTwitter: () => dispatch(upTwitter())
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Home)
+
 /* <Grid.Row color="grey">
             <Grid.Column>
               <Button color="twitter">

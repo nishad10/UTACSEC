@@ -51,5 +51,23 @@ export function signUserOut() {
   }
 }
 
+export function upTwitter() {
+  return function(dispatch) {
+    fetch(
+      'https://cors-anywhere.herokuapp.com/https://cdn.syndication.twimg.com/widgets/followbutton/info.json?screen_names=UTA_CSEC'
+    )
+      .then(res => res.json())
+      .then(
+        result => dispatch({ type: 'GET_TWITTER', payload: result }),
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        error => {
+          console.log(error)
+        }
+      )
+  }
+}
+
 const request = axios
 export { request }

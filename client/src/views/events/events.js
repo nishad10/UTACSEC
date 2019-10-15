@@ -33,21 +33,28 @@ export default class Events extends Component {
   }
   render() {
     return (
-      <div>
-        <Item.Group divided relaxed style={{ display: 'grid', justifyContent: 'center', paddingTop: '50px' }}>
-          <Item style={{ display: 'flex', justifyContent: 'center', paddingTop: '50px' }}>
+      <Item.Group divided relaxed style={{ display: 'grid', justifyContent: 'center', paddingTop: '50px' }}>
+        <Segment inverted>
+          <Item style={{ display: 'flex', paddingTop: '3vw' }}>
             <Item.Content
-              style={{ alignSelf: 'center', textAlign: 'center', fontSize: 'xx-large', paddingRight: '2vw' }}
+              style={{
+                alignSelf: 'center',
+                textAlign: 'center',
+                fontSize: 'xx-large',
+                paddingRight: '2vw',
+                paddingBottom: '5vw'
+              }}
             >
-              <Item.Header>11</Item.Header>
-              <Item.Description>October</Item.Description>
+              <div style={{ alignSelf: 'center' }}>
+                <Item.Header>11</Item.Header>
+                <br></br>
+                <Item.Description>October</Item.Description>
+              </div>
             </Item.Content>
-            <Item.Content style={{ maxWidth: '700px' }}>
+            <Item.Content style={{ maxWidth: '700px', fontSize: '2vw', lineHeight: '2.2vw' }}>
               <div style={{ paddingBottom: '10px' }}>
-                <Segment>
-                  This is a test meeting this is where meeting description shows up. The RSVP button for this meeting
-                  section should work the ones below this are same duplicates.
-                </Segment>
+                This is a test meeting this is where meeting description shows up. The RSVP button for this meeting
+                section should work the ones below this are same duplicates.
               </div>
               <Button id="eventbrite-widget-modal-trigger-76782042155" primary floated="right">
                 RSVP
@@ -55,17 +62,58 @@ export default class Events extends Component {
               </Button>
             </Item.Content>
           </Item>
+        </Segment>
+        <Segment inverted>
+          <Item style={{ display: 'flex', paddingTop: '3vw' }}>
+            <Item.Content
+              style={{
+                alignSelf: 'center',
+                textAlign: 'center',
+                fontSize: 'xx-large',
+                paddingRight: '2vw',
+                paddingBottom: '5vw'
+              }}
+            >
+              <div style={{ alignSelf: 'center' }}>
+                <Item.Header>11</Item.Header>
+                <br></br>
+                <Item.Description>October</Item.Description>
+              </div>
+            </Item.Content>
+            <Item.Content style={{ maxWidth: '700px', fontSize: '2vw', lineHeight: '2.2vw' }}>
+              <div style={{ paddingBottom: '10px' }}>
+                This is a test meeting this is where meeting description shows up. The RSVP button for this meeting
+                section should work the ones below this are same duplicates.
+              </div>
+              <Button id="eventbrite-widget-modal-trigger-76782042155" primary floated="right">
+                RSVP
+                <Icon name="right chevron" />
+              </Button>
+            </Item.Content>
+          </Item>
+        </Segment>
 
-          <Item style={{ display: 'flex', justifyContent: 'center', paddingTop: '50px' }}>
+        <Segment inverted>
+          <Item style={{ display: 'flex', paddingTop: '3vw' }}>
             <Item.Content
-              style={{ alignSelf: 'center', textAlign: 'center', fontSize: 'xx-large', paddingRight: '2vw' }}
+              style={{
+                alignSelf: 'center',
+                textAlign: 'center',
+                fontSize: 'xx-large',
+                paddingRight: '2vw',
+                paddingBottom: '5vw'
+              }}
             >
-              <Item.Header>11</Item.Header>
-              <Item.Description>October</Item.Description>
+              <div style={{ alignSelf: 'center' }}>
+                <Item.Header>11</Item.Header>
+                <br></br>
+                <Item.Description>October</Item.Description>
+              </div>
             </Item.Content>
-            <Item.Content style={{ maxWidth: '700px' }}>
+            <Item.Content style={{ maxWidth: '700px', fontSize: '2vw', lineHeight: '2.2vw' }}>
               <div style={{ paddingBottom: '10px' }}>
-                <Segment>This is a test meeting this is where meeting description shows up.</Segment>
+                This is a test meeting this is where meeting description shows up. The RSVP button for this meeting
+                section should work the ones below this are same duplicates.
               </div>
               <Button id="eventbrite-widget-modal-trigger-76782042155" primary floated="right">
                 RSVP
@@ -73,26 +121,8 @@ export default class Events extends Component {
               </Button>
             </Item.Content>
           </Item>
-
-          <Item style={{ display: 'flex', justifyContent: 'center', paddingTop: '50px' }}>
-            <Item.Content
-              style={{ alignSelf: 'center', textAlign: 'center', fontSize: 'xx-large', paddingRight: '2vw' }}
-            >
-              <Item.Header>11</Item.Header>
-              <Item.Description>October</Item.Description>
-            </Item.Content>
-            <Item.Content style={{ maxWidth: '700px' }}>
-              <div style={{ paddingBottom: '10px' }}>
-                <Segment>This is a test meeting this is where meeting description shows up.</Segment>
-              </div>
-              <Button id="eventbrite-widget-modal-trigger-76782042155" primary floated="right">
-                RSVP
-                <Icon name="right chevron" />
-              </Button>
-            </Item.Content>
-          </Item>
-        </Item.Group>
-      </div>
+        </Segment>
+      </Item.Group>
     )
   }
 }
