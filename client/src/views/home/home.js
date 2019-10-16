@@ -8,21 +8,18 @@ const Home = props => {
   const { getTwitter, twitterCount } = props
   const [discordCount, setDiscordCount] = useState(0)
 
-  const discordBot = require('discord.js')
-  const client = new discordBot.Client()
-  if (process.env.API_URI === '') {
-    setDiscordCount(0)
-  } else {
-    client.login(`${process.env.API_URI}`)
+  useEffect(() => {
+    const discordBot = require('discord.js')
+    const client = new discordBot.Client()
+    //console.log(process.env.API_URI)
+    client.login(process.env.API_URI)
     client.on('ready', () => {
-      console.log('in')
+      // console.log('in')
       setDiscordCount(client.users.size)
     })
-  }
 
-  useEffect(() => {
     getTwitter()
-  }, [])
+  }, [discordCount])
 
   return (
     <div>
