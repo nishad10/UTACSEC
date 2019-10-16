@@ -4,11 +4,29 @@ import { Link } from 'react-router-dom'
 import { upTwitter } from '../../actions'
 import { connect } from 'react-redux'
 import { Discord } from '../../components/discord'
+const showDiscord = width => {
+  const isMobile = width <= 500
+  console.log(isMobile)
+  if (isMobile) {
+    return
+  } else
+    return (
+      <Grid.Column floated="left" style={{ minWidth: '200px', maxWidth: '20vw', height: '100%' }}>
+        <Discord />
+      </Grid.Column>
+    )
+}
 const Home = props => {
   const { getTwitter, twitterCount } = props
   const [discordCount, setDiscordCount] = useState(0)
+  const [width, setWidth] = useState(window.innerWidth)
 
   useEffect(() => {
+    const handleWindowSizeChange = () => {
+      console.log('called')
+      setWidth(window.innerWidth)
+    }
+    window.addEventListener('resize', handleWindowSizeChange)
     const discordBot = require('discord.js')
     const client = new discordBot.Client()
     console.log(process.env.API_URI)
@@ -17,9 +35,9 @@ const Home = props => {
       // console.log('in')
       setDiscordCount(client.users.size)
     })
-
     getTwitter()
-  }, [discordCount])
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   return (
     <div>
@@ -83,9 +101,7 @@ const Home = props => {
         <Divider inverted />
         <Grid.Row>
           <Grid celled="internally" columns="equal" style={{ display: 'flex' }}>
-            <Grid.Column floated="left" style={{ minWidth: '200px', maxWidth: '20vw', height: '100%' }}>
-              <Discord />
-            </Grid.Column>
+            {showDiscord(width)}
             <Grid.Column style={{}}>
               <Grid.Row>
                 <Segment inverted style={{ width: '100%' }}>
