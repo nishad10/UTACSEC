@@ -11,7 +11,7 @@ const Home = props => {
   useEffect(() => {
     const discordBot = require('discord.js')
     const client = new discordBot.Client()
-    //console.log(process.env.API_URI)
+    console.log(process.env.API_URI)
     client.login(process.env.API_URI)
     client.on('ready', () => {
       // console.log('in')
