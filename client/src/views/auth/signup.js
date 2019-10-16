@@ -17,7 +17,7 @@ const Signup = props => {
     },
     callback: () => {
       if (inputs.password == inputs.password2) {
-        console.log(inputs)
+        //console.log(inputs)
         signUserUp(inputs)
       } else {
         setErrorMsg('password does not matched')

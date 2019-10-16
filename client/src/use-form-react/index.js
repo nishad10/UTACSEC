@@ -6,7 +6,7 @@ const useForm = (name, config) => {
   return forms[name];
 }
 
-const useSpecificForm = (name, {initialValues={},debug=false, callback=(inputs)=>console.log('form submitted', inputs)}) => {
+const useSpecificForm = (name, {initialValues={},debug=false, callback=(inputs)=>console.log('form submitted')}) => {
   const [inputs, setInputs] = useState(initialValues);
   const [dirty, setDirty] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -15,7 +15,7 @@ const useSpecificForm = (name, {initialValues={},debug=false, callback=(inputs)=
     setInputs(initialValues);
     setDirty(false);
     setSubmitting(false);
-    if(debug) console.log({name, event: 'reset', inputs})
+    if(debug) //console.log({name, event: 'reset', inputs})
   }
   
   const onChange = (event) => {
@@ -28,7 +28,7 @@ const useSpecificForm = (name, {initialValues={},debug=false, callback=(inputs)=
       if(isEquivalent(currentInputs, initialValues)) setDirty(false);
       return currentInputs
     });
-    if(debug) console.log({name, event: 'onChange', field: event.target.name, value: event.target.value, currentInputs});
+    if(debug) //console.log({name, event: 'onChange', field: event.target.name, value: event.target.value, currentInputs});
   }
 
   const onSubmit = (event) => {
@@ -36,7 +36,7 @@ const useSpecificForm = (name, {initialValues={},debug=false, callback=(inputs)=
     if (event) {
       event.preventDefault();
     }
-    if(debug) console.log({name, event: 'onSubmit', values: inputs});
+    if(debug) //console.log({name, event: 'onSubmit', values: inputs});
     return callback(inputs);
   }
 

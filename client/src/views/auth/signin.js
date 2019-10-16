@@ -12,7 +12,7 @@ const Signin = props => {
       password: ''
     },
     callback: () => {
-      console.log('works!', inputs)
+      // console.log('works!', inputs)
       signUserIn(inputs)
     },
     debug: false
