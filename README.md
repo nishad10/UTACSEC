@@ -7,7 +7,7 @@ This will be the repo for the website for the Cybersecurity club for the Univers
 Site is still in development but is live at https://www.utacsec.org/
 
 Any feedback is appreciated.
-# Deploy
+### Deploy
 The site is static and is deployed on netifly and uses the master branch as production build so if you have access to master do not push changes directly to master and work with a branch and make a pull request as netifly will auto compile each time master is updated.
 
 ### Contact
