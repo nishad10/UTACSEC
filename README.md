@@ -2,6 +2,14 @@
 <h1 position="relative">UTA CSEC WEBSITE</h1>
 
 This will be the repo for the website for the Cybersecurity club for the University of Texas at Arlington.
+
+## LIVE
+Site is still in development but is live at https://www.utacsec.org/
+
+Any feedback is appreciated.
+### Deploy
+The site is static and is deployed on netifly and uses the master branch as production build so if you have access to master do not push changes directly to master and work with a branch and make a pull request as netifly will auto compile each time master is updated.
+
 ### Contact
 Email- uta.csec@gmail.com
 
@@ -46,12 +54,13 @@ $ git clone https://github.com/nishad10/utacsec.git
 $ npm i
 ```
 
-## Client-side usage(PORT: 3000)
+## Client-side usage(PORT: 3000)[YOU DO NOT NEED SERVER RUNNING AS IT IS A STATIC PAGE FOR NOW ]
 ```terminal
 $ cd client   // go to client folder
 $ npm i       // npm install pacakges
 $ npm run dev // run it locally
 ```
+For dev purpose you can skip server for now and just run above commands to work with the site as it is static right now and doesnt use anything fromt the database.
 
 ## Server-side usage(PORT: 8000)
 
@@ -74,7 +83,6 @@ $ npm i       // npm install pacakges
 $ npm run dev // run it locally
 $ npm run build // this will build the server code to es5 js codes and generate a dist file
 ```
-
 ## Contributing
 
 If you want to help me with this please join the discord so we can talk about it.
