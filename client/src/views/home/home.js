@@ -1,16 +1,29 @@
-import React, { Component, useState, useEffect } from 'react'
-import { Grid, Image, Button, Icon, Label, Divider, Header, Segment, Container, List } from 'semantic-ui-react'
+import React, { useState, useEffect } from 'react'
+import { Grid, Image, Button, Icon, Label, Divider, Header, Segment, List } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { upTwitter } from '../../actions'
 import { connect } from 'react-redux'
-import Discord from '../../components/discord'
+import { Discord } from '../../components/discord'
 const Home = props => {
   const { getTwitter, twitterCount } = props
-  const [twiiterCount, settwitterCount] = useState(false)
+  const [discordCount, setDiscordCount] = useState(0)
+
+  const discordBot = require('discord.js')
+  const client = new discordBot.Client()
+  if (process.env.API_URI === '') {
+    setDiscordCount(0)
+  } else {
+    client.login(`${process.env.API_URI}`)
+    client.on('ready', () => {
+      console.log('in')
+      setDiscordCount(client.users.size)
+    })
+  }
 
   useEffect(() => {
     getTwitter()
-  }, [twitterCount])
+  }, [])
+
   return (
     <div>
       <Grid style={{ fontSize: '1.5vw', backgroundColor: 'black', lineHeight: '2vw' }}>
@@ -47,7 +60,7 @@ const Home = props => {
                 Twitter
               </Button>
               <Label as="a" basic color="twitter" pointing="left">
-                {twitterCount}
+                {twitterCount} Followers
               </Label>
             </Button>
             <Button as="div" labelPosition="right">
@@ -56,7 +69,7 @@ const Home = props => {
                 Discord
               </Button>
               <Label as="a" basic color="black" pointing="left">
-                2,048
+                {discordCount} Members
               </Label>
             </Button>
             <Button as="div" labelPosition="right">
@@ -65,7 +78,7 @@ const Home = props => {
                 Gmail
               </Button>
               <Label as="a" basic color="red" pointing="left">
-                2,048
+                2,048 Mailing List
               </Label>
             </Button>
           </Segment>
@@ -215,7 +228,7 @@ const Home = props => {
               Meetings Information
             </Header>
             <p style={{ fontSize: '1.33em' }}>Meetings are in ERB 316 every other Friday at 5 PM</p>
-            <Button as="a" size="large">
+            <Button as={Link} to="www.google.com" size="large">
               Email: uta.csec@gmail.com
             </Button>
           </Segment>

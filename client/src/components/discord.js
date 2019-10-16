@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Iframe from 'react-iframe'
 
 class Discord extends Component {
+  componentDidMount() {}
   render() {
     return (
       <Iframe
@@ -15,4 +16,4 @@ class Discord extends Component {
   }
 }
 
-export default Discord
+export { Discord, getTotalMembers }
