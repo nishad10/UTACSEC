@@ -2,6 +2,12 @@
 <h1 position="relative">UTA CSEC WEBSITE</h1>
 
 This will be the repo for the website for the Cybersecurity club for the University of Texas at Arlington.
+
+## LIVE
+Site is still in development but is live at https://www.utacsec.org/
+
+Any feedback is appreciated.
+
 ### Contact
 Email- uta.csec@gmail.com
 
