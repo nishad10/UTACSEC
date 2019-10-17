@@ -17,6 +17,7 @@ const showDiscord = width => {
     )
 }
 const Home = props => {
+  console.log(process.env.API_URI, 'Key')
   const { getTwitter, twitterCount } = props
   const [discordCount, setDiscordCount] = useState(0)
   const [width, setWidth] = useState(window.innerWidth)
