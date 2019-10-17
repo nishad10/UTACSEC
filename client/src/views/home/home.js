@@ -35,18 +35,18 @@ const Home = props => {
 
   return (
     <div>
-      <Grid style={{ fontSize: '1.5vw', backgroundColor: 'black', lineHeight: '2vw' }}>
+      <Grid style={{ fontSize: '1.5vw', backgroundColor: 'black', lineHeight: '2vw', padding: '1vw' }}>
         <Grid.Row>
           <Grid.Column textAlign="center">
-            <Segment inverted style={{ display: 'flex', justifyContent: 'center' }}>
-              <div style={{ width: '20vw', maxWidth: '200px' }}>
+            <Segment inverted style={{ display: 'flex', justifyContent: 'center', padding: '1vw' }}>
+              <div style={{ width: '20vw', maxWidth: '200px', alignSelf: 'center' }}>
                 <Image
                   floated="left"
                   fluid
                   src="https://pbs.twimg.com/profile_images/887044871445295105/9bQlT5Xi_400x400.jpg"
                 />
               </div>
-              <Segment inverted style={{ alignSelf: 'center' }}>
+              <Segment inverted style={{ alignSelf: 'center', padding: '1vw' }}>
                 <Header style={{ fontSize: '3vw' }} inverted>
                   University of Texas at Arlington
                   <Header.Subheader style={{ fontSize: '2vw' }}>Cyber Security Club</Header.Subheader>
@@ -68,7 +68,7 @@ const Home = props => {
           </Grid.Column>
         </Grid.Row>
         <Grid.Row centered>
-          <Segment inverted style={{ alignSelf: 'center', background: '#1b1c1d' }}>
+          <Segment inverted style={{ alignSelf: 'center', padding: '1vw' }}>
             <a href="https://twitter.com/UTA_CSEC" target="_blank" rel="noopener noreferrer">
               <Button as="div" labelPosition="right" style={{ fontSize: '1vw' }}>
                 <Button color="twitter" style={{ fontSize: '1vw' }}>
@@ -98,17 +98,17 @@ const Home = props => {
             </a>
           </Segment>
         </Grid.Row>
-        <Divider inverted />
+        <Divider inverted style={{ margin: '0px' }} />
         <Grid.Row>
           <Grid celled="internally" columns="equal" style={{ display: 'flex' }}>
             {showDiscord(width)}
             <Grid.Column style={{}}>
               <Grid.Row>
-                <Segment inverted style={{ width: '100%' }}>
-                  <Header as="h3" style={{ fontSize: '2vw' }} inverted block textAlign="center">
+                <Segment inverted style={{ width: '100%', padding: '1vw' }}>
+                  <Header as="h3" style={{ fontSize: '2vw', padding: '1.5vw' }} inverted block textAlign="center">
                     Activities
                   </Header>
-                  <Segment inverted style={{ fontSize: '1vw' }}>
+                  <Segment inverted style={{ fontSize: '2vw', padding: '1vw' }}>
                     <List bulleted divided inverted relaxed>
                       <List.Item>
                         <List.Content>
@@ -147,11 +147,11 @@ const Home = props => {
               </Grid.Row>
 
               <Grid.Row>
-                <Segment inverted style={{ width: '100%' }}>
-                  <Header as="h3" style={{ fontSize: '2vw' }} inverted block textAlign="center">
+                <Segment inverted style={{ width: '100%', padding: '1vw' }}>
+                  <Header as="h3" style={{ fontSize: '2vw', padding: '1.5vw' }} inverted block textAlign="center">
                     Topics Covered
                   </Header>
-                  <Segment inverted style={{ fontSize: '1vw' }}>
+                  <Segment inverted style={{ fontSize: '2vw', padding: '1vw' }}>
                     <List bulleted divided inverted relaxed>
                       <List.Item>
                         <List.Content>
@@ -203,11 +203,11 @@ const Home = props => {
           </Grid>
         </Grid.Row>
         <Grid.Row centered>
-          <Segment style={{ padding: '1em' }} vertical>
-            <Header as="h3" style={{ fontSize: '2vw' }} block>
+          <Segment style={{ padding: '1vw' }} vertical>
+            <Header as="h3" style={{ fontSize: '2vw', padding: '1.5vw' }} block>
               FAQ
             </Header>
-            <Segment inverted textAlign="left" style={{ fontSize: '1vw' }}>
+            <Segment inverted textAlign="left" style={{ fontSize: '2vw', padding: '1vw' }}>
               <List bulleted divided inverted relaxed>
                 <List.Item>
                   <List.Content>
