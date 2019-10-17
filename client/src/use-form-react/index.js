@@ -18,7 +18,6 @@ const useSpecificForm = (
     setInputs(initialValues)
     setDirty(false)
     setSubmitting(false)
-    if (debug) console.log({ name, event: 'reset' })
   }
 
   const onChange = event => {
@@ -31,7 +30,6 @@ const useSpecificForm = (
       if (isEquivalent(currentInputs, initialValues)) setDirty(false)
       return currentInputs
     })
-    if (debug) console.log({ name, event: 'onChange' })
   }
 
   const onSubmit = event => {
@@ -39,9 +37,6 @@ const useSpecificForm = (
     if (event) {
       event.preventDefault()
     }
-    if (debug)
-      //console.log({name, event: 'onSubmit', values: inputs});
-      return callback(inputs)
   }
 
   return {

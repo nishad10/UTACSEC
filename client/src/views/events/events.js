@@ -2,33 +2,13 @@ import React, { Component } from 'react'
 import { Button, Icon, Item, Segment } from 'semantic-ui-react'
 
 export default class Events extends Component {
-  /*
-
-<script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
-
-<script type="text/javascript">
-    var exampleCallback = function() {
-        console.log('Order complete!')
-    }
-
-    window.EBWidgets.createWidget({
-        // Required
-        widgetType: 'checkout',
-        eventId: '76782042155',
-        iframeContainerId: 'eventbrite-widget-container-76782042155',
-
-        // Optional
-        iframeContainerHeight: 425,  // Widget height in pixels. Defaults to a minimum of 425px if not provided
-        onOrderComplete: exampleCallback  // Method called when an order has successfully completed
-    });
-</script>*/
   componentDidMount() {
     window.EBWidgets.createWidget({
       widgetType: 'checkout',
       eventId: '76782042155',
       modal: true,
       modalTriggerElementId: 'eventbrite-widget-modal-trigger-76782042155',
-      onOrderComplete: console.log('done')
+      onOrderComplete: console.log('Order Done')
     })
   }
   render() {

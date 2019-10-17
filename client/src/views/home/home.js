@@ -6,7 +6,6 @@ import { connect } from 'react-redux'
 import Discord from '../../components/discord'
 const showDiscord = width => {
   const isMobile = width <= 500
-  console.log(isMobile)
   if (isMobile) {
     return
   } else
@@ -17,14 +16,12 @@ const showDiscord = width => {
     )
 }
 const Home = props => {
-  console.log(process.env.API_URI, 'Key')
   const { getTwitter, twitterCount } = props
   const [discordCount, setDiscordCount] = useState(0)
   const [width, setWidth] = useState(window.innerWidth)
 
   useEffect(() => {
     const handleWindowSizeChange = () => {
-      console.log('called')
       setWidth(window.innerWidth)
     }
     window.addEventListener('resize', handleWindowSizeChange)
@@ -32,7 +29,6 @@ const Home = props => {
     const client = new discordBot.Client()
     client.login(process.env.DISCORD_API)
     client.on('ready', () => {
-      // console.log('in')
       setDiscordCount(client.users.size)
     })
     getTwitter()
