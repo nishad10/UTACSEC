@@ -16,4 +16,4 @@ class Discord extends Component {
   }
 }
 
-export { Discord, getTotalMembers }
+export default Discord

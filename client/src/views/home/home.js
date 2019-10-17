@@ -3,7 +3,7 @@ import { Grid, Image, Button, Icon, Label, Divider, Header, Segment, List } from
 import { Link } from 'react-router-dom'
 import { upTwitter } from '../../actions'
 import { connect } from 'react-redux'
-import { Discord } from '../../components/discord'
+import Discord from '../../components/discord'
 const showDiscord = width => {
   const isMobile = width <= 500
   console.log(isMobile)
@@ -30,14 +30,12 @@ const Home = props => {
     window.addEventListener('resize', handleWindowSizeChange)
     const discordBot = require('discord.js')
     const client = new discordBot.Client()
-    console.log(process.env.API_URI)
-    client.login(process.env.API_URI)
+    client.login(process.env.DISCORD_API)
     client.on('ready', () => {
       // console.log('in')
       setDiscordCount(client.users.size)
     })
     getTwitter()
-    return () => window.removeEventListener('resize', handleResize)
   }, [])
 
   return (
@@ -193,7 +191,7 @@ const Home = props => {
                         <List.Content>
                           <List.Header>Defensive Tactics</List.Header>
                           Methods used to protect the personal information, data, and identity of security conscious
-                          individuals, including those used by malicious actors, such as VPN's, Tor, 2FA, etc.
+                          individuals, including those used by malicious actors, such as VPN, Tor, 2FA, etc.
                         </List.Content>
                       </List.Item>
                     </List>
