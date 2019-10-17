@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { Grid, Image, Button, Icon, Label, Divider, Header, Segment, List } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
 import { upTwitter } from '../../actions'
 import { connect } from 'react-redux'
 import Discord from '../../components/discord'
@@ -52,45 +51,51 @@ const Home = props => {
                   University of Texas at Arlington
                   <Header.Subheader style={{ fontSize: '2vw' }}>Cyber Security Club</Header.Subheader>
                 </Header>
-                <Button as={Link} to="/signup" animated color="green">
-                  <Button.Content visible>Join Now</Button.Content>
-                  <Button.Content hidden>
-                    <Icon name="arrow right" />
-                  </Button.Content>
-                </Button>
+                <a
+                  href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=uta.csec@gmail.com&su=Join%20MailList&body=Please%20enter%20your%20full%20name%20and%20mavs%20email%0A%0AName:%20First%20Last%0A%0AEmail:%20abc@mavs.uta.edu&tf=1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button animated color="green" style={{ fontSize: '1.5vw' }}>
+                    <Button.Content visible>Join Now</Button.Content>
+                    <Button.Content hidden>
+                      <Icon name="arrow right" />
+                    </Button.Content>
+                  </Button>
+                </a>
               </Segment>
             </Segment>
           </Grid.Column>
         </Grid.Row>
         <Grid.Row centered>
           <Segment inverted style={{ alignSelf: 'center', background: '#1b1c1d' }}>
-            <Button as="div" labelPosition="right">
-              <Button color="twitter">
-                <Icon name="twitter" />
-                Twitter
+            <a href="https://twitter.com/UTA_CSEC" target="_blank" rel="noopener noreferrer">
+              <Button as="div" labelPosition="right" style={{ fontSize: '1vw' }}>
+                <Button color="twitter" style={{ fontSize: '1vw' }}>
+                  <Icon name="twitter" />
+                  Twitter
+                </Button>
+                <Label as="a" basic color="twitter" pointing="left">
+                  {twitterCount} Followers
+                </Label>
               </Button>
-              <Label as="a" basic color="twitter" pointing="left">
-                {twitterCount} Followers
-              </Label>
-            </Button>
-            <Button as="div" labelPosition="right">
-              <Button color="black">
-                <Icon name="discord" />
-                Discord
+            </a>
+            <a href="https://discord.gg/F9wZjBe" target="_blank" rel="noopener noreferrer">
+              <Button as="div" labelPosition="right" style={{ fontSize: '1vw' }}>
+                <Button color="black" style={{ fontSize: '1vw' }}>
+                  <Icon name="discord" />
+                  Discord
+                </Button>
+                <Label as="a" basic color="black" pointing="left">
+                  {discordCount} Members
+                </Label>
               </Button>
-              <Label as="a" basic color="black" pointing="left">
-                {discordCount} Members
-              </Label>
-            </Button>
-            <Button as="div" labelPosition="right">
-              <Button color="red">
-                <Icon name="google" />
-                Gmail
+            </a>
+            <a href="https://www.facebook.com/UTACSEC/" target="_blank" rel="noopener noreferrer">
+              <Button color="facebook" style={{ fontSize: '1vw' }}>
+                <Icon name="facebook" /> Facebook
               </Button>
-              <Label as="a" basic color="red" pointing="left">
-                2,048 Mailing List
-              </Label>
-            </Button>
+            </a>
           </Segment>
         </Grid.Row>
         <Divider inverted />
@@ -226,19 +231,23 @@ const Home = props => {
                 </List.Item>
               </List>
             </Segment>
-            <Divider
-              as="h4"
-              className="header"
-              horizontal
-              style={{ margin: '3em 0em', textTransform: 'uppercase' }}
-            ></Divider>
-            <Header as="h3" style={{ fontSize: '2em' }}>
+          </Segment>
+        </Grid.Row>
+        <Grid.Row centered>
+          <Segment inverted style={{ width: '100%' }}>
+            <Header as="h3" style={{ fontSize: '2vw' }}>
               Meetings Information
             </Header>
-            <p style={{ fontSize: '1.33em' }}>Meetings are in ERB 316 every other Friday at 5 PM</p>
-            <Button as={Link} to="www.google.com" size="large">
-              Email: uta.csec@gmail.com
-            </Button>
+            <p style={{ fontSize: '1.5vw' }}>Meetings are in ERB 316 every other Friday at 5 PM</p>
+            <a
+              href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=uta.csec@gmail.com&tf=1"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button size="large" style={{ fontSize: '1.5vw' }}>
+                Email: uta.csec@gmail.com
+              </Button>
+            </a>
           </Segment>
         </Grid.Row>
       </Grid>
@@ -256,42 +265,15 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Home)
-
-/* <Grid.Row color="grey">
-            <Grid.Column>
-              <Button color="twitter">
-                <Icon name="twitter" />
-              </Button>
-            </Grid.Column>
-            <Grid.Column>
-              <Button>
-                <Icon name="discord" />
-              </Button>
-            </Grid.Column>
-            <Grid.Column>
-              <Button>
-                <Icon name="mail" />
-              </Button>
-            </Grid.Column>
-          </Grid.Row>*/
-
 /*
-          <Grid.Row>
-            <Grid.Column textAlign="center">
-              <Segment inverted style={{ display: 'flex', alignSelf: 'center' }}>
-                <Image src="https://pbs.twimg.com/profile_images/887044871445295105/9bQlT5Xi_400x400.jpg" />
-                <Segment inverted style={{ alignSelf: 'center', paddingLeft: '25vw' }}>
-                  <Header style={{ fontSize: '3vw' }} inverted>
-                    University of Texas at Arlington
-                    <Header.Subheader style={{ fontSize: '2vw' }}>Cyber Security Club</Header.Subheader>
-                  </Header>
-                  <Button as={Link} to="/signup" animated color="green">
-                    <Button.Content visible>Join Now</Button.Content>
-                    <Button.Content hidden>
-                      <Icon name="arrow right" />
-                    </Button.Content>
-                  </Button>
-                </Segment>
-              </Segment>
-            </Grid.Column>
-          </Grid.Row>*/
+Gmail Button template disabled till we get mandrill api set up
+   <Button as="div" labelPosition="right">
+              <Button color="red">
+                <Icon name="google" />
+                Gmail
+              </Button>
+              <Label as="a" basic color="red" pointing="left">
+                2,048 Mailing List
+              </Label>
+            </Button>
+*/
