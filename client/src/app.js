@@ -2,7 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
-import { HashRouter, Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
+import BrowserRouter from 'react-router-dom/BrowserRouter'
 import reduxThunk from 'redux-thunk'
 
 import App from './views/app'
@@ -29,7 +30,7 @@ if (token) {
 }
 ReactDOM.render(
   <Provider store={store}>
-    <HashRouter hashType="noslash">
+    <BrowserRouter>
       <App>
         <Switch>
           <Route exact path="/" component={Home} />
@@ -41,7 +42,7 @@ ReactDOM.render(
           <Route path="/signout" component={Signout} />
         </Switch>
       </App>
-    </HashRouter>
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 )
