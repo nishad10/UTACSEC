@@ -39,7 +39,7 @@ const Home = props => {
 
   return (
     <div>
-      <Grid style={{ fontSize: '1.5vw', backgroundColor: 'black', lineHeight: '2vw', padding: '1vw' }}>
+      <Grid style={{ backgroundColor: 'black', lineHeight: '2vw', padding: '1vw' }}>
         <Grid.Row>
           <Grid.Column textAlign="center">
             <Segment inverted style={{ display: 'flex', justifyContent: 'center', padding: '1vw' }}>

@@ -6,17 +6,16 @@ import { Menu, Icon } from 'semantic-ui-react'
 class Header extends Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = { activeItem: 'home' }
     this.handleItemClick = this.handleItemClick.bind(this)
   }
   handleItemClick(e, { name }) {
-    console.log(name)
     this.setState({ activeItem: name })
   }
   renderSignButton(activeItem) {
     if (this.props.authenticated) {
       return (
-        <Menu icon="labeled">
+        <Menu icon="labeled" style={{ fontSize: '1.5vw' }}>
           <Menu.Item as={Link} to="/signout" name="signout">
             <Icon name="sign-out" />
             SignOut
@@ -25,7 +24,7 @@ class Header extends Component {
       )
     } else {
       return (
-        <Menu.Menu position="right" inverted icon="labeled">
+        <Menu.Menu position="right" inverted icon="labeled" style={{ fontSize: '1.5vw' }}>
           <Menu.Item
             active={activeItem === 'signin'}
             onClick={this.handleItemClick}
@@ -54,33 +53,31 @@ class Header extends Component {
   render() {
     const { activeItem } = this.state
     return (
-      <div display="flex" style={{ fontSize: '2vw' }}>
-        <Menu pointing secondary inverted>
-          <Menu.Item active={activeItem === 'home'} onClick={this.handleItemClick} as={Link} to="/" name="home" />
-          <Menu.Item
-            active={activeItem === 'events'}
-            onClick={this.handleItemClick}
-            as={Link}
-            to="/events"
-            name="events"
-          />
-          <Menu.Item
-            active={activeItem === 'officers'}
-            onClick={this.handleItemClick}
-            as={Link}
-            to="/officers"
-            name="officers"
-          />
-          <Menu.Item
-            active={activeItem === 'account'}
-            onClick={this.handleItemClick}
-            as={Link}
-            to="/account"
-            name="account"
-          />
-          {this.renderSignButton(activeItem)}
-        </Menu>
-      </div>
+      <Menu pointing secondary inverted stackable style={{ fontSize: '1.5vw' }}>
+        <Menu.Item active={activeItem === 'home'} onClick={this.handleItemClick} as={Link} to="/" name="home" />
+        <Menu.Item
+          active={activeItem === 'events'}
+          onClick={this.handleItemClick}
+          as={Link}
+          to="/events"
+          name="events"
+        />
+        <Menu.Item
+          active={activeItem === 'officers'}
+          onClick={this.handleItemClick}
+          as={Link}
+          to="/officers"
+          name="officers"
+        />
+        <Menu.Item
+          active={activeItem === 'account'}
+          onClick={this.handleItemClick}
+          as={Link}
+          to="/account"
+          name="account"
+        />
+        {this.renderSignButton(activeItem)}
+      </Menu>
     )
   }
 }

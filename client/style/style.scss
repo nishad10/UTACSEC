@@ -3,14 +3,8 @@ body {
   background-color: black;
   .cointainer {
     padding: 10px;
-    padding-top: 30px;
   }
-  nav {
-    .navbar-toggler {
-      outline: none;
-      border: none;
-    }
-  }
+
   .row {
     margin: 0px 0px;
     overflow: auto;
@@ -97,7 +91,10 @@ body {
   }
 }
 
-@media (min-width: 767px) {
+@media (min-width: 1400px) {
+  div {
+    font-size: 25px;
+  }
 }
 
 *,
