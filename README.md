@@ -3,7 +3,11 @@
 
 This will be the repo for the website for the Cybersecurity club for the University of Texas at Arlington.
 
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 ## LIVE
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/564221ac-ca00-4c1f-8321-9151faa6b86e/deploy-status)](https://app.netlify.com/sites/mystifying-meninsky-280127/deploys)
+
 Site is still in development but is live at https://www.utacsec.org/
 
 Any feedback is appreciated.
