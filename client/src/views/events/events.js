@@ -18,16 +18,15 @@ export default class Events extends Component {
           <Item style={{ display: 'flex', paddingTop: '3vw' }}>
             <Item.Content
               style={{
-                alignSelf: 'center',
                 textAlign: 'center',
-                fontSize: 'xx-large',
+                fontSize: '3vw',
                 paddingRight: '2vw',
-                paddingBottom: '5vw'
+                lineHeight: '4vw'
               }}
             >
               <div style={{ alignSelf: 'center' }}>
                 <Item.Header>11</Item.Header>
-                <br></br>
+
                 <Item.Description>October</Item.Description>
               </div>
             </Item.Content>
@@ -47,16 +46,15 @@ export default class Events extends Component {
           <Item style={{ display: 'flex', paddingTop: '3vw' }}>
             <Item.Content
               style={{
-                alignSelf: 'center',
                 textAlign: 'center',
-                fontSize: 'xx-large',
+                fontSize: '3vw',
                 paddingRight: '2vw',
-                paddingBottom: '5vw'
+                lineHeight: '4vw'
               }}
             >
               <div style={{ alignSelf: 'center' }}>
                 <Item.Header>11</Item.Header>
-                <br></br>
+
                 <Item.Description>October</Item.Description>
               </div>
             </Item.Content>
@@ -77,16 +75,15 @@ export default class Events extends Component {
           <Item style={{ display: 'flex', paddingTop: '3vw' }}>
             <Item.Content
               style={{
-                alignSelf: 'center',
                 textAlign: 'center',
-                fontSize: 'xx-large',
+                fontSize: '3vw',
                 paddingRight: '2vw',
-                paddingBottom: '5vw'
+                lineHeight: '4vw'
               }}
             >
               <div style={{ alignSelf: 'center' }}>
                 <Item.Header>11</Item.Header>
-                <br></br>
+
                 <Item.Description>October</Item.Description>
               </div>
             </Item.Content>

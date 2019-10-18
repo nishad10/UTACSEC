@@ -1,4 +1,5 @@
 body {
+  box-sizing: border-box;
   background-color: black;
   .cointainer {
     padding: 10px;
@@ -97,10 +98,10 @@ body {
 }
 
 @media (min-width: 767px) {
-  .image {
-    width: 15vw;
-  }
-  div {
-    font-size: 25px;
-  }
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
 }

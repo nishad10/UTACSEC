@@ -9,7 +9,7 @@ const showDiscord = width => {
     return
   } else
     return (
-      <Grid.Column floated="left" style={{ minWidth: '200px', maxWidth: '20vw', height: '100%' }}>
+      <Grid.Column floated="left" style={{ maxWidth: '27vw', maxHeight: '80vw', minWidth: '200px' }}>
         <Discord />
       </Grid.Column>
     )
@@ -80,20 +80,20 @@ const Home = props => {
                 </Label>
               </Button>
             </a>
+            <a href="https://www.facebook.com/UTACSEC/" target="_blank" rel="noopener noreferrer">
+              <Button color="facebook" style={{ fontSize: '1vw' }}>
+                <Icon name="facebook" /> Facebook
+              </Button>
+            </a>
             <a href="https://discord.gg/F9wZjBe" target="_blank" rel="noopener noreferrer">
               <Button as="div" labelPosition="right" style={{ fontSize: '1vw' }}>
                 <Button color="black" style={{ fontSize: '1vw' }}>
                   <Icon name="discord" />
                   Discord
                 </Button>
-                <Label as="a" basic color="black" pointing="left">
+                <Label as="a" basic color="white" pointing="left">
                   {discordCount} Members
                 </Label>
-              </Button>
-            </a>
-            <a href="https://www.facebook.com/UTACSEC/" target="_blank" rel="noopener noreferrer">
-              <Button color="facebook" style={{ fontSize: '1vw' }}>
-                <Icon name="facebook" /> Facebook
               </Button>
             </a>
           </Segment>
