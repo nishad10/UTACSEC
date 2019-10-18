@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { Grid, Image, Button, Icon, Label, Divider, Header, Segment, List } from 'semantic-ui-react'
-import { upTwitter } from '../../actions'
+import { Grid, Image, Button, Icon, Label, Divider, Header, Segment, List, Modal } from 'semantic-ui-react'
+import { whatBrowser, upTwitter } from '../../actions'
 import { connect } from 'react-redux'
 import Discord from '../../components/discord'
+
 const showDiscord = width => {
   const isMobile = width <= 500
   if (isMobile) {
@@ -18,8 +19,11 @@ const Home = props => {
   const { getTwitter, twitterCount } = props
   const [discordCount, setDiscordCount] = useState(0)
   const [width, setWidth] = useState(window.innerWidth)
+  const [chrome, setChrome] = useState(false)
 
   useEffect(() => {
+    console.log(whatBrowser(), 'browser')
+    setChrome(whatBrowser())
     const handleWindowSizeChange = () => {
       setWidth(window.innerWidth)
     }
@@ -51,18 +55,48 @@ const Home = props => {
                   University of Texas at Arlington
                   <Header.Subheader style={{ fontSize: '2vw' }}>Cyber Security Club</Header.Subheader>
                 </Header>
-                <a
-                  href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=uta.csec@gmail.com&su=Join%20MailList&body=Please%20enter%20your%20full%20name%20and%20mavs%20email%0A%0AName:%20First%20Last%0A%0AEmail:%20abc@mavs.uta.edu&tf=1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button animated color="green" style={{ fontSize: '1.5vw' }}>
-                    <Button.Content visible>Join Now</Button.Content>
-                    <Button.Content hidden>
-                      <Icon name="arrow right" />
-                    </Button.Content>
-                  </Button>
-                </a>
+                {chrome === true ? (
+                  <a
+                    href="mailto:uta.csec@gmail.com?subject=Join%20MailList&body=Please%20enter%20your%20full%20name%20and%20mavs%20email%0A%0AName:%20First%20Last%0A%0AEmail:%20abc@mavs.uta.edu&tf=1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button animated color="green" style={{ fontSize: '1.5vw' }}>
+                      <Button.Content visible>Join Now</Button.Content>
+                      <Button.Content hidden>
+                        <Icon name="arrow right" />
+                      </Button.Content>
+                    </Button>
+                  </a>
+                ) : (
+                  <Modal
+                    basic
+                    centered
+                    size="tiny"
+                    trigger={
+                      <Button animated color="green" style={{ fontSize: '1.5vw' }}>
+                        <Button.Content visible>Join Now</Button.Content>
+                        <Button.Content hidden>
+                          <Icon name="arrow right" />
+                        </Button.Content>
+                      </Button>
+                    }
+                    closeIcon
+                  >
+                    <Header icon="chrome" content="Not a chrome browser" />
+                    <Modal.Content>
+                      <p>
+                        Please open this in chrome to auto compile a mail to join the club or just mail us your Full
+                        Name and mavs email address to uta.csec@gmail.com.
+                      </p>
+                    </Modal.Content>
+                    <Modal.Actions>
+                      <Button color="green">
+                        <Icon name="checkmark" /> Yes
+                      </Button>
+                    </Modal.Actions>
+                  </Modal>
+                )}
               </Segment>
             </Segment>
           </Grid.Column>
@@ -239,15 +273,42 @@ const Home = props => {
               Meetings Information
             </Header>
             <p style={{ fontSize: '1.5vw' }}>Meetings are in ERB 316 every other Friday at 5 PM</p>
-            <a
-              href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=uta.csec@gmail.com&tf=1"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button size="large" style={{ fontSize: '1.5vw' }}>
-                Email: uta.csec@gmail.com
-              </Button>
-            </a>
+            {chrome === true ? (
+              <a
+                href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=uta.csec@gmail.com&tf=1"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button size="large" style={{ fontSize: '1.5vw' }}>
+                  Email: uta.csec@gmail.com
+                </Button>
+              </a>
+            ) : (
+              <Modal
+                basic
+                centered
+                size="tiny"
+                trigger={
+                  <Button size="large" style={{ fontSize: '1.5vw' }}>
+                    Email: uta.csec@gmail.com
+                  </Button>
+                }
+                closeIcon
+              >
+                <Header icon="chrome" content="Not a chrome browser" />
+                <Modal.Content>
+                  <p>
+                    Please open this in chrome to auto compile a mail to join the club or just mail us your Full Name
+                    and mavs email address to uta.csec@gmail.com.
+                  </p>
+                </Modal.Content>
+                <Modal.Actions>
+                  <Button color="green">
+                    <Icon name="checkmark" /> Yes
+                  </Button>
+                </Modal.Actions>
+              </Modal>
+            )}
           </Segment>
         </Grid.Row>
       </Grid>
