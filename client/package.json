@@ -13,6 +13,7 @@
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "history": "^4.10.1",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
@@ -40,6 +41,7 @@
     "axios": "^0.19.0",
     "discord.js": "^11.5.1",
     "file-system": "^2.2.2",
+    "history": "^4.10.1",
     "loadjs": "^4.0.1",
     "prop-types": "^15.6.0",
     "react": "^16.8.6",
