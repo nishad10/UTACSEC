@@ -1,61 +1,60 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import useForm from '../../use-form-react'
 import { signUserIn } from '../../actions'
-import CenterCard363 from '../../components/centerCard363'
-
+import { Button, Segment, Header, Grid, Form } from 'semantic-ui-react'
+import history from '../../history'
 const Signin = props => {
   const { signUserIn } = props
-  const options = {
-    initialValues: {
-      email: '',
-      password: ''
-    },
-    callback: () => {
-      signUserIn(inputs)
-    },
-    debug: false
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const handleChange = (e, { name, value }) => {
+    if (name === 'email') setEmail(value)
+    else if (name === 'password') setPassword(value)
   }
-  const { onSubmit, onChange, inputs, dirty, submitting } = useForm('AdvanceForm', options)
+  const handleRegister = () => {
+    history.push('/#signup')
+  }
+  const handleSubmit = () => {
+    signUserIn({ email: email, password: password })
+  }
   return (
-    <CenterCard363>
-      <div className="card">
-        <h4 className="card-header">Sign In</h4>
-        <div className="card-body">
-          <form onSubmit={onSubmit}>
-            <div className="form-group">
-              <label>Email:</label>
-              <input
-                name="email"
-                type="email"
-                value={inputs.email}
-                className="form-control form-control-lg"
-                placeholder="sample@email.com"
-                onChange={onChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label>Password:</label>
-              <input
-                type="password"
-                name="password"
-                value={inputs.password}
-                className="form-control form-control-lg"
-                placeholder="your password"
-                onChange={onChange}
-                required
-              />
-            </div>
-            <div style={{ paddingTop: '30px' }}>
-              <button type="submit" className="btn btn-lg btn-light btn-block" disabled={!dirty || submitting}>
-                Sign In
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </CenterCard363>
+    <Grid centered columns={2}>
+      <Grid.Column style={{ fontSize: '1vw' }}>
+        <Header inverted as="h2" textAlign="center">
+          Login
+        </Header>
+        <Segment>
+          <Form size="large" onSubmit={handleSubmit} style={{ fontSize: '1vw' }}>
+            <Form.Input
+              fluid
+              icon="user"
+              name="email"
+              iconPosition="left"
+              placeholder="Email address"
+              value={email}
+              onChange={handleChange}
+            />
+            <Form.Input
+              fluid
+              icon="lock"
+              name="password"
+              iconPosition="left"
+              placeholder="Password"
+              type="password"
+              value={password}
+              onChange={handleChange}
+            />
+            <Button color="green" fluid size="large" style={{ fontSize: '1.2vw' }}>
+              Login
+            </Button>
+          </Form>
+        </Segment>
+
+        <Button onClick={handleRegister} fluid size="large" basic inverted color="green" style={{ fontSize: '1.5vw' }}>
+          Not registered yet?
+        </Button>
+      </Grid.Column>
+    </Grid>
   )
 }
 
