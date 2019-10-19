@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { AUTH_USER, UNAUTH_USER, AUTH_ERROR } from '../constants/types'
 import history from '../history'
-
 const ROOT_URL = process.env.API_URI || 'http://localhost:8000'
 axios.defaults.baseURL = ROOT_URL
 
@@ -20,7 +19,7 @@ export function signUserIn(data) {
       .then(res => {
         dispatch({ type: AUTH_USER })
         localStorage.setItem('auth_jwt_token', res.data.token)
-        history.push('/#account')
+        window.location = '/#account'
         axios.defaults.headers.common['Authorization'] = localStorage.getItem('auth_jwt_token')
       })
       .catch(error => {
