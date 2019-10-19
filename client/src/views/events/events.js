@@ -35,7 +35,12 @@ export default class Events extends Component {
                 This is a test meeting this is where meeting description shows up. The RSVP button for this meeting
                 section should work the ones below this are same duplicates.
               </div>
-              <Button id="eventbrite-widget-modal-trigger-76782042155" primary floated="right">
+              <Button
+                style={{ fontSize: '1.5vw' }}
+                id="eventbrite-widget-modal-trigger-76782042155"
+                primary
+                floated="right"
+              >
                 RSVP
                 <Icon name="right chevron" />
               </Button>
@@ -63,7 +68,12 @@ export default class Events extends Component {
                 This is a test meeting this is where meeting description shows up. The RSVP button for this meeting
                 section should work the ones below this are same duplicates.
               </div>
-              <Button id="eventbrite-widget-modal-trigger-76782042155" primary floated="right">
+              <Button
+                style={{ fontSize: '1.5vw' }}
+                id="eventbrite-widget-modal-trigger-76782042155"
+                primary
+                floated="right"
+              >
                 RSVP
                 <Icon name="right chevron" />
               </Button>
@@ -92,7 +102,12 @@ export default class Events extends Component {
                 This is a test meeting this is where meeting description shows up. The RSVP button for this meeting
                 section should work the ones below this are same duplicates.
               </div>
-              <Button id="eventbrite-widget-modal-trigger-76782042155" primary floated="right">
+              <Button
+                style={{ fontSize: '1.5vw' }}
+                id="eventbrite-widget-modal-trigger-76782042155"
+                primary
+                floated="right"
+              >
                 RSVP
                 <Icon name="right chevron" />
               </Button>
