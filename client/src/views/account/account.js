@@ -3,6 +3,9 @@ import axios from 'axios'
 import CenterCard363 from '../../components/centerCard363'
 import useForm from '../../use-form-react'
 
+const ROOT_URL = process.env.API_URI
+axios.defaults.baseURL = ROOT_URL
+
 const Account = () => {
   const [editting, setEditting] = useState(false)
   const [errMsg, setErrMsg] = useState('')
