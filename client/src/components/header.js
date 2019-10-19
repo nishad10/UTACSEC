@@ -15,12 +15,12 @@ class Header extends Component {
   renderSignButton(activeItem) {
     if (this.props.authenticated) {
       return (
-        <Menu icon="labeled" style={{ fontSize: '1.5vw' }}>
+        <Menu.Menu position="right" inverted icon="labeled" style={{ fontSize: '1.5vw' }}>
           <Menu.Item as={Link} to="/signout" name="signout">
-            <Icon name="sign-out" />
+            <Icon name="sign-in" />
             SignOut
           </Menu.Item>
-        </Menu>
+        </Menu.Menu>
       )
     } else {
       return (
