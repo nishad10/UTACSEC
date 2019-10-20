@@ -19,8 +19,8 @@ const Signin = props => {
   }
   return (
     <Grid centered columns={2}>
-      <Grid.Column style={{ fontSize: '1vw' }}>
-        <Header inverted as="h2" textAlign="center">
+      <Grid.Column style={{ fontSize: '1vw', paddingTop: '10vw' }}>
+        <Header inverted as="h2" textAlign="center" style={{ fontSize: '5vw' }}>
           Login
         </Header>
         <Segment>

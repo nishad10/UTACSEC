@@ -105,27 +105,27 @@ const Home = props => {
           <Segment inverted style={{ alignSelf: 'center', padding: '1vw' }}>
             <a href="https://twitter.com/UTA_CSEC" target="_blank" rel="noopener noreferrer">
               <Button as="div" labelPosition="right" style={{ fontSize: '1vw' }}>
-                <Button color="twitter" style={{ fontSize: '1vw' }}>
+                <Button color="twitter" style={{ fontSize: '1.5vw' }}>
                   <Icon name="twitter" />
                   Twitter
                 </Button>
-                <Label as="a" basic color="twitter" pointing="left">
+                <Label as="a" basic color="twitter" pointing="left" style={{ fontSize: '1.5vw' }}>
                   {twitterCount} Followers
                 </Label>
               </Button>
             </a>
             <a href="https://www.facebook.com/UTACSEC/" target="_blank" rel="noopener noreferrer">
-              <Button color="facebook" style={{ fontSize: '1vw' }}>
+              <Button color="facebook" style={{ fontSize: '1.5vw' }}>
                 <Icon name="facebook" /> Facebook
               </Button>
             </a>
             <a href="https://discord.gg/F9wZjBe" target="_blank" rel="noopener noreferrer">
               <Button as="div" labelPosition="right" style={{ fontSize: '1vw' }}>
-                <Button color="black" style={{ fontSize: '1vw' }}>
+                <Button style={{ fontSize: '1.5vw', color: 'white', background: '#7289DA' }}>
                   <Icon name="discord" />
                   Discord
                 </Button>
-                <Label as="a" basic color="white" pointing="left">
+                <Label as="a" basic color="white" pointing="left" style={{ fontSize: '1.5vw' }}>
                   {discordCount} Members
                 </Label>
               </Button>

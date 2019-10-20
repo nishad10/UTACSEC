@@ -5,11 +5,11 @@ class Officers extends Component {
   render() {
     return (
       <div>
-        <Grid style={{ fontSize: '1.5vw', backgroundColor: 'black', lineHeight: '2vw' }}>
+        <Grid style={{ fontSize: '1.5vw', backgroundColor: 'black', lineHeight: '3vw' }}>
           <Grid.Row style={{ padding: '2vw', display: 'flex' }}>
             <div style={{ display: 'flex', width: '100%' }}>
               <Segment inverted textAlign="left" style={{ fontSize: '2vw', display: 'flex', width: '100%' }}>
-                <div style={{ width: '15vw', fontSize: '1vw' }}>
+                <div style={{ width: '20vw', fontSize: '1vw' }}>
                   <Card>
                     <Image src="/statics/jiang.jpg" wrapped ui={false} />
                     <Card.Content>
@@ -27,7 +27,7 @@ class Officers extends Component {
                     </Card.Content>
                   </Card>
                 </div>
-                <div style={{ alignSelf: 'center', margin: '5vw', paddingBottom: '5vw' }}>
+                <div style={{ alignSelf: 'center', paddingLeft: '5vw', paddingBottom: '5vw' }}>
                   I am an Assistant Professor in the Computer Science and Engineering Department at UT Arlington. My
                   research interests span cybersecurity and software engineering, with a focus on software security and
                   malware analysis. I am endeavoring to develop novel binary code analysis techniques to help people
@@ -40,7 +40,7 @@ class Officers extends Component {
           <Grid.Row style={{ padding: '2vw', display: 'flex' }}>
             <div style={{ display: 'flex', width: '100%' }}>
               <Segment inverted textAlign="left" style={{ fontSize: '2vw', display: 'flex', width: '100%' }}>
-                <div style={{ width: '15vw', fontSize: '1vw' }}>
+                <div style={{ width: '20vw', fontSize: '1vw' }}>
                   <Card>
                     <Image src="/statics/zehra.jpg" wrapped ui={false} />
                     <Card.Content>
@@ -58,7 +58,7 @@ class Officers extends Component {
                     </Card.Content>
                   </Card>
                 </div>
-                <div style={{ alignSelf: 'center', margin: '5vw', paddingBottom: '5vw' }}>I am Zehra.</div>
+                <div style={{ alignSelf: 'center', paddingLeft: '5vw', paddingBottom: '5vw' }}>I am Zehra.</div>
               </Segment>
             </div>
           </Grid.Row>
@@ -66,7 +66,7 @@ class Officers extends Component {
           <Grid.Row style={{ padding: '2vw', display: 'flex' }}>
             <div style={{ display: 'flex', width: '100%' }}>
               <Segment inverted textAlign="left" style={{ fontSize: '2vw', display: 'flex', width: '100%' }}>
-                <div style={{ width: '15vw', fontSize: '1vw' }}>
+                <div style={{ width: '20vw', fontSize: '1vw' }}>
                   <Card>
                     <Image src="/statics/nishad.jpg" wrapped ui={false} />
                     <Card.Content>
@@ -84,7 +84,13 @@ class Officers extends Component {
                     </Card.Content>
                   </Card>
                 </div>
-                <div style={{ alignSelf: 'center', margin: '5vw', paddingBottom: '5vw' }}>I am Nishad.</div>
+                <div style={{ alignSelf: 'center', paddingLeft: '5vw', paddingBottom: '5vw' }}>
+                  Hey I am Nishad I am a Senior Undergraduate here at UTA and an International Student. I am doing my
+                  bachelors in Computer Science. I have been interested in security from quite a while. I like doing CTF
+                  on hackthebox and SEIM(Security Event and Incident Management) in terms of security. I havent really
+                  thought about security as a career path as I also like Software Development so I take security more as
+                  a hobby.
+                </div>
               </Segment>
             </div>
           </Grid.Row>
@@ -92,7 +98,7 @@ class Officers extends Component {
           <Grid.Row style={{ padding: '2vw', display: 'flex' }}>
             <div style={{ display: 'flex', width: '100%' }}>
               <Segment inverted textAlign="left" style={{ fontSize: '2vw', display: 'flex', width: '100%' }}>
-                <div style={{ width: '15vw', fontSize: '1vw' }}>
+                <div style={{ width: '20vw', fontSize: '1vw' }}>
                   <Card>
                     <Image src="/statics/mario.jpg" wrapped ui={false} />
                     <Card.Content>
@@ -110,7 +116,7 @@ class Officers extends Component {
                     </Card.Content>
                   </Card>
                 </div>
-                <div style={{ alignSelf: 'center', margin: '5vw', paddingBottom: '5vw' }}>I am Mario.</div>
+                <div style={{ alignSelf: 'center', paddingLeft: '5vw', paddingBottom: '5vw' }}>I am Mario.</div>
               </Segment>
             </div>
           </Grid.Row>
