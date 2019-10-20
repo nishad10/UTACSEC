@@ -6,20 +6,18 @@ class Officers extends Component {
     return (
       <div>
         <Grid style={{ fontSize: '1.5vw', backgroundColor: 'black', lineHeight: '3vw' }}>
-          <Grid.Row style={{ padding: '2vw', display: 'flex' }}>
+          <Grid.Row style={{ padding: '7vw 7vw 1vw 7vw', display: 'flex' }}>
             <div style={{ display: 'flex', width: '100%' }}>
               <Segment inverted textAlign="left" style={{ fontSize: '2vw', display: 'flex', width: '100%' }}>
                 <div style={{ width: '20vw', fontSize: '1vw' }}>
                   <Card>
                     <Image src="/statics/jiang.jpg" wrapped ui={false} />
-                    <Card.Content>
+                    <Card.Content style={{ paddingBottom: '0px' }}>
                       <Card.Header>Jiang Ming</Card.Header>
-                      <Card.Meta style={{ paddingTop: '5px' }}>
-                        <span className="date">Joined in 2015</span>
-                      </Card.Meta>
+
                       <Card.Description>Faculty Advisor</Card.Description>
                     </Card.Content>
-                    <Card.Content extra>
+                    <Card.Content extra style={{ paddingBottom: '0px', paddingTop: '0px' }}>
                       <a>
                         <Icon name="mail" />
                         jiang.ming@uta.edu
@@ -36,21 +34,19 @@ class Officers extends Component {
               </Segment>
             </div>
           </Grid.Row>
-          <Divider inverted />
-          <Grid.Row style={{ padding: '2vw', display: 'flex' }}>
+          <Divider inverted style={{ margin: '1vw 15vw 1vw 15vw' }} />
+          <Grid.Row style={{ padding: '1vw 7vw 1vw 7vw', display: 'flex' }}>
             <div style={{ display: 'flex', width: '100%' }}>
               <Segment inverted textAlign="left" style={{ fontSize: '2vw', display: 'flex', width: '100%' }}>
                 <div style={{ width: '20vw', fontSize: '1vw' }}>
                   <Card>
                     <Image src="/statics/zehra.jpg" wrapped ui={false} />
-                    <Card.Content>
+                    <Card.Content style={{ paddingBottom: '0px' }}>
                       <Card.Header>Zehra Jafri</Card.Header>
-                      <Card.Meta style={{ paddingTop: '5px' }}>
-                        <span className="date">Joined in 2015</span>
-                      </Card.Meta>
+
                       <Card.Description>President</Card.Description>
                     </Card.Content>
-                    <Card.Content extra>
+                    <Card.Content extra style={{ paddingBottom: '0px', paddingTop: '0px' }}>
                       <a>
                         <Icon name="mail" />
                         zehra.jafri@mavs.uta.edu
@@ -58,25 +54,27 @@ class Officers extends Component {
                     </Card.Content>
                   </Card>
                 </div>
-                <div style={{ alignSelf: 'center', paddingLeft: '5vw', paddingBottom: '5vw' }}>I am Zehra.</div>
+                <div style={{ alignSelf: 'center', paddingLeft: '5vw', paddingBottom: '5vw' }}>
+                  Hey I am Zehra and I am a Senior at UTA. I have been a part of this club for a long time. I am the
+                  president so I pretty much overlook all aspects of the club. I also have a CEH certificate and am
+                  working towards other certificates as well.
+                </div>
               </Segment>
             </div>
           </Grid.Row>
-          <Divider inverted />
-          <Grid.Row style={{ padding: '2vw', display: 'flex' }}>
+          <Divider inverted style={{ margin: '1vw 15vw 1vw 15vw' }} />
+          <Grid.Row style={{ padding: '1vw 7vw 1vw 7vw', display: 'flex' }}>
             <div style={{ display: 'flex', width: '100%' }}>
               <Segment inverted textAlign="left" style={{ fontSize: '2vw', display: 'flex', width: '100%' }}>
                 <div style={{ width: '20vw', fontSize: '1vw' }}>
                   <Card>
                     <Image src="/statics/nishad.jpg" wrapped ui={false} />
-                    <Card.Content>
+                    <Card.Content style={{ paddingBottom: '0px' }}>
                       <Card.Header>Nishad Aherrao</Card.Header>
-                      <Card.Meta style={{ paddingTop: '5px' }}>
-                        <span className="date">Joined in 2015</span>
-                      </Card.Meta>
+
                       <Card.Description>Vice President</Card.Description>
                     </Card.Content>
-                    <Card.Content extra>
+                    <Card.Content extra style={{ paddingBottom: '0px', paddingTop: '0px' }}>
                       <a>
                         <Icon name="mail" />
                         nishad.aherrao@mavs.uta.edu
@@ -94,33 +92,64 @@ class Officers extends Component {
               </Segment>
             </div>
           </Grid.Row>
-          <Divider inverted />
-          <Grid.Row style={{ padding: '2vw', display: 'flex' }}>
+          <Divider inverted style={{ margin: '1vw 15vw 1vw 15vw' }} />
+          <Grid.Row style={{ padding: '1vw 7vw 1vw 7vw', display: 'flex' }}>
             <div style={{ display: 'flex', width: '100%' }}>
               <Segment inverted textAlign="left" style={{ fontSize: '2vw', display: 'flex', width: '100%' }}>
                 <div style={{ width: '20vw', fontSize: '1vw' }}>
                   <Card>
                     <Image src="/statics/mario.jpg" wrapped ui={false} />
-                    <Card.Content>
-                      <Card.Header>Mario</Card.Header>
-                      <Card.Meta style={{ paddingTop: '5px' }}>
-                        <span className="date">Joined in 2015</span>
-                      </Card.Meta>
-                      <Card.Description>Social Media</Card.Description>
+                    <Card.Content style={{ paddingBottom: '0px' }}>
+                      <Card.Header>Mario Oliveros</Card.Header>
+
+                      <Card.Description>Communications and Social Media</Card.Description>
                     </Card.Content>
-                    <Card.Content extra>
+                    <Card.Content extra style={{ paddingBottom: '0px', paddingTop: '0px' }}>
                       <a>
                         <Icon name="mail" />
-                        xyz@xyz
+                        mario.oliveros@mavs.uta.edu
                       </a>
                     </Card.Content>
                   </Card>
                 </div>
-                <div style={{ alignSelf: 'center', paddingLeft: '5vw', paddingBottom: '5vw' }}>I am Mario.</div>
+                <div style={{ alignSelf: 'center', paddingLeft: '5vw', paddingBottom: '5vw' }}>
+                  I am Mario, and I am the Social and Activities Chair for the Cybersecurity Club. I am in charge of
+                  organizing and running our activities and events, recruiting, and other social aspects of the club.
+                  This is my first year at UTA as a transfer student in Computer Science. Before this, i received an
+                  Associates in Business (IT concentration). I have some knowledge in cybersecurity, mostly focusing on
+                  social engineering, hardware, and OPSEC.
+                </div>
               </Segment>
             </div>
           </Grid.Row>
-          <Divider inverted />
+          <Divider inverted style={{ margin: '1vw 15vw 1vw 15vw' }} />
+          <Grid.Row style={{ padding: '1vw 7vw 1vw 7vw', display: 'flex' }}>
+            <div style={{ display: 'flex', width: '100%' }}>
+              <Segment inverted textAlign="left" style={{ fontSize: '2vw', display: 'flex', width: '100%' }}>
+                <div style={{ width: '20vw', fontSize: '1vw' }}>
+                  <Card>
+                    <Image src="/statics/favicon.ico" wrapped ui={false} />
+                    <Card.Content style={{ paddingBottom: '0px' }}>
+                      <Card.Header>Erika Leal</Card.Header>
+
+                      <Card.Description>Treasurer</Card.Description>
+                    </Card.Content>
+                    <Card.Content extra style={{ paddingBottom: '0px', paddingTop: '0px' }}>
+                      <a>
+                        <Icon name="mail" />
+                        erika.leal@mavs.uta.edu
+                      </a>
+                    </Card.Content>
+                  </Card>
+                </div>
+                <div style={{ alignSelf: 'center', paddingLeft: '5vw', paddingBottom: '5vw' }}>
+                  Hey I am Erika and I am the treasurer for the club. I handle all the funds to keep this club moving. I
+                  am a PhD student for Dr. Ming with my research focused on packed malware right now. I also did my
+                  undergraduate in computer science.
+                </div>
+              </Segment>
+            </div>
+          </Grid.Row>
         </Grid>
       </div>
     )
