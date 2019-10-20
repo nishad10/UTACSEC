@@ -6,8 +6,22 @@ import { Menu, Icon } from 'semantic-ui-react'
 class Header extends Component {
   constructor(props) {
     super(props)
-    this.state = { activeItem: 'home' }
+    this.state = { activeItem: 'home', mobile: false }
     this.handleItemClick = this.handleItemClick.bind(this)
+    this.handleStack = this.handleStack.bind(this)
+  }
+  UNSAFE_componentWillMount() {
+    this.handleStack
+  }
+  componentDidMount() {
+    window.addEventListener('resize', this.handleStack)
+  }
+  handleStack() {
+    const { mobile } = this.state
+    console.log(mobile, window.innerWidth)
+    if (window.innerWidth < 300) {
+      this.setState({ mobile: true })
+    } else this.setState({ mobile: false })
   }
   handleItemClick(e, { name }) {
     this.setState({ activeItem: name })
@@ -51,9 +65,9 @@ class Header extends Component {
   }
 
   render() {
-    const { activeItem } = this.state
+    const { activeItem, mobile } = this.state
     return (
-      <Menu pointing secondary inverted stackable style={{ fontSize: '1.5vw' }}>
+      <Menu pointing secondary inverted stackable={mobile} style={{ fontSize: '1.5vw' }}>
         <Menu.Item active={activeItem === 'home'} onClick={this.handleItemClick} as={Link} to="/" name="home" />
         <Menu.Item
           active={activeItem === 'events'}
