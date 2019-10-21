@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Icon, Item, Segment } from 'semantic-ui-react'
+import { Button, Icon, Item, Segment, Header, Modal } from 'semantic-ui-react'
 
 export default class Events extends Component {
   componentDidMount() {
@@ -11,11 +11,44 @@ export default class Events extends Component {
       onOrderComplete: console.log('Order Done')
     })
   }
+
   render() {
+    const renderConfirmNotConfirm = confirm => {
+      return confirm ? (
+        <Button
+          style={{ fontSize: '1.5vw' }}
+          color="green"
+          id="eventbrite-widget-modal-trigger-76782042155"
+          floated="right"
+        >
+          RSVP
+          <Icon name="right chevron" />
+        </Button>
+      ) : (
+        <Modal
+          basic
+          centered
+          size="tiny"
+          trigger={
+            <Button style={{ fontSize: '1.5vw' }} color="green" floated="right">
+              RSVP
+              <Icon name="right chevron" />
+            </Button>
+          }
+          closeIcon
+        >
+          <Header icon="ticket" content="Event Unavailable" />
+          <Modal.Content>
+            <p>The event hasnt been confirmed yet or the tickets are not available. Check back soon!!</p>
+          </Modal.Content>
+        </Modal>
+      )
+    }
+
     return (
       <Item.Group divided relaxed style={{ display: 'grid', justifyContent: 'center', paddingTop: '50px' }}>
         <Segment inverted>
-          <Item style={{ display: 'flex', paddingTop: '3vw' }}>
+          <Item style={{ display: 'flex' }}>
             <Item.Content
               style={{
                 textAlign: 'center',
@@ -24,26 +57,20 @@ export default class Events extends Component {
                 lineHeight: '4vw'
               }}
             >
-              <div style={{ alignSelf: 'center' }}>
-                <Item.Header>11</Item.Header>
+              <div style={{ alignSelf: 'center', paddingTop: '3vw', paddingBottom: '3vw' }}>
+                <Item.Header>25</Item.Header>
 
                 <Item.Description>October</Item.Description>
+                <Item.Description style={{ color: '#3cba45' }}>Friday</Item.Description>
               </div>
             </Item.Content>
-            <Item.Content style={{ maxWidth: '700px', fontSize: '2vw', lineHeight: '2.2vw' }}>
+            <Item.Content style={{ maxWidth: '700px', fontSize: '2vw', lineHeight: '3vw', paddingTop: '3vw' }}>
               <div style={{ paddingBottom: '10px' }}>
-                This is a test meeting this is where meeting description shows up. The RSVP button for this meeting
-                section should work the ones below this are same duplicates.
+                Weekly Meeting for the club will be held at ERB 316. If the meeting has been confirmed you can RSVP by
+                clicking the button below. We will send out an email once the meeting has been confirmed.
               </div>
-              <Button
-                style={{ fontSize: '1.5vw' }}
-                id="eventbrite-widget-modal-trigger-76782042155"
-                primary
-                floated="right"
-              >
-                RSVP
-                <Icon name="right chevron" />
-              </Button>
+
+              {renderConfirmNotConfirm(false)}
             </Item.Content>
           </Item>
         </Segment>
@@ -57,60 +84,20 @@ export default class Events extends Component {
                 lineHeight: '4vw'
               }}
             >
-              <div style={{ alignSelf: 'center' }}>
-                <Item.Header>11</Item.Header>
+              <div style={{ alignSelf: 'center', paddingTop: '3vw', paddingBottom: '3vw' }}>
+                <Item.Header>31</Item.Header>
 
                 <Item.Description>October</Item.Description>
+                <Item.Description style={{ color: '#3cba45' }}>Thursday</Item.Description>
               </div>
             </Item.Content>
-            <Item.Content style={{ maxWidth: '700px', fontSize: '2vw', lineHeight: '2.2vw' }}>
+            <Item.Content style={{ maxWidth: '700px', fontSize: '2vw', lineHeight: '3vw', paddingTop: '3vw' }}>
               <div style={{ paddingBottom: '10px' }}>
-                This is a test meeting this is where meeting description shows up. The RSVP button for this meeting
-                section should work the ones below this are same duplicates.
+                The College of Engineering Halloween Party will be hosted by the UTA CSEC Club along with the help of a
+                few other COE clubs. You will be able to RSVP to the event and get your tickets soon on here. We will
+                send out an email when the tickets are available. Everything will be free.
               </div>
-              <Button
-                style={{ fontSize: '1.5vw' }}
-                id="eventbrite-widget-modal-trigger-76782042155"
-                primary
-                floated="right"
-              >
-                RSVP
-                <Icon name="right chevron" />
-              </Button>
-            </Item.Content>
-          </Item>
-        </Segment>
-
-        <Segment inverted>
-          <Item style={{ display: 'flex', paddingTop: '3vw' }}>
-            <Item.Content
-              style={{
-                textAlign: 'center',
-                fontSize: '3vw',
-                paddingRight: '2vw',
-                lineHeight: '4vw'
-              }}
-            >
-              <div style={{ alignSelf: 'center' }}>
-                <Item.Header>11</Item.Header>
-
-                <Item.Description>October</Item.Description>
-              </div>
-            </Item.Content>
-            <Item.Content style={{ maxWidth: '700px', fontSize: '2vw', lineHeight: '2.2vw' }}>
-              <div style={{ paddingBottom: '10px' }}>
-                This is a test meeting this is where meeting description shows up. The RSVP button for this meeting
-                section should work the ones below this are same duplicates.
-              </div>
-              <Button
-                style={{ fontSize: '1.5vw' }}
-                id="eventbrite-widget-modal-trigger-76782042155"
-                primary
-                floated="right"
-              >
-                RSVP
-                <Icon name="right chevron" />
-              </Button>
+              {renderConfirmNotConfirm(false)}
             </Item.Content>
           </Item>
         </Segment>
