@@ -3,9 +3,11 @@ import { connect } from 'react-redux'
 import { signUserUp } from '../../actions'
 import CenterCard363 from '../../components/centerCard363'
 import useForm from '../../use-form-react'
+import { Message, Button, Icon } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 const Signup = props => {
-  const { signUserUp } = props
+  /*const { signUserUp } = props
   const [errMsg, setErrorMsg] = useState('')
   const options = {
     initialValues: {
@@ -24,8 +26,23 @@ const Signup = props => {
     },
     debug: false
   }
-  const { onSubmit, onChange, inputs, dirty, submitting } = useForm('AdvanceForm', options)
+  const { onSubmit, onChange, inputs, dirty, submitting } = useForm('AdvanceForm', options)*/
   return (
+    <div>
+      <Message negative style={{ fontSize: '2.5vw' }}>
+        <Message.Header>Not Available Under Progress</Message.Header>
+        <p>To become a part of the club please click the join now button.</p>
+      </Message>
+      <Link to="/joinnow">
+        <Button animated color="green" style={{ fontSize: '2.5vw' }}>
+          <Button.Content visible>Join Now</Button.Content>
+          <Button.Content hidden>
+            <Icon name="arrow right" />
+          </Button.Content>
+        </Button>
+      </Link>
+    </div>
+    /*
     <CenterCard363>
       <div className="card">
         <h4 className="card-header">Sign Up</h4>
@@ -105,7 +122,7 @@ const Signup = props => {
           </form>
         </div>
       </div>
-    </CenterCard363>
+    </CenterCard363>*/
   )
 }
 const mapDispatchToProps = dispatch => ({

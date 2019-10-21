@@ -3,7 +3,7 @@ import { Grid, Image, Button, Icon, Label, Divider, Header, Segment, List, Modal
 import { whatBrowser, upTwitter } from '../../actions'
 import { connect } from 'react-redux'
 import Discord from '../../components/discord'
-
+import { Link } from 'react-router-dom'
 const showDiscord = width => {
   const isMobile = width <= 500
   if (isMobile) {
@@ -32,6 +32,10 @@ const Home = props => {
     const client = new discordBot.Client()
     client.login(process.env.DISCORD_API)
     client.on('ready', () => {
+      client.user.setActivity('Someone use my Website', {
+        type: 'WATCHING',
+        url: 'https://www.utacsec.org'
+      })
       setDiscordCount(client.users.size)
     })
     getTwitter()
@@ -55,48 +59,14 @@ const Home = props => {
                   University of Texas at Arlington
                   <Header.Subheader style={{ fontSize: '2vw' }}>Cyber Security Club</Header.Subheader>
                 </Header>
-                {chrome === true ? (
-                  <a
-                    href="mailto:uta.csec@gmail.com?subject=Join%20MailList&body=Please%20enter%20your%20full%20name%20and%20mavs%20email%0A%0AName:%20First%20Last%0A%0AEmail:%20abc@mavs.uta.edu&tf=1"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button animated color="green" style={{ fontSize: '1.5vw' }}>
-                      <Button.Content visible>Join Now</Button.Content>
-                      <Button.Content hidden>
-                        <Icon name="arrow right" />
-                      </Button.Content>
-                    </Button>
-                  </a>
-                ) : (
-                  <Modal
-                    basic
-                    centered
-                    size="tiny"
-                    trigger={
-                      <Button animated color="green" style={{ fontSize: '1.5vw' }}>
-                        <Button.Content visible>Join Now</Button.Content>
-                        <Button.Content hidden>
-                          <Icon name="arrow right" />
-                        </Button.Content>
-                      </Button>
-                    }
-                    closeIcon
-                  >
-                    <Header icon="chrome" content="Not a chrome browser" />
-                    <Modal.Content>
-                      <p>
-                        Please open this in chrome to auto compile a mail to join the club or just mail us your Full
-                        Name and mavs email address to uta.csec@gmail.com.
-                      </p>
-                    </Modal.Content>
-                    <Modal.Actions>
-                      <Button color="green">
-                        <Icon name="checkmark" /> Yes
-                      </Button>
-                    </Modal.Actions>
-                  </Modal>
-                )}
+                <Link to="/joinnow">
+                  <Button animated color="green" style={{ fontSize: '1.5vw' }}>
+                    <Button.Content visible>Join Now</Button.Content>
+                    <Button.Content hidden>
+                      <Icon name="arrow right" />
+                    </Button.Content>
+                  </Button>
+                </Link>
               </Segment>
             </Segment>
           </Grid.Column>
@@ -114,7 +84,7 @@ const Home = props => {
                 </Label>
               </Button>
             </a>
-            <a href="https://www.facebook.com/UTACSEC/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.facebook.com/groups/311122589070567/" target="_blank" rel="noopener noreferrer">
               <Button color="facebook" style={{ fontSize: '1.5vw' }}>
                 <Icon name="facebook" /> Facebook
               </Button>
