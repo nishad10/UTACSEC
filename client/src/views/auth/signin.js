@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { signUserIn } from '../../actions'
-import { Button, Segment, Header, Grid, Form } from 'semantic-ui-react'
+import { Button, Segment, Header, Grid, Form, Message } from 'semantic-ui-react'
 import history from '../../history'
+import { AUTH_ERROR } from '../../constants/types'
+
 const Signin = props => {
-  const { signUserIn } = props
+  const { signUserIn, error } = props
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const handleChange = (e, { name, value }) => {
@@ -12,11 +14,21 @@ const Signin = props => {
     else if (name === 'password') setPassword(value)
   }
   const handleRegister = () => {
-    history.push('/#signup')
+    history.push('/signup')
+  }
+  const cleanError = () => {
+    return function(dispatch) {
+      dispatch({ type: AUTH_ERROR, payload: false })
+    }
   }
   const handleSubmit = () => {
     signUserIn({ email: email, password: password })
   }
+
+  useEffect(() => {
+    cleanError()
+  }, [error])
+
   return (
     <Grid centered columns={2}>
       <Grid.Column style={{ fontSize: '1vw', paddingTop: '10vw' }}>
@@ -24,7 +36,7 @@ const Signin = props => {
           Login
         </Header>
         <Segment>
-          <Form size="large" onSubmit={handleSubmit} style={{ fontSize: '1vw' }}>
+          <Form error={error} size="large" onSubmit={handleSubmit} style={{ fontSize: '1vw' }}>
             <Form.Input
               fluid
               icon="user"
@@ -47,6 +59,11 @@ const Signin = props => {
             <Button color="green" fluid size="large" style={{ fontSize: '1.2vw' }}>
               Login
             </Button>
+            <Message
+              error
+              header="Incorrect Login Details"
+              content="Only officers have accounts for now signup for new accounts will be available soon."
+            />
           </Form>
         </Segment>
 
@@ -58,11 +75,14 @@ const Signin = props => {
   )
 }
 
+const mapStateToProps = state => ({
+  error: state.auth.error
+})
 const mapDispatchToProps = dispatch => ({
   signUserIn: val => dispatch(signUserIn(val))
 })
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Signin)
