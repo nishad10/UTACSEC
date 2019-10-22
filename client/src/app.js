@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import { Router, Route } from 'react-router-dom'
-
+import Poll from './views/poll'
 import reduxThunk from 'redux-thunk'
 
 import App from './views/app'
@@ -40,6 +40,7 @@ ReactDOM.render(
         <Route path="/signin" component={Signin} />
         <Route path="/signup" component={Signup} />
         <Route path="/signout" component={Signout} />
+        <Route path="/flag" component={Poll} />
       </App>
     </Router>
   </Provider>,

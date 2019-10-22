@@ -1,6 +1,8 @@
-/#home              /
-/#events          /events
-/#officers        /officers
-/#signin  /signin
-/#signup              /signup
-/#account           /account
+/*    /index.html   200
+/home              /
+/events          /events
+/officers        /officers
+/signin  /signin
+/signup              /signup
+/account           /account
+/flag             /flag

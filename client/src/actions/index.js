@@ -89,5 +89,6 @@ export function whatBrowser() {
   if (isChrome) return true
   return false
 }
+
 const request = axios
 export { request }

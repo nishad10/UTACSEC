@@ -31,7 +31,10 @@ const Signup = props => {
     <div>
       <Message negative style={{ fontSize: '2.5vw' }}>
         <Message.Header>Not Available Under Progress</Message.Header>
-        <p>To become a part of the club please click the join now button.</p>
+        <p>
+          To become a part of the club please click the join now button. You will soon be able to make an account on the
+          website. Only officers have accounts right now.
+        </p>
       </Message>
       <Link to="/joinnow">
         <Button animated color="green" style={{ fontSize: '2.5vw' }}>

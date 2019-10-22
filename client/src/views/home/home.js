@@ -137,7 +137,7 @@ const Home = props => {
                       <List.Item>
                         <List.Content>
                           <List.Header>Information on IT/cybersecurity certificates</List.Header>
-                          Such as CET (Certified Ethical Hacker), CompTIA Security+, CCNA, and others
+                          Such as CEH (Certified Ethical Hacker), CompTIA Security+, CCNA, and others
                         </List.Content>
                       </List.Item>
                       <List.Item>

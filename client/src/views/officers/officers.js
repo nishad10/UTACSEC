@@ -55,9 +55,10 @@ class Officers extends Component {
                   </Card>
                 </div>
                 <div style={{ alignSelf: 'center', paddingLeft: '5vw', paddingBottom: '5vw' }}>
-                  Hey I am Zehra and I am a Senior at UTA. I have been a part of this club for a long time. I am the
-                  president so I pretty much overlook all aspects of the club. I also have a CEH certificate and am
-                  working towards other certificates as well.
+                  Hey I am Zehra and I am a Senior at UTA. I have been a part of this club since my Freshmen Year. I am
+                  the president so I pretty much overlook all aspects of the club. I am C|EH certified and am working
+                  towards other certifications as well. I love Pen testing in my free time. I am always utilizing my
+                  skills by learning tools, reading books, and doing labs.
                 </div>
               </Segment>
             </div>
