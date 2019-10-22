@@ -51,7 +51,7 @@ export default class Events extends Component {
 
     return (
       <Item.Group divided relaxed style={{ display: 'grid', justifyContent: 'center', paddingTop: '50px' }}>
-        <Segment inverted>
+        <Segment inverted style={{ border: '0.2vw solid #535353' }}>
           <Item style={{ display: 'flex' }}>
             <Item.Content
               style={{
@@ -61,7 +61,7 @@ export default class Events extends Component {
                 paddingRight: '3vw'
               }}
             >
-              <div style={{ alignSelf: 'center', paddingTop: '3vw', paddingBottom: '3vw', width: '17vw' }}>
+              <div style={{ alignSelf: 'center', paddingTop: '5.5vw', paddingBottom: '3vw', width: '17vw' }}>
                 <Item.Header style={{ fontSize: '4vw' }}>24th</Item.Header>
                 <Item.Description style={{ fontSize: '2vw' }}>O C T</Item.Description>
                 <Item.Description style={{ color: '#3cba45', fontSize: '2vw', lineHeight: '3vw' }}>
@@ -72,7 +72,22 @@ export default class Events extends Component {
               </div>
             </Item.Content>
 
-            <Item.Content style={{ maxWidth: '700px', fontSize: '2vw', lineHeight: '3vw', paddingTop: '3vw' }}>
+            <Item.Content style={{ maxWidth: '700px', fontSize: '2vw', lineHeight: '3vw', paddingTop: '1vw' }}>
+              <div
+                style={{
+                  display: 'flex',
+                  textAlign: 'center',
+                  color: 'white',
+                  fontSize: '3vw',
+                  paddingRight: '5vw',
+                  paddingBottom: '1.5vw'
+                }}
+              >
+                {' '}
+                <Icon style={{ paddingTop: '0.5vw' }} name="calendar alternate outline" />
+                <div style={{ fontSize: '2.7vw', paddingTop: '0.5vw' }}>Metasploit Tutorial</div>
+              </div>
+
               <div style={{ paddingBottom: '10px', marginBottom: '1vw' }}>
                 The meeting will focus on use of metasploit and its syntax. Learn to use metasploit a penetration
                 testing framework to discover exploits, and validate vulnerabilities. - By Zehra Jafri.{' '}
@@ -85,7 +100,7 @@ export default class Events extends Component {
           </Item>
         </Segment>
 
-        <Segment inverted>
+        <Segment inverted style={{ border: '0.2vw solid #535353' }}>
           <Item style={{ display: 'flex' }}>
             <Item.Content
               style={{
@@ -95,24 +110,51 @@ export default class Events extends Component {
                 lineHeight: '4vw'
               }}
             >
-              <div style={{ alignSelf: 'center', paddingTop: '3vw', paddingBottom: '3vw', width: '17vw' }}>
+              <div style={{ alignSelf: 'center', paddingTop: '5.5vw', paddingBottom: '3vw', width: '17vw' }}>
                 <Item.Header style={{ fontSize: '4vw' }}>31st</Item.Header>
                 <Item.Description style={{ fontSize: '2vw' }}>O C T</Item.Description>
                 <Item.Description style={{ color: '#3cba45', fontSize: '2vw', lineHeight: '3vw' }}>
                   <div>Thursday</div>
                   <div>7pm-10pm</div>
-                  <div style={{ fontWeight: 'bold', color: 'white' }}>Sponsored By :-</div>
-                  <Image
-                    as="a"
-                    href="https://www.privateinternetaccess.com/"
-                    target="_blank"
-                    fluid
-                    src="/statics/pia-logo-white.png"
-                  />
+                  <a href="https://www.privateinternetaccess.com/" target="_blank" rel="noopener noreferrer">
+                    <div
+                      style={{
+                        border: '0.1vw solid #828282',
+                        background: '#3c3c3c',
+                        padding: '0.5vw',
+                        marginTop: '1vw'
+                      }}
+                    >
+                      <div style={{ fontWeight: 'bold', color: 'white' }}>Sponsored By :-</div>
+                      <Image
+                        as="a"
+                        href="https://www.privateinternetaccess.com/"
+                        target="_blank"
+                        fluid
+                        src="/statics/pia-logo-white.png"
+                      />
+                    </div>
+                  </a>
                 </Item.Description>
               </div>
             </Item.Content>
-            <Item.Content style={{ maxWidth: '700px', fontSize: '2vw', lineHeight: '3vw', paddingTop: '3vw' }}>
+            <Item.Content style={{ maxWidth: '700px', fontSize: '2vw', lineHeight: '3vw', paddingTop: '1vw' }}>
+              <div
+                style={{
+                  display: 'flex',
+                  textAlign: 'center',
+                  color: '#edaa64',
+                  fontSize: '3vw',
+                  paddingRight: '5vw',
+                  paddingBottom: '1.5vw'
+                }}
+              >
+                {' '}
+                <div style={{ width: '4vw', height: '3vw', marginRight: '2vw' }}>
+                  <Image fluid src="/statics/pumpkin.png" />
+                </div>
+                <div style={{ fontSize: '2.7vw', paddingTop: '0.5vw' }}>COE Halloween Bash</div>
+              </div>
               <div style={{ paddingBottom: '10px', marginBottom: '1vw' }}>
                 The College of Engineering Halloween Bash will be hosted by the UTA CSEC Club along with a few other COE
                 clubs. This event will serve as an opportunity to meet new people in COE, discover new organizations to

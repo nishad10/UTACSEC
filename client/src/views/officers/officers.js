@@ -8,7 +8,11 @@ class Officers extends Component {
         <Grid style={{ fontSize: '1.5vw', backgroundColor: 'black', lineHeight: '3vw' }}>
           <Grid.Row style={{ padding: '7vw 7vw 1vw 7vw', display: 'flex' }}>
             <div style={{ display: 'flex', width: '100%' }}>
-              <Segment inverted textAlign="left" style={{ fontSize: '2vw', display: 'flex', width: '100%' }}>
+              <Segment
+                inverted
+                textAlign="left"
+                style={{ fontSize: '2vw', display: 'flex', width: '100%', border: '0.2vw solid #535353' }}
+              >
                 <div style={{ width: '20vw', fontSize: '1vw' }}>
                   <Card>
                     <Image src="/statics/jiang.jpg" wrapped ui={false} />
@@ -37,7 +41,11 @@ class Officers extends Component {
           <Divider inverted style={{ margin: '1vw 15vw 1vw 15vw' }} />
           <Grid.Row style={{ padding: '1vw 7vw 1vw 7vw', display: 'flex' }}>
             <div style={{ display: 'flex', width: '100%' }}>
-              <Segment inverted textAlign="left" style={{ fontSize: '2vw', display: 'flex', width: '100%' }}>
+              <Segment
+                inverted
+                textAlign="left"
+                style={{ fontSize: '2vw', display: 'flex', width: '100%', border: '0.2vw solid #535353' }}
+              >
                 <div style={{ width: '20vw', fontSize: '1vw' }}>
                   <Card>
                     <Image src="/statics/zehra.jpg" wrapped ui={false} />
@@ -66,7 +74,11 @@ class Officers extends Component {
           <Divider inverted style={{ margin: '1vw 15vw 1vw 15vw' }} />
           <Grid.Row style={{ padding: '1vw 7vw 1vw 7vw', display: 'flex' }}>
             <div style={{ display: 'flex', width: '100%' }}>
-              <Segment inverted textAlign="left" style={{ fontSize: '2vw', display: 'flex', width: '100%' }}>
+              <Segment
+                inverted
+                textAlign="left"
+                style={{ fontSize: '2vw', display: 'flex', width: '100%', border: '0.2vw solid #535353' }}
+              >
                 <div style={{ width: '20vw', fontSize: '1vw' }}>
                   <Card>
                     <Image src="/statics/nishad.jpg" wrapped ui={false} />
@@ -96,7 +108,11 @@ class Officers extends Component {
           <Divider inverted style={{ margin: '1vw 15vw 1vw 15vw' }} />
           <Grid.Row style={{ padding: '1vw 7vw 1vw 7vw', display: 'flex' }}>
             <div style={{ display: 'flex', width: '100%' }}>
-              <Segment inverted textAlign="left" style={{ fontSize: '2vw', display: 'flex', width: '100%' }}>
+              <Segment
+                inverted
+                textAlign="left"
+                style={{ fontSize: '2vw', display: 'flex', width: '100%', border: '0.2vw solid #535353' }}
+              >
                 <div style={{ width: '20vw', fontSize: '1vw' }}>
                   <Card>
                     <Image src="/statics/mario.jpg" wrapped ui={false} />
@@ -126,7 +142,11 @@ class Officers extends Component {
           <Divider inverted style={{ margin: '1vw 15vw 1vw 15vw' }} />
           <Grid.Row style={{ padding: '1vw 7vw 1vw 7vw', display: 'flex' }}>
             <div style={{ display: 'flex', width: '100%' }}>
-              <Segment inverted textAlign="left" style={{ fontSize: '2vw', display: 'flex', width: '100%' }}>
+              <Segment
+                inverted
+                textAlign="left"
+                style={{ fontSize: '2vw', display: 'flex', width: '100%', border: '0.2vw solid #535353' }}
+              >
                 <div style={{ width: '20vw', fontSize: '1vw' }}>
                   <Card>
                     <Image src="/statics/favicon.ico" wrapped ui={false} />
