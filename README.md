@@ -58,13 +58,13 @@ $ git clone https://github.com/nishad10/utacsec.git
 $ npm i
 ```
 
-## Client-side usage(PORT: 3000)[YOU DO NOT NEED SERVER RUNNING AS IT IS A STATIC PAGE FOR NOW ]
+## Client-side usage(PORT: 3000)[YOU DO NOT NEED SERVER RUNNING(Optional) AS IT IS A STATIC PAGE]
 ```terminal
 $ cd client   // go to client folder
 $ npm i       // npm install pacakges
 $ npm run dev // run it locally
 ```
-For dev purpose you can skip server for now and just run above commands to work with the site as it is static right now and doesnt use anything fromt the database.
+For dev purpose you can skip server for now and just run above commands to work with the site.
 
 ## Server-side usage(PORT: 8000)
 
@@ -72,7 +72,7 @@ For dev purpose you can skip server for now and just run above commands to work 
 
 run the script at the first level:
 
-(You need to add a JWT_SECRET in .env to connect to MongoDB just add JWT_SECRET=something in .env file)
+(You need to add a JWT_SECRET in .env and also MongoDB key just add JWT_SECRET=something and other secret keys here in .env file)
 
 ```terminal
 // in the root level
