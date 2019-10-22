@@ -5,9 +5,9 @@ export default class Events extends Component {
   componentDidMount() {
     window.EBWidgets.createWidget({
       widgetType: 'checkout',
-      eventId: '76782042155',
+      eventId: '77972898037',
       modal: true,
-      modalTriggerElementId: 'eventbrite-widget-modal-trigger-76782042155',
+      modalTriggerElementId: 'eventbrite-widget-modal-trigger-77972898037',
       onOrderComplete: console.log('Order Done')
     })
   }
@@ -16,10 +16,9 @@ export default class Events extends Component {
     const renderConfirmNotConfirm = confirm => {
       return confirm ? (
         <Button
-          style={{ fontSize: '1.5vw' }}
+          style={{ fontSize: '1.5vw', float: 'right' }}
           color="green"
-          id="eventbrite-widget-modal-trigger-76782042155"
-          floated="right"
+          id="eventbrite-widget-modal-trigger-77972898037"
         >
           RSVP
           <Icon name="right chevron" />
@@ -30,7 +29,7 @@ export default class Events extends Component {
           centered
           size="tiny"
           trigger={
-            <Button style={{ fontSize: '1.5vw' }} color="green" floated="right">
+            <Button style={{ fontSize: '1.5vw', float: 'right' }} color="green">
               RSVP
               <Icon name="right chevron" />
             </Button>
@@ -57,25 +56,31 @@ export default class Events extends Component {
                 lineHeight: '4vw'
               }}
             >
-              <div style={{ alignSelf: 'center', paddingTop: '3vw', paddingBottom: '3vw' }}>
-                <Item.Header>25</Item.Header>
-
+              <div style={{ alignSelf: 'center', paddingTop: '3vw', paddingBottom: '3vw', width: '20vw' }}>
+                <Item.Header style={{ fontSize: '4vw' }}>24th</Item.Header>
                 <Item.Description>October</Item.Description>
-                <Item.Description style={{ color: '#3cba45' }}>Friday</Item.Description>
+                <Item.Description style={{ color: '#3cba45', fontSize: '2vw' }}>
+                  <div>
+                    Thursday<br></br>5pm-6pm
+                  </div>
+                </Item.Description>
               </div>
             </Item.Content>
+
             <Item.Content style={{ maxWidth: '700px', fontSize: '2vw', lineHeight: '3vw', paddingTop: '3vw' }}>
               <div style={{ paddingBottom: '10px' }}>
-                Weekly Meeting for the club will be held at ERB 316. If the meeting has been confirmed you can RSVP by
-                clicking the button below. We will send out an email once the meeting has been confirmed.
+                The meeting will focus on use of metasploit and its syntax. Learn to use metasploit to discover
+                exploits, and validate vulnerabilities. By Zehra.
+                <p style={{ textDecoration: 'underline' }}>
+                  [ This weeks meeting will be held at ERB 228 not ERB 316! ]
+                </p>
               </div>
-
-              {renderConfirmNotConfirm(false)}
+              {renderConfirmNotConfirm(true)}
             </Item.Content>
           </Item>
         </Segment>
         <Segment inverted>
-          <Item style={{ display: 'flex', paddingTop: '3vw' }}>
+          <Item style={{ display: 'flex' }}>
             <Item.Content
               style={{
                 textAlign: 'center',
@@ -84,11 +89,14 @@ export default class Events extends Component {
                 lineHeight: '4vw'
               }}
             >
-              <div style={{ alignSelf: 'center', paddingTop: '3vw', paddingBottom: '3vw' }}>
-                <Item.Header>31</Item.Header>
-
+              <div style={{ alignSelf: 'center', paddingTop: '3vw', paddingBottom: '3vw', width: '20vw' }}>
+                <Item.Header style={{ fontSize: '4vw' }}>31st</Item.Header>
                 <Item.Description>October</Item.Description>
-                <Item.Description style={{ color: '#3cba45' }}>Thursday</Item.Description>
+                <Item.Description style={{ color: '#3cba45', fontSize: '2vw' }}>
+                  <div>
+                    Friday<br></br>7pm-9pm
+                  </div>
+                </Item.Description>
               </div>
             </Item.Content>
             <Item.Content style={{ maxWidth: '700px', fontSize: '2vw', lineHeight: '3vw', paddingTop: '3vw' }}>
