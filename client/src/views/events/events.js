@@ -75,7 +75,7 @@ export default class Events extends Component {
                   [ This weeks meeting will be held at ERB 228 not ERB 316! ]
                 </p>
               </div>
-              {renderConfirmNotConfirm(true)}
+              {renderConfirmNotConfirm(false)}
             </Item.Content>
           </Item>
         </Segment>
