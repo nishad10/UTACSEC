@@ -1,25 +1,30 @@
 import React, { Component } from 'react'
-import { Button, Icon, Item, Segment, Header, Modal } from 'semantic-ui-react'
+import { Button, Icon, Item, Segment, Header, Modal, Image } from 'semantic-ui-react'
 
 export default class Events extends Component {
   componentDidMount() {
+    // Weekly meeting Event the modaltriggerelementid is what you should pass while calling which button goes to which event.
     window.EBWidgets.createWidget({
       widgetType: 'checkout',
       eventId: '77972898037',
       modal: true,
-      modalTriggerElementId: 'eventbrite-widget-modal-trigger-77972898037',
+      modalTriggerElementId: 'weekly',
+      onOrderComplete: console.log('Order Done')
+    })
+    // Halloween Event the modaltriggerelementid is what you should pass while calling which button goes to which event.
+    window.EBWidgets.createWidget({
+      widgetType: 'checkout',
+      eventId: '78026151319',
+      modal: true,
+      modalTriggerElementId: 'halloween',
       onOrderComplete: console.log('Order Done')
     })
   }
 
   render() {
-    const renderConfirmNotConfirm = confirm => {
+    const renderConfirmNotConfirm = (confirm, trigger) => {
       return confirm ? (
-        <Button
-          style={{ fontSize: '1.5vw', float: 'right' }}
-          color="green"
-          id="eventbrite-widget-modal-trigger-77972898037"
-        >
+        <Button style={{ fontSize: '1.5vw', float: 'right' }} color="green" id={trigger}>
           RSVP
           <Icon name="right chevron" />
         </Button>
@@ -75,7 +80,7 @@ export default class Events extends Component {
               <div style={{ textDecoration: 'underline', marginBottom: '1.5vw' }}>
                 [ This weeks meeting will be held at ERB 228 not ERB 316! ]
               </div>
-              {renderConfirmNotConfirm(true)}
+              {renderConfirmNotConfirm(true, 'weekly')}
             </Item.Content>
           </Item>
         </Segment>
@@ -94,19 +99,27 @@ export default class Events extends Component {
                 <Item.Header style={{ fontSize: '4vw' }}>31st</Item.Header>
                 <Item.Description style={{ fontSize: '2vw' }}>O C T</Item.Description>
                 <Item.Description style={{ color: '#3cba45', fontSize: '2vw', lineHeight: '3vw' }}>
-                  <div>Friday</div>
-                  <div>7pm-9pm</div>
-                  <div>ERB 228</div>
+                  <div>Thursday</div>
+                  <div>7pm-10pm</div>
+                  <div style={{ fontWeight: 'bold', color: 'white' }}>Sponsored By :-</div>
+                  <Image
+                    as="a"
+                    href="https://www.privateinternetaccess.com/"
+                    target="_blank"
+                    fluid
+                    src="/statics/pia-logo-white.png"
+                  />
                 </Item.Description>
               </div>
             </Item.Content>
             <Item.Content style={{ maxWidth: '700px', fontSize: '2vw', lineHeight: '3vw', paddingTop: '3vw' }}>
               <div style={{ paddingBottom: '10px', marginBottom: '1vw' }}>
-                The College of Engineering Halloween Party will be hosted by the UTA CSEC Club along with the help of a
-                few other COE clubs. You will be able to RSVP to the event and get your tickets soon on here. We will
-                send out an email when the tickets are available. Everything will be free.
+                The College of Engineering Halloween Bash will be hosted by the UTA CSEC Club along with a few other COE
+                clubs. This event will serve as an opportunity to meet new people in COE, discover new organizations to
+                be a part of, and a cool way to spend Halloween. There will be food, games, activities, prizes, and a
+                costume contest so be sure to wear your best costume and get ready to have fun!
               </div>
-              {renderConfirmNotConfirm(false)}
+              {renderConfirmNotConfirm(true, 'halloween')}
             </Item.Content>
           </Item>
         </Segment>
