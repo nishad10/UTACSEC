@@ -1,8 +1,20 @@
 import React, { Component } from 'react'
 import Iframe from 'react-iframe'
-
+import { Grid } from 'semantic-ui-react'
+const showDiscord = width => {
+  const isMobile = width <= 500
+  if (isMobile) {
+    return
+  } else
+    return (
+      <Grid.Column floated="left" style={{ maxWidth: '27vw', maxHeight: '80vw', minWidth: '200px' }}>
+        <Discord />
+      </Grid.Column>
+    )
+}
 class Discord extends Component {
   componentDidMount() {}
+
   render() {
     return (
       <Iframe
@@ -16,4 +28,4 @@ class Discord extends Component {
   }
 }
 
-export default Discord
+export default showDiscord
