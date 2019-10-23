@@ -27,9 +27,8 @@ The repo was initialized using the boilerplate for MERN from this repo.
 
 https://github.com/amazingandyyy/mern
 
-Refer to the above repo Readme for a more detailed and general information on deployment, this will only cover dev environment setup, till we have the website in development.
-
-I have made further changes to the initial structure and setup of the code.
+Refer to the above repo Readme for a more detailed and general information on deployment.
+I have made a lot of changes to the structure of the code and the naming conventions too. Boilerplate was only used as a starting point.
 
 ## Code structure
 
@@ -37,11 +36,15 @@ The website will be MERN fullstack
 
 > MERN is a fullstack implementation in MongoDB, Expressjs, React/Redux, Nodejs.
 
-React as a base
+MongoDb for all storage, user info initially but after that also use mongodb to store other data to make site dynamic.
 
-Redux for state management
+React as a base for UI framework.
 
-Saga or Thunk for middleware
+Redux for state management.
+
+Saga or Thunk for middleware.
+
+Finally Nodejs as runtime environment with Expressjs for rich web functionality.
 
 ## Installation and setup
 
@@ -57,8 +60,9 @@ NOTE :- You need client and server running concurrently in different terminal se
 $ git clone https://github.com/nishad10/utacsec.git
 $ npm i
 ```
+### For UI development you dont need server running but if you want full functionality run both client and server in two different terminal instances at the same time.
 
-## Client-side usage(PORT: 3000)[YOU DO NOT NEED SERVER RUNNING(Optional) AS IT IS A STATIC PAGE]
+## Client-side usage(PORT: 3000
 ```terminal
 $ cd client   // go to client folder
 $ npm i       // npm install pacakges
