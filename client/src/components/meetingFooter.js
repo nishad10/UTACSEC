@@ -9,32 +9,18 @@ const MeetingFooter = () => {
   }, [])
   return (
     <Segment inverted style={{ width: '100%' }}>
-      <Header as="h3" style={{ fontSize: '2vw' }}>
-        Meetings Information
-      </Header>
-      <p style={{ fontSize: '1.5vw' }}>Meetings are in ERB 316 every other Friday at 5 PM</p>
+      <Header as="h3">Meetings Information</Header>
+      <p>Meetings are in ERB 316 every other Friday at 5 PM</p>
       {chrome === true ? (
         <a
           href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=uta.csec@gmail.com&tf=1"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Button size="large" style={{ fontSize: '1.5vw' }}>
-            Email: uta.csec@gmail.com
-          </Button>
+          <Button size="large">Email: uta.csec@gmail.com</Button>
         </a>
       ) : (
-        <Modal
-          basic
-          centered
-          size="tiny"
-          trigger={
-            <Button size="large" style={{ fontSize: '1.5vw' }}>
-              Email: uta.csec@gmail.com
-            </Button>
-          }
-          closeIcon
-        >
+        <Modal basic centered size="tiny" trigger={<Button size="large">Email: uta.csec@gmail.com</Button>} closeIcon>
           <Header icon="chrome" content="Not a chrome browser" />
           <Modal.Content>
             <p>

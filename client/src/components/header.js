@@ -19,7 +19,7 @@ class Header extends Component {
   handleStack() {
     const { mobile } = this.state
     console.log(mobile, window.innerWidth)
-    if (window.innerWidth < 300) {
+    if (window.innerWidth < 500) {
       this.setState({ mobile: true })
     } else this.setState({ mobile: false })
   }
@@ -29,7 +29,7 @@ class Header extends Component {
   renderSignButton(activeItem) {
     if (this.props.authenticated) {
       return (
-        <Menu.Menu position="right" inverted icon="labeled" style={{ fontSize: '1.5vw' }}>
+        <Menu.Menu position="right" inverted icon="labeled">
           <Menu.Item as={Link} to="/signout" name="signout">
             <Icon name="sign-in" />
             SignOut
@@ -38,7 +38,7 @@ class Header extends Component {
       )
     } else {
       return (
-        <Menu.Menu position="right" inverted icon="labeled" style={{ fontSize: '1.5vw' }}>
+        <Menu.Menu position="right" inverted icon="labeled">
           <Menu.Item
             active={activeItem === 'signin'}
             onClick={this.handleItemClick}
@@ -67,7 +67,7 @@ class Header extends Component {
   render() {
     const { activeItem, mobile } = this.state
     return (
-      <Menu pointing secondary inverted stackable={mobile} style={{ fontSize: '1.5vw' }}>
+      <Menu pointing secondary inverted stackable={mobile}>
         <Menu.Item active={activeItem === 'home'} onClick={this.handleItemClick} as={Link} to="/" name="home" />
         <Menu.Item
           active={activeItem === 'events'}

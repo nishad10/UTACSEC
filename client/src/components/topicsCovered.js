@@ -4,11 +4,11 @@ import { Grid, List, Header, Segment } from 'semantic-ui-react'
 const TopicsCovered = () => {
   return (
     <Grid.Row>
-      <Segment inverted style={{ width: '100%', padding: '1vw' }}>
-        <Header as="h3" style={{ fontSize: '2vw', padding: '1.5vw' }} inverted block textAlign="center">
+      <Segment inverted style={{ width: '100%' }}>
+        <Header as="h3" inverted textAlign="center">
           Topics Covered
         </Header>
-        <Segment inverted style={{ fontSize: '2vw', padding: '1vw' }}>
+        <Segment inverted>
           <List bulleted divided inverted relaxed>
             <List.Item>
               <List.Content>

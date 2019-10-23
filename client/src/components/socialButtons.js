@@ -23,30 +23,30 @@ const SocialButtons = props => {
 
   return (
     <Grid.Row centered>
-      <Segment inverted style={{ alignSelf: 'center', padding: '1vw' }}>
+      <Segment inverted>
         <a href="https://twitter.com/UTA_CSEC" target="_blank" rel="noopener noreferrer">
-          <Button as="div" labelPosition="right" style={{ fontSize: '1vw' }}>
-            <Button color="twitter" style={{ fontSize: '1.5vw' }}>
+          <Button as="div" labelPosition="right">
+            <Button color="twitter">
               <Icon name="twitter" />
               Twitter
             </Button>
-            <Label as="a" basic color="twitter" pointing="left" style={{ fontSize: '1.5vw' }}>
+            <Label as="a" basic color="twitter" pointing="left">
               {twitterCount} Followers
             </Label>
           </Button>
         </a>
         <a href="https://www.facebook.com/groups/311122589070567/" target="_blank" rel="noopener noreferrer">
-          <Button color="facebook" style={{ fontSize: '1.5vw' }}>
+          <Button color="facebook">
             <Icon name="facebook" /> Facebook
           </Button>
         </a>
         <a href="https://discord.gg/F9wZjBe" target="_blank" rel="noopener noreferrer">
-          <Button as="div" labelPosition="right" style={{ fontSize: '1vw' }}>
-            <Button style={{ fontSize: '1.5vw', color: 'white', background: '#7289DA' }}>
+          <Button as="div" labelPosition="right">
+            <Button style={{ color: 'white', background: '#7289DA' }}>
               <Icon name="discord" />
               Discord
             </Button>
-            <Label as="a" basic color="white" pointing="left" style={{ fontSize: '1.5vw' }}>
+            <Label as="a" basic color="white" pointing="left">
               {discordCount} Members
             </Label>
           </Button>

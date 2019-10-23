@@ -19,14 +19,14 @@ const Home = props => {
 
   return (
     <div>
-      <Grid style={{ backgroundColor: 'black', lineHeight: '2vw', padding: '1vw' }}>
+      <Grid>
         <HomepageHeader />
         <SocialButtons />
-        <Divider inverted style={{ margin: '0px' }} />
+        <Divider inverted />
         <Grid.Row>
           <Grid celled="internally" columns="equal" style={{ display: 'flex' }}>
             {showDiscord(width)}
-            <Grid.Column style={{}}>
+            <Grid.Column>
               <Activities />
               <TopicsCovered />
             </Grid.Column>
