@@ -12,7 +12,7 @@ class Officers extends Component {
             position={'Faculty Advisor'}
             email={'jiang.ming@uta.edu'}
             description={
-              ' Hey I am Zehra and I am a Senior at UTA. I have been a part of this club since my Freshmen Year. I am the president so I pretty much overlook all aspects of the club. I am C|EH certified and am working towards other certifications as well. I love Pen testing in my free time. I am always utilizing my skills by learning tools, reading books, and doing labs.'
+              ' I am an Assistant Professor in the Computer Science and Engineering Department at UT Arlington. My research interests span cybersecurity and software engineering, with a focus on software security and malware analysis. I am endeavoring to develop novel binary code analysis techniques to help people find software vulnerabilities and defeat malicious software.'
             }
             imgSource={'/statics/jiang.jpg'}
           />
@@ -22,7 +22,7 @@ class Officers extends Component {
             position={'President'}
             email={'zehra.jafri@mavs.uta.edu'}
             description={
-              ' I am an Assistant Professor in the Computer Science and Engineering Department at UT Arlington. My research interests span cybersecurity and software engineering, with a focus on software security and malware analysis. I am endeavoring to develop novel binary code analysis techniques to help people find software vulnerabilities and defeat malicious software.'
+              ' Hey I am Zehra and I am a Senior at UTA. I have been a part of this club since my Freshmen Year. I am the president so I pretty much overlook all aspects of the club. I am C|EH certified and am working towards other certifications as well. I love Pen testing in my free time. I am always utilizing my skills by learning tools, reading books, and doing labs.'
             }
             imgSource={'/statics/zehra.jpg'}
           />
