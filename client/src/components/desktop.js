@@ -70,42 +70,48 @@ class DesktopContainer extends Component {
     return (
       <Responsive getWidth={this.getWidth} minWidth={Responsive.onlyTablet.minWidth}>
         <Visibility once={false} onBottomPassed={this.showFixedMenu} onBottomPassedReverse={this.hideFixedMenu}>
-          <Segment inverted textAlign="center" style={{ minHeight: '1em', padding: '1em 0em' }} vertical>
-            <Menu fixed={fixed ? 'top' : null} inverted={!fixed} pointing={!fixed} secondary={!fixed} size="large">
-              <Container>
-                <Menu.Item active={activeItem === 'home'} onClick={this.handleItemClick} as={Link} to="/" name="home" />
-                <Menu.Item
-                  active={activeItem === 'events'}
-                  onClick={this.handleItemClick}
-                  as={Link}
-                  to="/events"
-                  name="events"
-                />
-                <Menu.Item
-                  active={activeItem === 'officers'}
-                  onClick={this.handleItemClick}
-                  as={Link}
-                  to="/officers"
-                  name="officers"
-                />
-                <Menu.Item
-                  active={activeItem === 'about'}
-                  onClick={this.handleItemClick}
-                  as={Link}
-                  to="/about"
-                  name="about"
-                />
-                <Menu.Item
-                  active={activeItem === 'account'}
-                  onClick={this.handleItemClick}
-                  as={Link}
-                  to="/account"
-                  name="account"
-                />
-                {this.renderSignButton(activeItem)}
-              </Container>
-            </Menu>
-          </Segment>
+          <Menu
+            fixed={fixed ? 'top' : null}
+            inverted
+            style={{ background: fixed ? '#1b1c1d' : 'black', color: 'white', minHeight: '3.5em', paddingTop: '1em' }}
+            pointing
+            secondary
+            //tabular={fixed}
+            size="large"
+          >
+            <Container>
+              <Menu.Item active={activeItem === 'home'} onClick={this.handleItemClick} as={Link} to="/" name="home" />
+              <Menu.Item
+                active={activeItem === 'events'}
+                onClick={this.handleItemClick}
+                as={Link}
+                to="/events"
+                name="events"
+              />
+              <Menu.Item
+                active={activeItem === 'officers'}
+                onClick={this.handleItemClick}
+                as={Link}
+                to="/officers"
+                name="officers"
+              />
+              <Menu.Item
+                active={activeItem === 'about'}
+                onClick={this.handleItemClick}
+                as={Link}
+                to="/about"
+                name="about"
+              />
+              <Menu.Item
+                active={activeItem === 'account'}
+                onClick={this.handleItemClick}
+                as={Link}
+                to="/account"
+                name="account"
+              />
+              {this.renderSignButton(activeItem)}
+            </Container>
+          </Menu>
         </Visibility>
 
         {children}

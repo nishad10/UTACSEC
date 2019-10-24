@@ -4,12 +4,7 @@ import { Grid } from 'semantic-ui-react'
 const showDiscord = isMobile => {
   if (isMobile) {
     return
-  } else
-    return (
-      <Grid.Column floated="left" style={{ maxWidth: '27vw', maxHeight: '80vw', minWidth: '200px' }}>
-        <Discord />
-      </Grid.Column>
-    )
+  } else return <Discord />
 }
 class Discord extends Component {
   componentDidMount() {}
