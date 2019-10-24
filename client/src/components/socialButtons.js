@@ -22,8 +22,8 @@ const SocialButtons = props => {
   }, [])
 
   return (
-    <Grid.Row centered>
-      <Segment inverted>
+    <div>
+      <Grid.Row centered>
         <a href="https://twitter.com/UTA_CSEC" target="_blank" rel="noopener noreferrer">
           <Button as="div" labelPosition="right">
             <Button color="twitter">
@@ -51,8 +51,8 @@ const SocialButtons = props => {
             </Label>
           </Button>
         </a>
-      </Segment>
-    </Grid.Row>
+      </Grid.Row>
+    </div>
   )
 }
 const mapStateToProps = state => ({

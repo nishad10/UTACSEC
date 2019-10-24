@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import Iframe from 'react-iframe'
 import { Grid } from 'semantic-ui-react'
-const showDiscord = width => {
-  const isMobile = width <= 500
+const showDiscord = isMobile => {
   if (isMobile) {
     return
   } else
