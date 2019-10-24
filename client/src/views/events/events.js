@@ -57,55 +57,6 @@ export default class Events extends Component {
               style={{
                 textAlign: 'center',
                 fontSize: '3vw',
-                lineHeight: '4vw',
-                paddingRight: '3vw'
-              }}
-            >
-              <div style={{ alignSelf: 'center', paddingTop: '5.5vw', paddingBottom: '3vw', width: '17vw' }}>
-                <Item.Header style={{ fontSize: '4vw' }}>24th</Item.Header>
-                <Item.Description style={{ fontSize: '2vw' }}>O C T</Item.Description>
-                <Item.Description style={{ color: '#3cba45', fontSize: '2vw', lineHeight: '3vw' }}>
-                  <div>Thursday</div>
-                  <div>5pm-6pm</div>
-                  <div>ERB 228</div>
-                </Item.Description>
-              </div>
-            </Item.Content>
-
-            <Item.Content style={{ maxWidth: '700px', fontSize: '2vw', lineHeight: '3vw', paddingTop: '1vw' }}>
-              <div
-                style={{
-                  display: 'flex',
-                  textAlign: 'center',
-                  color: 'white',
-                  fontSize: '3vw',
-                  paddingRight: '5vw',
-                  paddingBottom: '1.5vw'
-                }}
-              >
-                {' '}
-                <Icon style={{ paddingTop: '0.5vw' }} name="calendar alternate outline" />
-                <div style={{ fontSize: '2.7vw', paddingTop: '0.5vw' }}>Metasploit Tutorial</div>
-              </div>
-
-              <div style={{ paddingBottom: '10px', marginBottom: '1vw' }}>
-                The meeting will focus on use of metasploit and its syntax. Learn to use metasploit a penetration
-                testing framework to discover exploits, and validate vulnerabilities. - By Zehra Jafri.{' '}
-              </div>
-              <div style={{ textDecoration: 'underline', marginBottom: '1.5vw' }}>
-                [ This weeks meeting will be held at ERB 228 not ERB 316! ]
-              </div>
-              {renderConfirmNotConfirm(true, 'weekly')}
-            </Item.Content>
-          </Item>
-        </Segment>
-
-        <Segment inverted style={{ border: '0.2vw solid #535353' }}>
-          <Item style={{ display: 'flex' }}>
-            <Item.Content
-              style={{
-                textAlign: 'center',
-                fontSize: '3vw',
                 paddingRight: '3vw',
                 lineHeight: '4vw'
               }}
