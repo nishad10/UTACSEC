@@ -12,7 +12,7 @@ const events = () => {
   }, [])
 
   return (
-    <div>
+    <Item.Group divided relaxed style={{ display: 'grid', justifyContent: 'center', paddingTop: '50px' }}>
       <EventItem
         date={`24th`}
         month={`O C T`}
@@ -43,7 +43,7 @@ const events = () => {
         val={'image'}
         eventName={'halloween'}
       />
-    </div>
+    </Item.Group>
   )
 }
 export default events
