@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Item, Segment } from 'semantic-ui-react'
 import ticketEnableDisable from '../functions/ticketEnableDisable'
 import SponsorBadge from './sponsorBadge'
 import imgOrIcon from './imgOrIcon'
 const EventItem = ({ date, month, day, time, location, title, description, announcement, sponsor, val, eventName }) => {
   console.log(date, month, day)
+  const [width, setWidth] = useState(window.innerWidth)
+
+  useEffect(() => {
+    const handleWindowSizeChange = () => {
+      setWidth(window.innerWidth)
+    }
+    window.addEventListener('resize', handleWindowSizeChange)
+  }, [])
+
   return (
     <Segment inverted style={{ border: '0.2vw solid #535353' }}>
       <Item style={{ display: 'flex' }}>
@@ -28,7 +37,9 @@ const EventItem = ({ date, month, day, time, location, title, description, annou
           </div>
         </Item.Content>
 
-        <Item.Content style={{ maxWidth: '700px', fontSize: '2vw', lineHeight: '3vw', paddingTop: '1vw' }}>
+        <Item.Content
+          style={{ maxWidth: '700px', fontSize: width > 1200 ? '25px' : '2vw', lineHeight: '3vw', paddingTop: '1vw' }}
+        >
           <div
             style={{
               display: 'flex',

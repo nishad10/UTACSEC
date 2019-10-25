@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { signUserIn } from '../../actions'
-import { Button, Segment, Header, Grid, Form, Message } from 'semantic-ui-react'
+import { Button, Segment, Header, Grid, Form } from 'semantic-ui-react'
 import history from '../../history'
 import { AUTH_ERROR } from '../../constants/types'
 
@@ -30,44 +30,38 @@ const Signin = props => {
   }, [error])
 
   return (
-    <Grid centered columns={2}>
-      <Grid.Column style={{ fontSize: '1vw', paddingTop: '10vw' }}>
-        <Header inverted as="h2" textAlign="center" style={{ fontSize: '5vw' }}>
-          Login
+    <Grid textAlign="center" style={{ height: '100vh' }} verticalAlign="middle">
+      <Grid.Column style={{ maxWidth: 450 }}>
+        <Header as="h2" style={{ color: 'white', fontSize: '2em' }} textAlign="center">
+          Log-in to your account
         </Header>
-        <Segment>
-          <Form error={error} size="large" onSubmit={handleSubmit} style={{ fontSize: '1vw' }}>
+        <Form size="large" style={{ marginBottom: '1em' }}>
+          <Segment stacked>
+            <Form.Input onChange={handleChange} fluid icon="user" iconPosition="left" placeholder="E-mail address" />
             <Form.Input
-              fluid
-              icon="user"
-              name="email"
-              iconPosition="left"
-              placeholder="Email address"
-              value={email}
               onChange={handleChange}
-            />
-            <Form.Input
               fluid
               icon="lock"
-              name="password"
               iconPosition="left"
               placeholder="Password"
               type="password"
-              value={password}
-              onChange={handleChange}
             />
-            <Button color="green" fluid size="large" style={{ fontSize: '1.2vw' }}>
+
+            <Button onClick={handleSubmit} style={{ background: '#21ba45' }} fluid size="large">
               Login
             </Button>
-            <Message
-              error
-              header="Incorrect Login Details"
-              content="Only officers have accounts for now signup for new accounts will be available soon."
-            />
-          </Form>
-        </Segment>
+          </Segment>
+        </Form>
 
-        <Button onClick={handleRegister} fluid size="large" basic inverted color="green" style={{ fontSize: '1.5vw' }}>
+        <Button
+          onClick={handleRegister}
+          fluid
+          size="large"
+          basic
+          inverted
+          color="green"
+          style={{ fontSize: '1.14em', paddingTop: '1em' }}
+        >
           Not registered yet?
         </Button>
       </Grid.Column>

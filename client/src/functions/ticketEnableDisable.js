@@ -3,7 +3,7 @@ import { Button, Icon, Header, Modal } from 'semantic-ui-react'
 
 const ticketEnableDisable = (confirm, trigger) => {
   return confirm ? (
-    <Button style={{ fontSize: '1.5vw', float: 'right' }} color="green" id={trigger}>
+    <Button style={{ fontSize: '1.2vw', float: 'right' }} color="green" id={trigger}>
       RSVP
       <Icon name="right chevron" />
     </Button>

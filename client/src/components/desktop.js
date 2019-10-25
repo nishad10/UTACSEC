@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../actions'
 import { Link } from 'react-router-dom'
-import { Menu, Icon, Sidebar, Responsive, Container, Segment, Visibility } from 'semantic-ui-react'
+import { Menu, Icon, Responsive, Container, Visibility } from 'semantic-ui-react'
 class DesktopContainer extends Component {
   constructor(props) {
     super(props)
