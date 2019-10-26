@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import showDiscord from './discord'
 import { Grid, Container } from 'semantic-ui-react'
 const SocailWidgets = props => {
+  useEffect(() => {
+    twttr.widgets.load()
+  }, [])
   const { mobile } = props
   return !mobile ? (
     <Grid.Row columns="equal" style={{ background: '#1b1c1d', display: 'flex' }}>
