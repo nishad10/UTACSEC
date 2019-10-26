@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Grid, Divider } from 'semantic-ui-react'
+import { Grid, Divider, Header } from 'semantic-ui-react'
 import OfficerItem from '../../components/officerItem'
 
 const Officers = () => {
@@ -15,7 +15,10 @@ const Officers = () => {
   const mobile = width < 600
   return (
     <div>
-      <Grid style={{ lineHeight: mobile ? '3vw' : '2em' }}>
+      <Divider horizontal inverted style={{ margin: '5vw 15vw ' }}>
+        <Header as="h4" content="Faculty" style={{ color: 'rgb(158, 158, 158)', fontSize: '2vw' }} />
+      </Divider>
+      <Grid style={{ lineHeight: '2em' }}>
         <OfficerItem
           mobile={mobile}
           name={'Jiang Ming'}
@@ -26,7 +29,10 @@ const Officers = () => {
           }
           imgSource={'/statics/jiang.jpg'}
         />
-        <Divider inverted style={{ margin: '1vw 15vw 1vw 15vw' }} />
+        <Divider horizontal inverted style={{ margin: '5vw 15vw ' }}>
+          <Header as="h4" content="Students" style={{ color: 'rgb(158, 158, 158)', fontSize: '2vw' }} />
+        </Divider>
+
         <OfficerItem
           mobile={mobile}
           name={'Zehra Jafri'}
@@ -37,14 +43,14 @@ const Officers = () => {
           }
           imgSource={'/statics/zehra.jpg'}
         />
-        <Divider inverted style={{ margin: '1vw 15vw 1vw 15vw' }} />
+        <Divider inverted style={{ margin: '1vw 15vw' }} />
         <OfficerItem
           mobile={mobile}
           name={'Nishad Aherrao'}
           position={'Vice President'}
           email={'nishad.aherrao@mavs.uta.edu'}
           description={
-            ' Hey I am Nishad I am a Senior Undergraduate here at UTA and an International Student. I am doing my bachelors in Computer Science. I have been interested in security from quite a while. I like doing CTF on hackthebox and SEIM(Security Event and Incident Management) in terms of security. I havent really thought about security as a career path as I also like Software Development so I take security more as a hobby.'
+            ' Hey I am Nishad I am a Senior here at UTA and an International Student. I am doing my bachelors in Computer Science. In terms of security I used to do CTF on hackthebox and sometimes do SEIM(Security Event and Incident Management) stuff. I havent really taken security as seriosuly because I love coding in general so I like Full-Stack Web Development as well as other Software Development in general and take Security more as a hobby.'
           }
           imgSource={'/statics/nishad.jpg'}
         />
@@ -59,7 +65,7 @@ const Officers = () => {
           }
           imgSource={'/statics/mario.jpg'}
         />
-        <Divider inverted style={{ margin: '1vw 15vw 1vw 15vw' }} />
+        <Divider inverted style={{ margin: '1vw 15vw' }} />
         <OfficerItem
           mobile={mobile}
           name={'Erika Leal'}
