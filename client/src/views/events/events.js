@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
-import { Item } from 'semantic-ui-react'
+import { Header, Divider } from 'semantic-ui-react'
 import eventBrite from '../../components/eventBrite'
-import EventItem from '../../components/eventItem'
+import Eventitem from '../../components/eventitem'
 
 const events = () => {
   useEffect(() => {
@@ -12,8 +12,14 @@ const events = () => {
   }, [])
 
   return (
-    <Item.Group divided relaxed style={{ display: 'grid', justifyContent: 'center', paddingTop: '50px' }}>
-      <EventItem
+    <div style={{ padding: '5vw 15vw' }}>
+      <Divider horizontal inverted style={{ margin: '5vw 0vw ' }}>
+        <Header as="h4" style={{ color: 'rgb(158, 158, 158)', fontSize: '2vw' }}>
+          RSVP Now
+        </Header>
+      </Divider>
+
+      <Eventitem
         date={`24th`}
         month={`O C T`}
         day={'Thursday'}
@@ -28,7 +34,8 @@ const events = () => {
         val={'icon'}
         eventName={'weekly'}
       />
-      <EventItem
+      <Divider inverted style={{ margin: '3vw 10vw' }} />
+      <Eventitem
         date={`31st`}
         month={`O C T`}
         day={'Thursday'}
@@ -43,7 +50,7 @@ const events = () => {
         val={'image'}
         eventName={'halloween'}
       />
-    </Item.Group>
+    </div>
   )
 }
 export default events

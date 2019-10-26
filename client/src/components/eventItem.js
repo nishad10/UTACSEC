@@ -1,66 +1,32 @@
-import React, { useState, useEffect } from 'react'
-import { Item, Segment } from 'semantic-ui-react'
+import React, { useEffect } from 'react'
 import ticketEnableDisable from '../functions/ticketEnableDisable'
 import SponsorBadge from './sponsorBadge'
-import imgOrIcon from './imgOrIcon'
-const EventItem = ({ date, month, day, time, location, title, description, announcement, sponsor, val, eventName }) => {
-  console.log(date, month, day)
-  const [width, setWidth] = useState(window.innerWidth)
 
-  useEffect(() => {
-    const handleWindowSizeChange = () => {
-      setWidth(window.innerWidth)
-    }
-    window.addEventListener('resize', handleWindowSizeChange)
-  }, [])
+const Eventitem = ({ date, month, day, time, location, title, description, announcement, sponsor, val, eventName }) => {
+  console.log(date, month, day)
+
+  useEffect(() => {}, [])
 
   return (
-    <Segment inverted style={{ border: '0.2vw solid #535353' }}>
-      <Item style={{ display: 'flex' }}>
-        <Item.Content
-          style={{
-            textAlign: 'center',
-            fontSize: '3vw',
-            lineHeight: '4vw',
-            paddingRight: '3vw'
-          }}
-        >
-          <div style={{ alignSelf: 'center', paddingTop: '5.5vw', paddingBottom: '3vw', width: '17vw' }}>
-            <Item.Header style={{ fontSize: '4vw' }}>{date}</Item.Header>
-            <Item.Description style={{ fontSize: '2vw' }}>{month}</Item.Description>
-            <Item.Description style={{ color: '#3cba45', fontSize: '2vw', lineHeight: '3vw' }}>
-              <div>{day}</div>
-              <div>{time}</div>
-              <div>{location}</div>
-              {sponsor ? <SponsorBadge /> : <div />}
-            </Item.Description>
-          </div>
-        </Item.Content>
+    <div style={{ display: 'grid', color: 'white', gridTemplateColumns: '25% 75%' }}>
+      <div
+        style={{ alignSelf: 'center', textAlign: 'center', lineHeight: '2.5em', paddingRight: '1em', color: '#DE6E4B' }}
+      >
+        <div style={{ fontSize: '35px' }}>{date}</div>
+        <div style={{ fontSize: '25px' }}>{month}</div>
+        <div> {sponsor ? <SponsorBadge /> : <div />}</div>
+      </div>
 
-        <Item.Content
-          style={{ maxWidth: '700px', fontSize: width > 1200 ? '25px' : '2vw', lineHeight: '3vw', paddingTop: '1vw' }}
-        >
-          <div
-            style={{
-              display: 'flex',
-              textAlign: 'center',
-              color: 'white',
-              fontSize: '3vw',
-              paddingRight: '5vw',
-              paddingBottom: '1.5vw'
-            }}
-          >
-            {' '}
-            {imgOrIcon(val)}
-            <div style={{ fontSize: '2.7vw', paddingTop: '0.5vw' }}>{title}</div>
-          </div>
-
-          <div style={{ paddingBottom: '10px', marginBottom: '1vw' }}>{description} </div>
-          <div style={{ textDecoration: 'underline', marginBottom: '1.5vw' }}>{announcement} </div>
-          {ticketEnableDisable(true, eventName)}
-        </Item.Content>
-      </Item>
-    </Segment>
+      <div style={{ alignSelf: 'center', fontSize: '20px', lineHeight: '1.375em' }}>
+        <div style={{ color: '#DE6E4B', fontSize: '25px', fontWeight: 'bold', paddingBottom: '10px' }}>{title}</div>
+        <div>{description}</div>
+        <div style={{ color: '#5BC0BE', display: 'flex', paddingTop: '10px' }}>
+          At {location === undefined ? 'Not Decided Yet' : `${location}`}
+          <div style={{ color: '#5BC0BE', whiteSpace: 'pre', fontSize: '20px' }}> from {time}</div>
+        </div>
+        {ticketEnableDisable(true, eventName)}
+      </div>
+    </div>
   )
 }
-export default EventItem
+export default Eventitem
