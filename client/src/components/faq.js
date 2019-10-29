@@ -4,9 +4,7 @@ import { List, Header, Segment } from 'semantic-ui-react'
 const Faq = () => {
   return (
     <Segment vertical>
-      <Header as="h3" block>
-        FAQ
-      </Header>
+      <Header as="h3" content="FAQ" block style={{ textAlign: 'center' }}></Header>
       <Segment inverted textAlign="left">
         <List bulleted divided inverted relaxed>
           <List.Item>
