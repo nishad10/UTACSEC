@@ -96,8 +96,6 @@ body {
   }
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
+.customRibbon a {
+  background: black;
 }
