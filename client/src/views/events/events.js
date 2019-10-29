@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Header, Divider } from 'semantic-ui-react'
 import eventBrite from '../../components/eventBrite'
-import Eventitem from '../../components/eventitem'
+import Eventitem from '../../components/eventItem'
 
 const events = () => {
   const [width, setWidth] = useState(window.innerWidth)
