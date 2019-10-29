@@ -8,7 +8,8 @@ const SponsorBadge = () => {
         style={{
           background: '#121212',
           padding: '0.5vw',
-          marginTop: '1vw'
+          marginTop: '1vw',
+          paddingBottom: '20px'
         }}
       >
         <div style={{ fontWeight: 'bold', color: '#DE6E4B' }}>Sponsored By :-</div>

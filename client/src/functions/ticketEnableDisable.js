@@ -1,9 +1,9 @@
 import React from 'react'
 import { Button, Icon, Header, Modal } from 'semantic-ui-react'
 
-const ticketEnableDisable = (confirm, trigger) => {
+const ticketEnableDisable = (confirm, trigger, mobile) => {
   return confirm ? (
-    <Button style={{ fontSize: '1.2vw', float: 'right', background: '#DE6E4B' }} id={trigger}>
+    <Button style={{ fontSize: mobile ? '3.2vw' : '1vw', float: 'right', background: '#DE6E4B' }} id={trigger}>
       RSVP
       <Icon name="right chevron" />
     </Button>
