@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { Grid, Divider, Tab, Container, Accordion } from 'semantic-ui-react'
-import showDiscord from '../../components/discord'
+import React from 'react'
+import { Container } from 'semantic-ui-react'
 import Activities from '../../components/activities'
 import TopicsCovered from '../../components/topicsCovered'
 import Faq from '../../components/faq'

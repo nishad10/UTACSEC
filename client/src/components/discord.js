@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Iframe from 'react-iframe'
-import { Grid } from 'semantic-ui-react'
 const showDiscord = isMobile => {
   if (isMobile) {
     return
