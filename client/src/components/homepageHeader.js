@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Icon, Header, Container } from 'semantic-ui-react'
+import { Button, Icon, Header, Container, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 const HomepageHeader = props => {
@@ -17,17 +17,21 @@ const HomepageHeader = props => {
           marginTop: mobile ? '1em' : '2.5em'
         }}
       />
-      <Header
-        as="h2"
-        content="Cyber Security Club"
-        inverted
-        style={{
-          fontSize: mobile ? '1.8em' : '2.5em',
-          fontWeight: 'normal',
-          marginTop: mobile ? '0.5em' : '1.5em',
-          marginBottom: mobile ? '0.5em' : '1.5em'
-        }}
-      />
+      <div style={{ display: 'flex', paddingRight: mobile ? '0vw' : '6vw', justifyContent: mobile ? '' : 'center' }}>
+        <Image size="tiny" src="/statics/favicon.ico" style={{ alignSelf: 'center', paddingRight: '10px' }} />
+        <Header
+          as="h2"
+          content="Cyber Security Club"
+          inverted
+          style={{
+            alignSelf: 'center',
+            fontSize: mobile ? '1.5em' : '3em',
+            fontWeight: 'normal',
+            marginTop: mobile ? '0.5em' : '1.5em',
+            marginBottom: mobile ? '0.5em' : '1.5em'
+          }}
+        />
+      </div>
       <Button
         as={Link}
         to="/joinnow"

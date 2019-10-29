@@ -12,7 +12,7 @@ const Social = props => {
     const client = new discordBot.Client()
     client.login(process.env.DISCORD_API)
     client.on('ready', () => {
-      client.user.setActivity('Someone use my Website', {
+      client.user.setActivity('someone use my Website', {
         type: 'WATCHING',
         url: 'https://www.utacsec.org'
       })

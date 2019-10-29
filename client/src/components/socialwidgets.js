@@ -3,6 +3,7 @@ import showDiscord from './discord'
 import { Grid, Container } from 'semantic-ui-react'
 const SocailWidgets = props => {
   useEffect(() => {
+    // eslint-disable-next-line no-undef
     twttr.widgets.load()
   }, [])
   const { mobile } = props
