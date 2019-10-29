@@ -1,107 +1,63 @@
-import React, { Component } from 'react'
-import { Button, Icon, Item, Segment, Header, Modal } from 'semantic-ui-react'
+import React, { useEffect, useState } from 'react'
+import { Header, Divider } from 'semantic-ui-react'
+import eventBrite from '../../components/eventBrite'
+import Eventitem from '../../components/eventitem'
 
-export default class Events extends Component {
-  componentDidMount() {
-    window.EBWidgets.createWidget({
-      widgetType: 'checkout',
-      eventId: '76782042155',
-      modal: true,
-      modalTriggerElementId: 'eventbrite-widget-modal-trigger-76782042155',
-      onOrderComplete: console.log('Order Done')
-    })
-  }
-
-  render() {
-    const renderConfirmNotConfirm = confirm => {
-      return confirm ? (
-        <Button
-          style={{ fontSize: '1.5vw' }}
-          color="green"
-          id="eventbrite-widget-modal-trigger-76782042155"
-          floated="right"
-        >
-          RSVP
-          <Icon name="right chevron" />
-        </Button>
-      ) : (
-        <Modal
-          basic
-          centered
-          size="tiny"
-          trigger={
-            <Button style={{ fontSize: '1.5vw' }} color="green" floated="right">
-              RSVP
-              <Icon name="right chevron" />
-            </Button>
-          }
-          closeIcon
-        >
-          <Header icon="ticket" content="Event Unavailable" />
-          <Modal.Content>
-            <p>The event hasnt been confirmed yet or the tickets are not available. Check back soon!!</p>
-          </Modal.Content>
-        </Modal>
-      )
+const events = () => {
+  const [width, setWidth] = useState(window.innerWidth)
+  useEffect(() => {
+    // Weekly meeting Event the modaltriggerelementid is what you should pass while calling which button goes to which event.
+    eventBrite('77972898037', 'weekly')
+    // Halloween Event the modaltriggerelementid is what you should pass while calling which button goes to which event.
+    eventBrite('78026151319', 'halloween')
+    const handleWindowSizeChange = () => {
+      setWidth(window.innerWidth)
     }
+    window.addEventListener('resize', handleWindowSizeChange)
+  }, [])
+  const mobile = width < 600
+  return (
+    <div style={{ padding: mobile ? '5vw 10vw' : '5vw 15vw' }}>
+      <Divider horizontal inverted style={{ margin: '5vw 0vw ' }}>
+        <Header as="h4" style={{ color: 'rgb(158, 158, 158)', fontSize: mobile ? '4vw' : '1.5vw' }}>
+          RSVP Now
+        </Header>
+      </Divider>
 
-    return (
-      <Item.Group divided relaxed style={{ display: 'grid', justifyContent: 'center', paddingTop: '50px' }}>
-        <Segment inverted>
-          <Item style={{ display: 'flex' }}>
-            <Item.Content
-              style={{
-                textAlign: 'center',
-                fontSize: '3vw',
-                paddingRight: '2vw',
-                lineHeight: '4vw'
-              }}
-            >
-              <div style={{ alignSelf: 'center', paddingTop: '3vw', paddingBottom: '3vw' }}>
-                <Item.Header>25</Item.Header>
-
-                <Item.Description>October</Item.Description>
-                <Item.Description style={{ color: '#3cba45' }}>Friday</Item.Description>
-              </div>
-            </Item.Content>
-            <Item.Content style={{ maxWidth: '700px', fontSize: '2vw', lineHeight: '3vw', paddingTop: '3vw' }}>
-              <div style={{ paddingBottom: '10px' }}>
-                Weekly Meeting for the club will be held at ERB 316. If the meeting has been confirmed you can RSVP by
-                clicking the button below. We will send out an email once the meeting has been confirmed.
-              </div>
-
-              {renderConfirmNotConfirm(false)}
-            </Item.Content>
-          </Item>
-        </Segment>
-        <Segment inverted>
-          <Item style={{ display: 'flex', paddingTop: '3vw' }}>
-            <Item.Content
-              style={{
-                textAlign: 'center',
-                fontSize: '3vw',
-                paddingRight: '2vw',
-                lineHeight: '4vw'
-              }}
-            >
-              <div style={{ alignSelf: 'center', paddingTop: '3vw', paddingBottom: '3vw' }}>
-                <Item.Header>31</Item.Header>
-
-                <Item.Description>October</Item.Description>
-                <Item.Description style={{ color: '#3cba45' }}>Thursday</Item.Description>
-              </div>
-            </Item.Content>
-            <Item.Content style={{ maxWidth: '700px', fontSize: '2vw', lineHeight: '3vw', paddingTop: '3vw' }}>
-              <div style={{ paddingBottom: '10px' }}>
-                The College of Engineering Halloween Party will be hosted by the UTA CSEC Club along with the help of a
-                few other COE clubs. You will be able to RSVP to the event and get your tickets soon on here. We will
-                send out an email when the tickets are available. Everything will be free.
-              </div>
-              {renderConfirmNotConfirm(false)}
-            </Item.Content>
-          </Item>
-        </Segment>
-      </Item.Group>
-    )
-  }
+      <Eventitem
+        date={`24th`}
+        month={`O C T`}
+        day={'Thursday'}
+        time={'5pm-6pm'}
+        location={'ERB 228'}
+        title={'Metasploit Tutorial'}
+        description={
+          ' The meeting will focus on use of metasploit and its syntax. Learn to use metasploit a penetration testing framework to discover exploits, and validate vulnerabilities. - By Zehra Jafri.'
+        }
+        announcement={' [ This weeks meeting will be held at ERB 228 not ERB 316! ]'}
+        sponsor={false}
+        val={'icon'}
+        eventName={'weekly'}
+        mobile={mobile}
+      />
+      <Divider inverted style={{ margin: '3vw 10vw' }} />
+      <Eventitem
+        date={`31st`}
+        month={`O C T`}
+        day={'Thursday'}
+        time={'7pm-10pm'}
+        location={'NH Atrium'}
+        title={'COE Halloween Bash'}
+        description={
+          ' The College of Engineering Halloween Bash will be hosted by the UTA CSEC Club along with a few other COE clubs. This event will serve as an opportunity to meet new people in COE, discover new organizations to be a part of, and a cool way to spend Halloween. There will be food, games, activities, prizes, and a costume contest so be sure to wear your best costume and get ready to have fun!'
+        }
+        // announcement={' [ This weeks meeting will be held at ERB 228 not ERB 316! ]'}
+        sponsor={true}
+        val={'image'}
+        eventName={'halloween'}
+        mobile={mobile}
+      />
+    </div>
+  )
 }
+export default events

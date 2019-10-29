@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
 import Iframe from 'react-iframe'
-
+import { Grid } from 'semantic-ui-react'
+const showDiscord = isMobile => {
+  if (isMobile) {
+    return
+  } else return <Discord />
+}
 class Discord extends Component {
   componentDidMount() {}
+
   render() {
     return (
       <Iframe
@@ -16,4 +22,4 @@ class Discord extends Component {
   }
 }
 
-export default Discord
+export default showDiscord

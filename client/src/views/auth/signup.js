@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { signUserUp } from '../../actions'
-import CenterCard363 from '../../components/centerCard363'
-import useForm from '../../use-form-react'
+
 import { Message, Button, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
@@ -45,87 +44,6 @@ const Signup = props => {
         </Button>
       </Link>
     </div>
-    /*
-    <CenterCard363>
-      <div className="card">
-        <h4 className="card-header">Sign Up</h4>
-        <div className="card-body">
-          <form onSubmit={onSubmit}>
-            <div className="form-group">
-              <label>First name:</label>
-              <input
-                name="firstName"
-                value={inputs.firstName}
-                type="text"
-                onChange={onChange}
-                className="form-control form-control-lg"
-                placeholder="First Name"
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label>Last name:</label>
-              <input
-                name="lastName"
-                value={inputs.lastName}
-                type="text"
-                onChange={onChange}
-                className="form-control form-control-lg"
-                placeholder="Last Name"
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label>Email:</label>
-              <input
-                name="email"
-                value={inputs.email}
-                type="email"
-                onChange={onChange}
-                className="form-control form-control-lg"
-                placeholder="sample@email.com"
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label>Password:</label>
-              <input
-                type="password"
-                name="password"
-                value={inputs.password}
-                onChange={onChange}
-                className="form-control form-control-lg"
-                placeholder="your password"
-                required
-              />
-            </div>
-
-            <div className="form-group">
-              <label>Comfirm Password:</label>
-              <input
-                type="password"
-                name="password2"
-                value={inputs.password2}
-                onChange={onChange}
-                className="form-control form-control-lg"
-                placeholder="your password again"
-                required
-              />
-            </div>
-            {errMsg && (
-              <div className="alert alert-warning">
-                <strong>Oops!</strong> {errMsg}
-              </div>
-            )}
-            <div style={{ paddingTop: '30px' }}>
-              <button type="submit" className="btn btn-lg btn-light btn-block" disabled={!dirty || submitting}>
-                Sign Up
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </CenterCard363>*/
   )
 }
 const mapDispatchToProps = dispatch => ({
