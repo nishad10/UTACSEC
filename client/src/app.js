@@ -8,6 +8,7 @@ import reduxThunk from 'redux-thunk'
 
 import App from './views/app'
 import Home from './views/home/home'
+import About from './views/about/about'
 import Events from './views/events/events'
 import Account from './views/account/account'
 import Officers from './views/officers/officers'
@@ -36,6 +37,7 @@ ReactDOM.render(
         <Route path="/joinnow" component={Join} />
         <Route path="/events" component={Events} />
         <Route path="/officers" component={Officers} />
+        <Route path="/about" component={About} />
         <Route path="/account" component={RequireAuth(Account)} />
         <Route path="/signin" component={Signin} />
         <Route path="/signup" component={Signup} />
