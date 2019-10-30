@@ -23,23 +23,6 @@ const events = () => {
           RSVP Now
         </Header>
       </Divider>
-
-      <Eventitem
-        date={`24th`}
-        month={`O C T`}
-        day={'Thursday'}
-        time={'5pm-6pm'}
-        location={'ERB 228'}
-        title={'Metasploit Tutorial'}
-        description={
-          ' The meeting will focus on use of metasploit and its syntax. Learn to use metasploit a penetration testing framework to discover exploits, and validate vulnerabilities. - By Zehra Jafri.'
-        }
-        announcement={' [ This weeks meeting will be held at ERB 228 not ERB 316! ]'}
-        sponsor={false}
-        val={'icon'}
-        eventName={'weekly'}
-        mobile={mobile}
-      />
       <Divider inverted style={{ margin: '3vw 10vw' }} />
       <Eventitem
         date={`31st`}

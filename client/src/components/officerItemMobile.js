@@ -16,7 +16,6 @@ const OfficerItemMobile = ({ name, position, email, description, imgSource }) =>
                 label={{
                   as: 'div',
                   style: { background: 'rgb(91, 192, 190)', fontSize: '2.5vw' },
-                  color: 'white',
                   content: 'Click for Info',
                   ribbon: true
                 }}

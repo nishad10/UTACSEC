@@ -16,8 +16,6 @@ const Eventitem = ({
   eventName,
   mobile
 }) => {
-  console.log(date, month, day)
-
   return mobile ? (
     <div style={{ alignSelf: 'center', fontSize: '20px', lineHeight: '1.375em' }}>
       <div style={{ display: 'flex' }}>

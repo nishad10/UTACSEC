@@ -5,7 +5,6 @@ const MeetingFooter = props => {
   const { mobile } = props
   const [chrome, setChrome] = useState(false)
   useEffect(() => {
-    console.log(whatBrowser(), 'browser')
     setChrome(whatBrowser())
   }, [])
   return (
