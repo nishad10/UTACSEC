@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
-import Header from '../components/header'
+import ResponsiveContainer from '../components/responsive'
 
 export default class App extends Component {
   render() {
     return (
       <div>
-        <Header />
-        <div className="cointainer">{this.props.children}</div>
+        <ResponsiveContainer>
+          <div className="cointainer">{this.props.children}</div>
+        </ResponsiveContainer>
       </div>
     )
   }

@@ -6,13 +6,13 @@ const SponsorBadge = () => {
     <a href="https://www.privateinternetaccess.com/" target="_blank" rel="noopener noreferrer">
       <div
         style={{
-          border: '0.1vw solid #828282',
-          background: '#3c3c3c',
+          background: '#121212',
           padding: '0.5vw',
-          marginTop: '1vw'
+          marginTop: '1vw',
+          paddingBottom: '20px'
         }}
       >
-        <div style={{ fontWeight: 'bold', color: 'white' }}>Sponsored By :-</div>
+        <div style={{ fontWeight: 'bold', color: '#DE6E4B' }}>Sponsored By :-</div>
         <Image
           as="a"
           href="https://www.privateinternetaccess.com/"

@@ -32,7 +32,7 @@ const events = (props) => {
           RSVP Now
         </Header>
       </Divider>
-      <Divider inverted style={{ margin: '3vw 10vw' }} />
+      
       {
       events.map((item)=>(<Eventitem
         ticketID={item.ticketID}
