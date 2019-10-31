@@ -28,12 +28,41 @@ export function signUserIn(data) {
       })
   }
 }
+export function getEvents() {
+  // const { history } = this.props
+  return function(dispatch) {
+    // Submit email/password to server
+    axios
+      .get(`https://utacsecapi.herokuapp.com/events`)
+      .then(res => {
+        console.log(res)
+        dispatch({ type: 'GET_EVENTS', payload:res.data })
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
+}
+export function addEvent(data) {
+  // const { history } = this.props
+
+    // Submit email/password to server
+    axios
+      .post(`https://utacsecapi.herokuapp.com/eventsadd`, data)
+      .then(res => {
+       console.log(res)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
+
 
 export function signUserUp(userObj) {
   return function(dispatch) {
     // Submit email/password to server
     axios
-      .post(`/signup`, userObj)
+      .post(`https://utacsecapi.herokuapp.com/signup`, userObj)
       .then(res => {
         dispatch({ type: AUTH_USER })
         localStorage.setItem('auth_jwt_token', res.data.token)
@@ -54,6 +83,10 @@ export function signUserOut() {
   }
 }
 
+export function updateUserProfile(inputs) {
+  axios
+    .post(`https://utacsecapi.herokuapp.com/user/profile`, inputs)
+}
 export function upTwitter() {
   return function(dispatch) {
     fetch(
@@ -71,6 +104,7 @@ export function upTwitter() {
       )
   }
 }
+
 export function whatBrowser() {
   // Firefox 1.0+
   //const isFirefox = typeof InstallTrigger !== 'undefined';

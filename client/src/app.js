@@ -15,6 +15,7 @@ import Signin from './views/auth/signin'
 import Signup from './views/auth/signup'
 import Signout from './views/auth/signout'
 import Join from './views/Join/Join.js'
+import Admin from './views/admin/admin'
 import RequireAuth from './views/auth/require_auth'
 import reducers from './reducers'
 import { AUTH_USER } from './constants/types'
@@ -30,19 +31,20 @@ if (token) {
 }
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={history}>
+       <Router history={history}>
       <App>
         <Route exact path="/" component={Home} />
         <Route path="/joinnow" component={Join} />
         <Route path="/events" component={Events} />
         <Route path="/officers" component={Officers} />
         <Route path="/account" component={RequireAuth(Account)} />
+        <Route path="/admin" component={Admin} />
         <Route path="/signin" component={Signin} />
         <Route path="/signup" component={Signup} />
         <Route path="/signout" component={Signout} />
         <Route path="/flag" component={Poll} />
       </App>
-    </Router>
+      </Router>
   </Provider>,
   document.getElementById('root')
 )
