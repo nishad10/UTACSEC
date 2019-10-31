@@ -9,10 +9,7 @@ const Signin = props => {
   const { signUserIn, error } = props
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const handleChange = (e, { name, value }) => {
-    if (name === 'email') setEmail(value)
-    else if (name === 'password') setPassword(value)
-  }
+
   const handleRegister = () => {
     history.push('/signup')
   }
@@ -37,9 +34,9 @@ const Signin = props => {
         </Header>
         <Form size="large" style={{ marginBottom: '1em' }}>
           <Segment stacked>
-            <Form.Input onChange={handleChange} fluid icon="user" iconPosition="left" placeholder="E-mail address" />
+            <Form.Input onChange={(e)=>setEmail(e.target.value)} fluid icon="user" iconPosition="left" placeholder="E-mail address" />
             <Form.Input
-              onChange={handleChange}
+              onChange={(e)=>setPassword(e.target.value)}
               fluid
               icon="lock"
               iconPosition="left"
