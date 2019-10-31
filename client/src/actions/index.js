@@ -33,7 +33,7 @@ export function getEvents() {
   return function(dispatch) {
     // Submit email/password to server
     axios
-      .get(`https://utacsecapi.herokuapp.com/events`)
+      .get(`/events`)
       .then(res => {
         console.log(res)
         dispatch({ type: 'GET_EVENTS', payload:res.data })
@@ -48,7 +48,7 @@ export function addEvent(data) {
 
     // Submit email/password to server
     axios
-      .post(`https://utacsecapi.herokuapp.com/eventsadd`, data)
+      .post(`/eventsadd`, data)
       .then(res => {
        console.log(res)
       })
@@ -62,7 +62,7 @@ export function signUserUp(userObj) {
   return function(dispatch) {
     // Submit email/password to server
     axios
-      .post(`https://utacsecapi.herokuapp.com/signup`, userObj)
+      .post(`/signup`, userObj)
       .then(res => {
         dispatch({ type: AUTH_USER })
         localStorage.setItem('auth_jwt_token', res.data.token)
@@ -85,7 +85,7 @@ export function signUserOut() {
 
 export function updateUserProfile(inputs) {
   axios
-    .post(`https://utacsecapi.herokuapp.com/user/profile`, inputs)
+    .post(`/user/profile`, inputs)
 }
 export function upTwitter() {
   return function(dispatch) {

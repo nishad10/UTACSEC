@@ -6,26 +6,7 @@ import { Message, Button, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 const Signup = props => {
-  /*const { signUserUp } = props
-  const [errMsg, setErrorMsg] = useState('')
-  const options = {
-    initialValues: {
-      firstName: 'uta',
-      lastName: 'csec',
-      email: 'xyz@mail.com',
-      password: 'secret',
-      password2: 'secret'
-    },
-    callback: () => {
-      if (inputs.password == inputs.password2) {
-        signUserUp(inputs)
-      } else {
-        setErrorMsg('password does not matched')
-      }
-    },
-    debug: false
-  }
-  const { onSubmit, onChange, inputs, dirty, submitting } = useForm('AdvanceForm', options)*/
+  
   return (
     <div>
       <Message negative style={{ fontSize: '2.5vw' }}>

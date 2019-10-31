@@ -3,10 +3,6 @@ import {Form, Header} from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import {updateUserProfile} from '../../actions/index'
 
-//const ROOT_URL = process.env.API_URI
-//axios.defaults.baseURL = ROOT_URL
-
-
 const Account = (props) => {
   const { updateUserProfile } = props
   const [firstName, setFirstname] = useState(false)
