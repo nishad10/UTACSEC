@@ -1,6 +1,8 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import ticketEnableDisable from '../functions/ticketEnableDisable'
 import SponsorBadge from './sponsorBadge'
+import eventBrite from '../components/eventBrite'
+import {Divider} from 'semantic-ui-react'
 
 const Eventitem = ({
   date,
@@ -10,13 +12,18 @@ const Eventitem = ({
   location,
   title,
   description,
-  announcement,
   sponsor,
-  val,
   eventName,
-  mobile
+  ticketID,
+  mobile,
+  ticketStatus
 }) => {
+  useEffect(() => {
+    eventBrite(ticketID, eventName)
+  },[])
   return mobile ? (
+    <div>
+    <Divider inverted style={{ margin: '3vw 10vw' }} />
     <div style={{ alignSelf: 'center', fontSize: '20px', lineHeight: '1.375em' }}>
       <div style={{ display: 'flex' }}>
         <div
@@ -28,6 +35,7 @@ const Eventitem = ({
             color: '#DE6E4B'
           }}
         >
+  
           <div style={{ fontSize: '30px' }}>{date}</div>
           <div style={{ fontSize: '20px' }}>{month}</div>
         </div>
@@ -42,7 +50,7 @@ const Eventitem = ({
         </div>
         <div style={{ display: 'flex', paddingTop: '10px' }}>{ticketEnableDisable(true, eventName, mobile)}</div>
       </div>
-    </div>
+    </div></div>
   ) : (
     <div style={{ display: 'grid', color: 'white', gridTemplateColumns: '25% 75%' }}>
       <div
@@ -60,9 +68,13 @@ const Eventitem = ({
           At {location === undefined ? 'Not Decided Yet' : `${location}`}
           <div style={{ color: '#5BC0BE', whiteSpace: 'pre', fontSize: '20px' }}> from {time}</div>
         </div>
-        {ticketEnableDisable(true, eventName, mobile)}
+        {ticketEnableDisable(ticketStatus, eventName, mobile)}
       </div>
     </div>
-  )
-}
+  
+  
+  )}
+        
+  
+
 export default Eventitem

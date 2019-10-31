@@ -14,19 +14,7 @@ class MobileContainer extends Component {
     this.handleSidebarHide = this.handleSidebarHide.bind(this)
     this.handleToggle = this.handleToggle.bind(this)
   }
-  /*
-  UNSAFE_componentWillMount() {
-    this.handleStack
-  }
-  componentDidMount() {
-    window.addEventListener('resize', this.handleStack)
-  }
-  handleStack() {
-    const { mobile } = this.state
-    if (window.innerWidth < 600) {
-      this.setState({ mobile: true })
-    } else this.setState({ mobile: false })
-  }*/
+
   handleItemClick(e, { name }) {
     this.setState({ activeItem: name })
     this.handleSidebarHide()
