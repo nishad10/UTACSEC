@@ -61,10 +61,27 @@ export function getEventsAdmin() {
     axios
       .get(`/eventsAdmin`)
       .then(res => {
-        console.log(res)
+        console.log(res.data)
 
         dispatch({ type: 'GET_EVENTS_ADMIN', payload: res.data })
         dispatch({ type: 'LOADING', payload: false })
+      })
+      .catch(error => {
+        console.log(error)
+        dispatch({ type: 'LOADING', payload: false })
+      })
+  }
+}
+export function deleteEvent(data) {
+  // const { history } = this.props
+  return function(dispatch) {
+    dispatch({ type: 'LOADING', payload: true })
+    // Submit email/password to server
+    axios
+      .post(`/eventsDelete`, data)
+      .then(res => {
+        dispatch({ type: 'LOADING', payload: false })
+        history.push('/events')
       })
       .catch(error => {
         console.log(error)
