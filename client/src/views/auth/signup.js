@@ -2,13 +2,16 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { signUserUp } from '../../actions'
 
-import { Message, Button, Icon } from 'semantic-ui-react'
+import { Message, Button, Icon, Dimmer, Loader } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 const Signup = props => {
-  
+  const { loading } = props
   return (
     <div>
+      <Dimmer active={loading}>
+        <Loader active={loading}>Signing You Up!</Loader>
+      </Dimmer>
       <Message negative style={{ fontSize: '2.5vw' }}>
         <Message.Header>Not Available Under Progress</Message.Header>
         <p>
@@ -27,10 +30,14 @@ const Signup = props => {
     </div>
   )
 }
+const mapStateToProps = state => ({
+  loading: state.general.loading
+})
+
 const mapDispatchToProps = dispatch => ({
   signUserUp: val => dispatch(signUserUp(val))
 })
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Signup)

@@ -2,30 +2,49 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../actions'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 import { Menu, Icon, Responsive, Container, Visibility } from 'semantic-ui-react'
 class DesktopContainer extends Component {
   constructor(props) {
     super(props)
-    this.state = { activeItem: 'home', mobile: false, sidebarOpened: false }
+    this.state = { activeItem: 'home', mobile: false, sidebarOpened: false, profile: {} }
     this.handleItemClick = this.handleItemClick.bind(this)
     // this.handleStack = this.handleStack.bind(this)
     this.getWidth = this.getWidth.bind(this)
     this.hideFixedMenu = this.hideFixedMenu.bind(this)
     this.showFixedMenu = this.showFixedMenu.bind(this)
   }
+  UNSAFE_componentWillMount() {
+    axios.get(`https://utacsecapi.herokuapp.com/user/profile`).then(r => {
+      this.setState({ profile: r.data })
+    })
+  }
   handleItemClick(e, { name }) {
     this.setState({ activeItem: name })
   }
-  renderSignButton(activeItem) {
+  renderSignButton(activeItem, profile) {
     if (this.props.authenticated) {
-      return (
+      if (profile.admin)
+        return (
+          <Menu.Menu position="right" inverted icon="labeled">
+            <Menu.Item as={Link} to="/signout" name="signout">
+              <Icon name="sign-out" />
+              SignOut
+            </Menu.Item>
+
+            <Menu.Item as={Link} to="/admin" name="admin">
+              <Icon name="archive" />
+              Admin
+            </Menu.Item>
+          </Menu.Menu>
+        )
+      else
         <Menu.Menu position="right" inverted icon="labeled">
           <Menu.Item as={Link} to="/signout" name="signout">
-            <Icon name="sign-in" />
+            <Icon name="sign-out" />
             SignOut
           </Menu.Item>
         </Menu.Menu>
-      )
     } else {
       return (
         <Menu.Menu position="right" inverted icon="labeled">
@@ -66,7 +85,7 @@ class DesktopContainer extends Component {
   }
   render() {
     const { children } = this.props
-    const { fixed, activeItem } = this.state
+    const { fixed, activeItem, profile } = this.state
     return (
       <Responsive getWidth={this.getWidth} minWidth={Responsive.onlyTablet.minWidth}>
         <Visibility once={false} onBottomPassed={this.showFixedMenu} onBottomPassedReverse={this.hideFixedMenu}>
@@ -109,7 +128,7 @@ class DesktopContainer extends Component {
                 to="/account"
                 name="account"
               />
-              {this.renderSignButton(activeItem)}
+              {this.renderSignButton(activeItem, profile)}
             </Container>
           </Menu>
         </Visibility>

@@ -1,13 +1,13 @@
 let INITIAL_STATE = {
   updateProfileFailMsg: '',
-  profile: null
+  profile: {}
 }
 
 export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
     case `GET_USER`:
-        console.log(action.type,action.payload)
-      return { ...state, profile: action.payload }
+      console.log(action.type, action.payload)
+      return { ...state, profile: action.payload.data }
     default:
       return state
   }

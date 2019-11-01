@@ -3,18 +3,23 @@ import { connect } from 'react-redux'
 import * as actions from '../actions'
 import { Link } from 'react-router-dom'
 import { Menu, Icon, Sidebar, Responsive, Container, Segment } from 'semantic-ui-react'
+import axios from 'axios'
 
 class MobileContainer extends Component {
   constructor(props) {
     super(props)
-    this.state = { activeItem: 'home', mobile: false, sidebarOpened: false }
+    this.state = { activeItem: 'home', mobile: false, sidebarOpened: false, profile: {} }
     this.handleItemClick = this.handleItemClick.bind(this)
     // this.handleStack = this.handleStack.bind(this)
     this.getWidth = this.getWidth.bind(this)
     this.handleSidebarHide = this.handleSidebarHide.bind(this)
     this.handleToggle = this.handleToggle.bind(this)
   }
-
+  UNSAFE_componentWillMount() {
+    axios.get(`https://utacsecapi.herokuapp.com/user/profile`).then(r => {
+      this.setState({ profile: r.data })
+    })
+  }
   handleItemClick(e, { name }) {
     this.setState({ activeItem: name })
     this.handleSidebarHide()
@@ -34,16 +39,22 @@ class MobileContainer extends Component {
     return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth
   }
 
-  renderSignButton(activeItem) {
+  renderSignButton(activeItem, profile) {
     if (this.props.authenticated) {
-      return (
-        <Menu.Menu position="right" inverted icon="labeled">
-          <Menu.Item as={Link} to="/signout" name="signout">
-            <Icon name="sign-in" />
-            SignOut
-          </Menu.Item>
-        </Menu.Menu>
-      )
+      if (profile.admin)
+        return (
+          <Menu.Menu position="right" inverted icon="labeled">
+            <Menu.Item as={Link} to="/signout" name="signout">
+              <Icon name="sign-out" />
+              SignOut
+            </Menu.Item>
+
+            <Menu.Item as={Link} to="/admin" name="admin">
+              <Icon name="archive" />
+              Admin
+            </Menu.Item>
+          </Menu.Menu>
+        )
     } else {
       return (
         <Menu.Menu position="right" inverted icon="labeled">
@@ -75,7 +86,7 @@ class MobileContainer extends Component {
   render() {
     const { children } = this.props
 
-    const { activeItem, sidebarOpened } = this.state
+    const { activeItem, sidebarOpened, profile } = this.state
 
     return (
       <Responsive as={Sidebar.Pushable} getWidth={this.getWidth} maxWidth={Responsive.onlyMobile.maxWidth}>
@@ -118,7 +129,7 @@ class MobileContainer extends Component {
                 <Menu.Item onClick={this.handleToggle}>
                   <Icon name="sidebar" />
                 </Menu.Item>
-                {this.renderSignButton(activeItem)}
+                {this.renderSignButton(activeItem, profile)}
               </Menu>
             </Container>
           </Segment>

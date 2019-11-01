@@ -1,8 +1,8 @@
 import axios from 'axios'
-import { AUTH_USER, UNAUTH_USER, AUTH_ERROR } from '../constants/types'
+import { AUTH_USER, UNAUTH_USER, AUTH_ERROR, GET_USER_PROFILE } from '../constants/types'
 import history from '../history'
 const ROOT_URL = process.env.API_URI || 'http://localhost:8000'
-axios.defaults.baseURL = ROOT_URL
+axios.defaults.baseURL = 'https://utacsecapi.herokuapp.com'
 
 if (localStorage.getItem('auth_jwt_token')) {
   axios.defaults.headers.common['Authorization'] = localStorage.getItem('auth_jwt_token')
@@ -13,53 +13,85 @@ export function signUserIn(data) {
   // const { history } = this.props
 
   return function(dispatch) {
+    dispatch({ type: 'LOADING', payload: true })
     // Submit email/password to server
     axios
       .post(`/signin`, data)
       .then(res => {
+        dispatch({ type: 'LOADING', payload: true })
         dispatch({ type: AUTH_USER })
         localStorage.setItem('auth_jwt_token', res.data.token)
-        history.push('/account')
         axios.defaults.headers.common['Authorization'] = localStorage.getItem('auth_jwt_token')
+        history.push('/account')
+        dispatch({ type: 'LOADING', payload: false })
       })
       .catch(error => {
         console.log(error)
         dispatch({ type: AUTH_ERROR, payload: true })
+        dispatch({ type: 'LOADING', payload: false })
       })
   }
 }
+
 export function getEvents() {
   // const { history } = this.props
   return function(dispatch) {
+    dispatch({ type: 'LOADING', payload: true })
     // Submit email/password to server
     axios
       .get(`/events`)
       .then(res => {
         console.log(res)
-        dispatch({ type: 'GET_EVENTS', payload:res.data })
+
+        dispatch({ type: 'GET_EVENTS', payload: res.data })
+        dispatch({ type: 'LOADING', payload: false })
       })
       .catch(error => {
         console.log(error)
+        dispatch({ type: 'LOADING', payload: false })
       })
   }
 }
+
+export function getEventsAdmin() {
+  // const { history } = this.props
+  return function(dispatch) {
+    dispatch({ type: 'LOADING', payload: true })
+    // Submit email/password to server
+    axios
+      .get(`/eventsAdmin`)
+      .then(res => {
+        console.log(res)
+
+        dispatch({ type: 'GET_EVENTS_ADMIN', payload: res.data })
+        dispatch({ type: 'LOADING', payload: false })
+      })
+      .catch(error => {
+        console.log(error)
+        dispatch({ type: 'LOADING', payload: false })
+      })
+  }
+}
+
 export function addEvent(data) {
   // const { history } = this.props
-
+  return function(dispatch) {
+    dispatch({ type: 'LOADING', payload: true })
     // Submit email/password to server
     axios
       .post(`/eventsadd`, data)
       .then(res => {
-       console.log(res)
+        dispatch({ type: 'LOADING', payload: false })
       })
       .catch(error => {
         console.log(error)
+        dispatch({ type: 'LOADING', payload: false })
       })
   }
-
-
+}
 export function signUserUp(userObj) {
   return function(dispatch) {
+    dispatch({ type: 'LOADING', payload: true })
     // Submit email/password to server
     axios
       .post(`/signup`, userObj)
@@ -68,10 +100,12 @@ export function signUserUp(userObj) {
         localStorage.setItem('auth_jwt_token', res.data.token)
         history.push('/account')
         axios.defaults.headers.common['Authorization'] = localStorage.getItem('auth_jwt_token')
+        dispatch({ type: 'LOADING', payload: false })
       })
       .catch(error => {
         console.log(error)
         dispatch({ type: AUTH_ERROR, payload: true })
+        dispatch({ type: 'LOADING', payload: false })
       })
   }
 }
@@ -84,27 +118,42 @@ export function signUserOut() {
 }
 
 export function updateUserProfile(inputs) {
-  axios
-    .post(`/user/profile`, inputs)
+  axios.post(`/user/profile`, inputs)
 }
 export function upTwitter() {
   return function(dispatch) {
+    dispatch({ type: 'LOADING', payload: true })
     fetch(
       'https://cors-anywhere.herokuapp.com/https://cdn.syndication.twimg.com/widgets/followbutton/info.json?screen_names=UTA_CSEC'
     )
       .then(res => res.json())
       .then(
-        result => dispatch({ type: 'GET_TWITTER', payload: result }),
+        result => {
+          dispatch({ type: 'GET_TWITTER', payload: result })
+          dispatch({ type: 'LOADING', payload: false })
+        },
+
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
         // exceptions from actual bugs in components.
         error => {
           console.log(error)
+          dispatch({ type: 'LOADING', payload: false })
+          dispatch({ type: 'LOADING', payload: false })
         }
       )
   }
 }
-
+export function getProfile() {
+  axios
+    .get(`https://utacsecapi.herokuapp.com/user/profile`)
+    .then(r => {
+      return r.data
+    })
+    .catch(error => {
+      console.log(error)
+    })
+}
 export function whatBrowser() {
   // Firefox 1.0+
   //const isFirefox = typeof InstallTrigger !== 'undefined';

@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
-import { Router, Route } from 'react-router-dom'
+import { Router, Route, Redirect } from 'react-router-dom'
 import Poll from './views/poll'
 import reduxThunk from 'redux-thunk'
 
@@ -18,10 +18,12 @@ import Signout from './views/auth/signout'
 import Join from './views/Join/Join.js'
 import Admin from './views/admin/admin'
 import RequireAuth from './views/auth/require_auth'
+import RequireAdmin from './views/auth/require_admin'
 import reducers from './reducers'
 import { AUTH_USER } from './constants/types'
 import '../style/style.scss'
 import history from './history.js'
+import { getProfile } from './actions'
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore)
 const store = createStoreWithMiddleware(reducers)
 const token = localStorage.getItem('auth_jwt_token')
@@ -30,9 +32,12 @@ const token = localStorage.getItem('auth_jwt_token')
 if (token) {
   store.dispatch({ type: AUTH_USER })
 }
+if (token) {
+  getProfile()
+}
 ReactDOM.render(
   <Provider store={store}>
-       <Router history={history}>
+    <Router history={history}>
       <App>
         <Route exact path="/" component={Home} />
         <Route path="/joinnow" component={Join} />
@@ -40,13 +45,13 @@ ReactDOM.render(
         <Route path="/officers" component={Officers} />
         <Route path="/about" component={About} />
         <Route path="/account" component={RequireAuth(Account)} />
-        <Route path="/admin" component={Admin} />
+        <Route path="/admin" component={RequireAdmin(Admin)} />
         <Route path="/signin" component={Signin} />
         <Route path="/signup" component={Signup} />
         <Route path="/signout" component={Signout} />
         <Route path="/flag" component={Poll} />
       </App>
-      </Router>
+    </Router>
   </Provider>,
   document.getElementById('root')
 )

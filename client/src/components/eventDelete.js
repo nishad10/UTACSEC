@@ -1,26 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import { Header, Divider, Dimmer, Loader } from 'semantic-ui-react'
-import Eventitem from '../../components/eventItem'
-import { getEvents } from '../../actions'
+import Eventitem from '../components/eventItem'
+import { getEventsAdmin } from '../actions'
 import { connect } from 'react-redux'
 
-const events = props => {
+const EventDelete = props => {
   const [width, setWidth] = useState(window.innerWidth)
 
-  const { events, getEvents, loading } = props
-  console.log(loading)
+  const { events, getEventsAdmin, loading } = props
 
   useEffect(() => {
-    getEvents()
+    getEventsAdmin()
 
     const handleWindowSizeChange = () => {
       setWidth(window.innerWidth)
     }
     window.addEventListener('resize', handleWindowSizeChange)
   }, [])
-
   const mobile = width < 600
-  console.log(loading)
   return (
     <div style={{ padding: mobile ? '5vw 10vw' : '5vw 15vw' }}>
       <Dimmer active={loading}>
@@ -52,14 +49,14 @@ const events = props => {
   )
 }
 const mapStateToProps = state => ({
-  events: state.general.events,
+  events: state.general.eventsAdmin,
   loading: state.general.loading
 })
 
 const mapDispatchToProps = dispatch => ({
-  getEvents: () => dispatch(getEvents())
+  getEventsAdmin: () => dispatch(getEventsAdmin())
 })
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(events)
+)(EventDelete)
