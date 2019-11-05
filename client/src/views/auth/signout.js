@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { signUserOut } from '../../actions'
-
+import { Header, Container } from 'semantic-ui-react'
 class Signout extends Component {
   componentDidMount() {
     this.props.signUserOut()
   }
   render() {
     return (
-      <div>
-        <h1>Hope to see you soon!</h1>
-      </div>
+      <Container text textAlign="center">
+        <Header inverted>Hope to see you soon!</Header>
+      </Container>
     )
   }
 }

@@ -2,16 +2,24 @@ import React, { useEffect, useState } from 'react'
 import { Header, Divider, Dimmer, Loader, Button, Icon } from 'semantic-ui-react'
 import { getEventsAdmin, deleteEvent } from '../actions'
 import { connect } from 'react-redux'
+import axios from 'axios'
 
 const EventDelete = props => {
   const [width, setWidth] = useState(window.innerWidth)
+  const [profile, setProfile] = useState({})
 
   const { events, getEventsAdmin, loading, deleteEvent } = props
 
   const handleDelete = id => {
-    deleteEvent({ id })
+    deleteEvent({ id, profile })
   }
+  const getUserProfile = () =>
+    axios.get(`https://utacsecapi.herokuapp.com/user/profile`).then(r => {
+      setProfile(r.data)
+    })
+
   useEffect(() => {
+    getUserProfile()
     getEventsAdmin()
 
     const handleWindowSizeChange = () => {
@@ -56,7 +64,7 @@ const EventDelete = props => {
               <Button
                 value={item._id}
                 onClick={e => handleDelete(e.target.value)}
-                style={{ fontSize: mobile ? '3.2vw' : '1vw', float: 'right', background: '#DE6E4B' }}
+                style={{ fontSize: mobile ? '10px' : '1em', float: 'right', background: '#DE6E4B', display: 'flex' }}
               >
                 Delete
                 <Icon name="right chevron" />

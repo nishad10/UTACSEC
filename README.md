@@ -1,7 +1,11 @@
 <img src="https://pbs.twimg.com/profile_images/887044871445295105/9bQlT5Xi_400x400.jpg" height="50" width="50">
 <h1 position="relative">UTA CSEC WEBSITE</h1>
 
-This will be the repo for the website for the Cybersecurity club for the University of Texas at Arlington.
+This will be the repo for the website for the Cybersecurity club for the University of Texas at Arlington. The site uses React for front-end, Node.JS for server and a Mongo DB database.
+
+User account signups coming soon!
+Admin accounts can log in to ADD, DELETE, EDIT events in real time, as we use a mongo DB.
+Passwords are stored securely using JWT secret and hash. 
 
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 ## LIVE
@@ -12,7 +16,7 @@ Site is still in development but is live at https://www.utacsec.org/
 
 Any feedback is appreciated.
 ### Deploy
-The site is static and is deployed on netifly and uses the master branch as production build so if you have access to master do not push changes directly to master and work with a branch and make a pull request as netifly will auto compile each time master is updated.
+The site is deployed on netifly and uses the websiteChanges branch as production build.
 
 ### Contact
 Email- uta.csec@gmail.com
@@ -36,7 +40,7 @@ The website will be MERN fullstack
 
 > MERN is a fullstack implementation in MongoDB, Expressjs, React/Redux, Nodejs.
 
-MongoDb for all storage, user info initially but after that also use mongodb to store other data to make site dynamic.
+MongoDb for all storage, user info and to store other data which makes site dynamic.
 
 React as a base for UI framework.
 
@@ -60,7 +64,7 @@ NOTE :- You need client and server running concurrently in different terminal se
 $ git clone https://github.com/nishad10/utacsec.git
 $ npm i
 ```
-### For UI development you dont need server running but if you want full functionality run both client and server in two different terminal instances at the same time.
+### For UI development you dont need server running. Server files are private.
 
 ## Client-side usage(PORT: 3000
 ```terminal
@@ -70,27 +74,7 @@ $ npm run dev // run it locally
 ```
 For dev purpose you can skip server for now and just run above commands to work with the site.
 
-## Server-side usage(PORT: 8000)
 
-### Prepare your secret
-
-run the script at the first level:
-
-(You need to add a JWT_SECRET in .env and also MongoDB key just add JWT_SECRET=something and other secret keys here in .env file)
-
-```terminal
-// in the root level
-$ echo "JWT_SECRET=YOUR_JWT_SECRET" >> ./server/src/.env
-```
-
-### Start
-
-```terminal
-$ cd server   // go to server folder
-$ npm i       // npm install pacakges
-$ npm run dev // run it locally
-$ npm run build // this will build the server code to es5 js codes and generate a dist file
-```
 ## Contributing
 
 If you want to help me with this please join the discord so we can talk about it.

@@ -22,7 +22,8 @@ export function signUserIn(data) {
         dispatch({ type: AUTH_USER })
         localStorage.setItem('auth_jwt_token', res.data.token)
         axios.defaults.headers.common['Authorization'] = localStorage.getItem('auth_jwt_token')
-        history.push('/account')
+        history.push('/')
+        window.location.reload(true)
         dispatch({ type: 'LOADING', payload: false })
       })
       .catch(error => {

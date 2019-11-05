@@ -24,27 +24,26 @@ class DesktopContainer extends Component {
   }
   renderSignButton(activeItem, profile) {
     if (this.props.authenticated) {
-      if (profile.admin)
-        return (
-          <Menu.Menu position="right" inverted icon="labeled">
-            <Menu.Item as={Link} to="/signout" name="signout">
-              <Icon name="sign-out" />
-              SignOut
-            </Menu.Item>
+      return profile.admin ? (
+        <Menu.Menu position="right" inverted icon="labeled">
+          <Menu.Item as={Link} to="/signout" name="signout">
+            <Icon name="sign-out" />
+            SignOut
+          </Menu.Item>
 
-            <Menu.Item as={Link} to="/admin" name="admin">
-              <Icon name="archive" />
-              Admin
-            </Menu.Item>
-          </Menu.Menu>
-        )
-      else
+          <Menu.Item as={Link} to="/admin" name="admin">
+            <Icon name="archive" />
+            Admin
+          </Menu.Item>
+        </Menu.Menu>
+      ) : (
         <Menu.Menu position="right" inverted icon="labeled">
           <Menu.Item as={Link} to="/signout" name="signout">
             <Icon name="sign-out" />
             SignOut
           </Menu.Item>
         </Menu.Menu>
+      )
     } else {
       return (
         <Menu.Menu position="right" inverted icon="labeled">
