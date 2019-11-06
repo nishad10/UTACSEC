@@ -22,7 +22,7 @@ const Admin = props => {
       )
     },
     {
-      menuItem: 'Tab 3',
+      menuItem: 'Coming Soon',
       render: () => (
         <Tab.Pane style={{ background: 'black' }} attached={false}>
           Coming Soon

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { signUserUp } from '../../actions'
 
@@ -9,15 +9,17 @@ import {
   Loader,
   Header,
   Form,
-  Segment
+  Segment,
+  Message
 } from 'semantic-ui-react'
 
 const Signup = props => {
-  const { loading, signUserUp } = props
+  const { loading, signUserUp, error } = props
   const [fname, setfName] = useState('')
   const [lname, setlName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [success, setSuccess] = useState(true)
   const handleSubmit = () => {
     signUserUp({
       firstName: fname,
@@ -26,6 +28,11 @@ const Signup = props => {
       password: password
     })
   }
+  useEffect(() => {
+    if (error) {
+      setSuccess(false)
+    }
+  }, [error])
   return (
     <div>
       <Dimmer active={loading}>
@@ -44,7 +51,7 @@ const Signup = props => {
           >
             Log-in to your account
           </Header>
-          <Form size="large" style={{ marginBottom: '1em' }}>
+          <Form size="large" style={{ marginBottom: '1em' }} error={!success}>
             <Segment stacked>
               <Form.Input
                 onChange={e => setfName(e.target.value)}
@@ -84,6 +91,11 @@ const Signup = props => {
               >
                 Login
               </Button>
+              <Message
+                error
+                header="Failed Login"
+                content="You already signed up with that email or signup not available"
+              />
             </Segment>
           </Form>
         </Grid.Column>
@@ -92,7 +104,8 @@ const Signup = props => {
   )
 }
 const mapStateToProps = state => ({
-  loading: state.general.loading
+  loading: state.general.loading,
+  error: state.auth.error
 })
 
 const mapDispatchToProps = dispatch => ({
