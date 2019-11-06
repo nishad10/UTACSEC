@@ -3,9 +3,12 @@
 
 This will be the repo for the website for the Cybersecurity club for the University of Texas at Arlington. The site uses React for front-end, Node.JS for server and a Mongo DB database.
 
-User account signups coming soon!
+Users can make accounts and log in.
+
 Admin accounts can log in to ADD, DELETE, EDIT events in real time, as we use a mongo DB.
 Passwords are stored securely using JWT secret and hash. 
+
+[CLICK FOR A DEMO OF FEATURES](https://github.com/nishad10/utacsec/blob/master/demo/README.md)
 
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 ## LIVE
