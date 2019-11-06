@@ -17,36 +17,42 @@ const Account = props => {
   return (
     <div>
       <Dimmer active={loading}>
-        <Loader active={loading}>Signing You Up!</Loader>
+        <Loader active={loading}>Loading...</Loader>
       </Dimmer>
 
-      <Header inverted content="Update your Information here">
+      <Header inverted content="Update Information except your password.">
         <Form inverted>
-          <div style={{ display: 'grid', gridTemplateColumns: '40% 40%', columnGap: '3vw' }}>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '40% 40%',
+              columnGap: '3vw'
+            }}
+          >
             <Form.Input
               required
               label="First Name"
               name="fname"
-              placeholder={'Hacker'}
+              placeholder={'Change Name'}
               onChange={e => setFirstname(e.target.value)}
             />
             <Form.Input
               label="Last Name"
               name="lname"
-              placeholder={'Man'}
+              placeholder={'Change Name'}
               onChange={e => setLastname(e.target.value)}
             />
             <Form.Input
               required
               label="Email"
               name="email"
-              placeholder={'root@toor'}
+              placeholder={'Change Email'}
               onChange={e => setEmail(e.target.value)}
             />
             <Form.Input
               label="Password"
               name="password"
-              placeholder="adminadmin"
+              placeholder="Enter Password to verify changes"
               onChange={e => setPassword(e.target.value)}
             />
             <div style={{ gridColumnStart: '1', paddingTop: '1vw' }}>

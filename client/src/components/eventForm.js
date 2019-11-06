@@ -20,7 +20,10 @@ const EventForm = props => {
   const [eventName, setEventname] = useState('')
   const [status, setStatus] = useState('')
 
-  const tryConnect = () => axios.get(`https://utacsecapi.herokuapp.com/auth-ping`).then(r => setStatus(r.data))
+  const tryConnect = () =>
+    axios
+      .get(`https://utacsecapi.herokuapp.com/auth-ping`)
+      .then(r => setStatus(r.data))
 
   const getUserProfile = () =>
     axios.get(`https://utacsecapi.herokuapp.com/user/profile`).then(r => {
@@ -52,10 +55,16 @@ const EventForm = props => {
   return (
     <div>
       <Dimmer active={loading}>
-        <Loader active={loading}>Signing You In!</Loader>
+        <Loader active={loading}>Loading...</Loader>
       </Dimmer>
       <Form inverted>
-        <div style={{ display: 'grid', gridTemplateColumns: '40% 40%', columnGap: '3vw' }}>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '40% 40%',
+            columnGap: '3vw'
+          }}
+        >
           <Form.Input
             required
             label="Title"
@@ -63,7 +72,12 @@ const EventForm = props => {
             placeholder="CTF Demo Meeting"
             onChange={e => setTitle(e.target.value)}
           />
-          <Form.Input label="Date" name="date" placeholder="10" onChange={e => setDate(e.target.value)} />
+          <Form.Input
+            label="Date"
+            name="date"
+            placeholder="10"
+            onChange={e => setDate(e.target.value)}
+          />
           <Form.Input
             required
             label="Month"
@@ -71,8 +85,18 @@ const EventForm = props => {
             placeholder="N O V"
             onChange={e => setMonth(e.target.value)}
           />
-          <Form.Input label="Day" name="day" placeholder="Thurday" onChange={e => setDay(e.target.value)} />
-          <Form.Input label="Time" name="time" placeholder="5-6pm" onChange={e => setTime(e.target.value)} />
+          <Form.Input
+            label="Day"
+            name="day"
+            placeholder="Thurday"
+            onChange={e => setDay(e.target.value)}
+          />
+          <Form.Input
+            label="Time"
+            name="time"
+            placeholder="5-6pm"
+            onChange={e => setTime(e.target.value)}
+          />
           <Form.Input
             label="Location"
             name="location"
@@ -104,13 +128,19 @@ const EventForm = props => {
           <div style={{ gridColumnStart: '1', paddingTop: '20px' }}>
             <Form.Group>
               <label>Should Tickets be on sell?</label>
-              <Form.Checkbox checked={ticketStatus} onClick={() => setTicketStatus(!ticketStatus)} />
+              <Form.Checkbox
+                checked={ticketStatus}
+                onClick={() => setTicketStatus(!ticketStatus)}
+              />
             </Form.Group>
           </div>
           <div style={{ gridColumnStart: '1', paddingTop: '20px' }}>
             <Form.Group>
               <label>Should the event Appear live immediately?</label>
-              <Form.Checkbox checked={active} onClick={() => setActive(!active)} />
+              <Form.Checkbox
+                checked={active}
+                onClick={() => setActive(!active)}
+              />
             </Form.Group>
           </div>
         </div>

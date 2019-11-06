@@ -18,7 +18,6 @@ import Signout from './views/auth/signout'
 import Join from './views/Join/Join.js'
 import Admin from './views/admin/admin'
 import RequireAuth from './views/auth/require_auth'
-import RequireAdmin from './views/auth/require_admin'
 import reducers from './reducers'
 import { AUTH_USER } from './constants/types'
 import '../style/style.scss'
@@ -45,7 +44,7 @@ ReactDOM.render(
         <Route path="/officers" component={Officers} />
         <Route path="/about" component={About} />
         <Route path="/account" component={RequireAuth(Account)} />
-        <Route path="/admin" component={RequireAdmin(Admin)} />
+        <Route path="/admin" component={RequireAuth(Admin)} />
         <Route path="/signin" component={Signin} />
         <Route path="/signup" component={Signup} />
         <Route path="/signout" component={Signout} />

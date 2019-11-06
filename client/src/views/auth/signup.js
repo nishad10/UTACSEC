@@ -1,32 +1,93 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { signUserUp } from '../../actions'
 
-import { Message, Button, Icon, Dimmer, Loader } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
+import {
+  Grid,
+  Button,
+  Dimmer,
+  Loader,
+  Header,
+  Form,
+  Segment
+} from 'semantic-ui-react'
 
 const Signup = props => {
-  const { loading } = props
+  const { loading, signUserUp } = props
+  const [fname, setfName] = useState('')
+  const [lname, setlName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const handleSubmit = () => {
+    signUserUp({
+      firstName: fname,
+      lastName: lname,
+      email: email,
+      password: password
+    })
+  }
   return (
     <div>
       <Dimmer active={loading}>
         <Loader active={loading}>Signing You Up!</Loader>
       </Dimmer>
-      <Message negative style={{ fontSize: '2.5vw' }}>
-        <Message.Header>Not Available Under Progress</Message.Header>
-        <p>
-          To become a part of the club please click the join now button. You will soon be able to make an account on the
-          website. Only officers have accounts right now.
-        </p>
-      </Message>
-      <Link to="/joinnow">
-        <Button animated color="green" style={{ fontSize: '2.5vw' }}>
-          <Button.Content visible>Join Now</Button.Content>
-          <Button.Content hidden>
-            <Icon name="arrow right" />
-          </Button.Content>
-        </Button>
-      </Link>
+      <Grid
+        textAlign="center"
+        style={{ height: '100vh' }}
+        verticalAlign="middle"
+      >
+        <Grid.Column style={{ maxWidth: 450 }}>
+          <Header
+            as="h2"
+            style={{ color: 'white', fontSize: '2em' }}
+            textAlign="center"
+          >
+            Log-in to your account
+          </Header>
+          <Form size="large" style={{ marginBottom: '1em' }}>
+            <Segment stacked>
+              <Form.Input
+                onChange={e => setfName(e.target.value)}
+                fluid
+                icon="user"
+                iconPosition="left"
+                placeholder="First Name"
+              />
+              <Form.Input
+                onChange={e => setlName(e.target.value)}
+                fluid
+                icon="user"
+                iconPosition="left"
+                placeholder="Last Name"
+              />
+              <Form.Input
+                onChange={e => setEmail(e.target.value)}
+                fluid
+                icon="user"
+                iconPosition="left"
+                placeholder="E-mail address"
+              />
+              <Form.Input
+                onChange={e => setPassword(e.target.value)}
+                fluid
+                icon="lock"
+                iconPosition="left"
+                placeholder="Password"
+                type="password"
+              />
+
+              <Button
+                onClick={handleSubmit}
+                style={{ background: '#21ba45' }}
+                fluid
+                size="large"
+              >
+                Login
+              </Button>
+            </Segment>
+          </Form>
+        </Grid.Column>
+      </Grid>
     </div>
   )
 }

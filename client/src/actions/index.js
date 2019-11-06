@@ -1,13 +1,16 @@
 import axios from 'axios'
-import { AUTH_USER, UNAUTH_USER, AUTH_ERROR, GET_USER_PROFILE } from '../constants/types'
+import { AUTH_USER, UNAUTH_USER, AUTH_ERROR } from '../constants/types'
 import history from '../history'
 const ROOT_URL = process.env.API_URI || 'http://localhost:8000'
-axios.defaults.baseURL = 'https://utacsecapi.herokuapp.com'
+axios.defaults.baseURL = ROOT_URL
 
 if (localStorage.getItem('auth_jwt_token')) {
-  axios.defaults.headers.common['Authorization'] = localStorage.getItem('auth_jwt_token')
+  axios.defaults.headers.common['Authorization'] = localStorage.getItem(
+    'auth_jwt_token'
+  )
 }
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
+axios.defaults.headers.post['Content-Type'] =
+  'application/x-www-form-urlencoded'
 
 export function signUserIn(data) {
   // const { history } = this.props
@@ -21,7 +24,9 @@ export function signUserIn(data) {
         dispatch({ type: 'LOADING', payload: true })
         dispatch({ type: AUTH_USER })
         localStorage.setItem('auth_jwt_token', res.data.token)
-        axios.defaults.headers.common['Authorization'] = localStorage.getItem('auth_jwt_token')
+        axios.defaults.headers.common['Authorization'] = localStorage.getItem(
+          'auth_jwt_token'
+        )
         history.push('/')
         window.location.reload(true)
         dispatch({ type: 'LOADING', payload: false })
@@ -117,7 +122,9 @@ export function signUserUp(userObj) {
         dispatch({ type: AUTH_USER })
         localStorage.setItem('auth_jwt_token', res.data.token)
         history.push('/account')
-        axios.defaults.headers.common['Authorization'] = localStorage.getItem('auth_jwt_token')
+        axios.defaults.headers.common['Authorization'] = localStorage.getItem(
+          'auth_jwt_token'
+        )
         dispatch({ type: 'LOADING', payload: false })
       })
       .catch(error => {
@@ -186,7 +193,8 @@ export function whatBrowser() {
   //const isEdge = !isIE && !!window.StyleMedia;
 
   // Chrome 1 - 71
-  const isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime)
+  const isChrome =
+    !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime)
   if (isChrome) return true
   return false
 }

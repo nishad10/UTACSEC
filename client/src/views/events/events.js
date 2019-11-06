@@ -24,10 +24,16 @@ const events = props => {
   return (
     <div style={{ padding: mobile ? '5vw 10vw' : '5vw 15vw' }}>
       <Dimmer active={loading}>
-        <Loader active={loading}>Loading</Loader>
+        <Loader active={loading}>Getting Events...</Loader>
       </Dimmer>
       <Divider horizontal inverted style={{ margin: '5vw 0vw ' }}>
-        <Header as="h4" style={{ color: 'rgb(158, 158, 158)', fontSize: mobile ? '4vw' : '1.5vw' }}>
+        <Header
+          as="h4"
+          style={{
+            color: 'rgb(158, 158, 158)',
+            fontSize: mobile ? '4vw' : '1.5vw'
+          }}
+        >
           RSVP Now
         </Header>
       </Divider>

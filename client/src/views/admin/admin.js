@@ -25,7 +25,7 @@ const Admin = props => {
       menuItem: 'Tab 3',
       render: () => (
         <Tab.Pane style={{ background: 'black' }} attached={false}>
-          Tab 3 Content
+          Coming Soon
         </Tab.Pane>
       )
     }
@@ -37,7 +37,16 @@ const Admin = props => {
         Please enter the event information below.
       </Header>
 
-      <Tab menu={{ inverted: true, attached: false, tabular: false, pointing: true, secondary: true }} panes={panes} />
+      <Tab
+        menu={{
+          inverted: true,
+          attached: false,
+          tabular: false,
+          pointing: true,
+          secondary: true
+        }}
+        panes={panes}
+      />
     </Container>
   )
 }
