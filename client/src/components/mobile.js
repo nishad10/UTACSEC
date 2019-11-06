@@ -67,6 +67,15 @@ class MobileContainer extends Component {
         </Menu.Menu>
       ) : (
         <Menu.Menu position="right" inverted icon="labeled">
+          <Menu.Item as={Link} to="/signout" name="signout">
+            <Icon name="sign-out" />
+            SignOut
+          </Menu.Item>
+        </Menu.Menu>
+      )
+    } else {
+      return (
+        <Menu.Menu position="right" inverted icon="labeled">
           <Menu.Item
             active={activeItem === 'signin'}
             onClick={this.handleItemClick}
@@ -174,7 +183,4 @@ const mapStateToProps = state => ({
   authenticated: state.auth.authenticated
 })
 
-export default connect(
-  mapStateToProps,
-  actions
-)(MobileContainer)
+export default connect(mapStateToProps, actions)(MobileContainer)

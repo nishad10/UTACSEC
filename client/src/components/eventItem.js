@@ -45,13 +45,14 @@ const Eventitem = ({
               color: '#DE6E4B',
               fontSize: '25px',
               fontWeight: 'bold',
-              paddingBottom: '10px'
+              paddingBottom: '10px',
+              alignSelf: 'center'
             }}
           >
             {title}
           </div>
         </div>
-        <div>{sponsor ? <SponsorBadge /> : <div></div>}</div>
+        <div>{sponsor ? <SponsorBadge /> : <div />}</div>
         <div style={{ color: 'white' }}>
           <div>{description}</div>
           <div
@@ -90,6 +91,7 @@ const Eventitem = ({
       >
         <div style={{ fontSize: '35px' }}>{date}</div>
         <div style={{ fontSize: '25px' }}>{month}</div>
+        <div style={{ fontSize: '25px' }}>{day}</div>
         <div> {sponsor ? <SponsorBadge /> : <div />}</div>
       </div>
 

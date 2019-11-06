@@ -2,7 +2,7 @@ import axios from 'axios'
 import { AUTH_USER, UNAUTH_USER, AUTH_ERROR } from '../constants/types'
 import history from '../history'
 const ROOT_URL = process.env.API_URI || 'http://localhost:8000'
-axios.defaults.baseURL = ROOT_URL
+axios.defaults.baseURL = 'https://utacsecapi.herokuapp.com'
 
 if (localStorage.getItem('auth_jwt_token')) {
   axios.defaults.headers.common['Authorization'] = localStorage.getItem(
@@ -157,7 +157,6 @@ export function upTwitter() {
           dispatch({ type: 'GET_TWITTER', payload: result })
           dispatch({ type: 'LOADING', payload: false })
         },
-
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
         // exceptions from actual bugs in components.

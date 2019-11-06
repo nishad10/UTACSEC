@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Header, Divider, Dimmer, Loader } from 'semantic-ui-react'
+import { Header, Divider, Dimmer, Loader, ItemMeta } from 'semantic-ui-react'
 import Eventitem from '../../components/eventItem'
 import { getEvents } from '../../actions'
 import { connect } from 'react-redux'
@@ -44,6 +44,7 @@ const events = props => {
           key={item._id}
           date={item.date}
           month={item.month}
+          day={item.day}
           time={item.time}
           location={item.location}
           title={item.title}
@@ -65,7 +66,4 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   getEvents: () => dispatch(getEvents())
 })
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(events)
+export default connect(mapStateToProps, mapDispatchToProps)(events)
