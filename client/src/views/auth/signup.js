@@ -28,11 +28,14 @@ const Signup = props => {
       password: password
     })
   }
-  useEffect(() => {
-    if (error) {
-      setSuccess(false)
-    }
-  }, [error])
+  useEffect(
+    () => {
+      if (error) {
+        setSuccess(false)
+      }
+    },
+    [error]
+  )
   return (
     <div>
       <Dimmer active={loading}>
@@ -63,14 +66,14 @@ const Signup = props => {
               <Form.Input
                 onChange={e => setlName(e.target.value)}
                 fluid
-                icon="user"
+                icon="user plus"
                 iconPosition="left"
                 placeholder="Last Name"
               />
               <Form.Input
                 onChange={e => setEmail(e.target.value)}
                 fluid
-                icon="user"
+                icon="at"
                 iconPosition="left"
                 placeholder="E-mail address"
               />
@@ -111,7 +114,4 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   signUserUp: val => dispatch(signUserUp(val))
 })
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Signup)
+export default connect(mapStateToProps, mapDispatchToProps)(Signup)

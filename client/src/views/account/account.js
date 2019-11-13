@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Form, Header, Dimmer, Loader } from 'semantic-ui-react'
+import { Form, Header, Dimmer, Loader, Container } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { updateUserProfile } from '../../actions/index'
 
@@ -19,48 +19,53 @@ const Account = props => {
       <Dimmer active={loading}>
         <Loader active={loading}>Loading...</Loader>
       </Dimmer>
-
-      <Header inverted content="Update Information except your password.">
-        <Form inverted>
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '40% 40%',
-              columnGap: '3vw'
-            }}
-          >
-            <Form.Input
-              required
-              label="First Name"
-              name="fname"
-              placeholder={'Change Name'}
-              onChange={e => setFirstname(e.target.value)}
-            />
-            <Form.Input
-              label="Last Name"
-              name="lname"
-              placeholder={'Change Name'}
-              onChange={e => setLastname(e.target.value)}
-            />
-            <Form.Input
-              required
-              label="Email"
-              name="email"
-              placeholder={'Change Email'}
-              onChange={e => setEmail(e.target.value)}
-            />
-            <Form.Input
-              label="Password"
-              name="password"
-              placeholder="Enter Password to verify changes"
-              onChange={e => setPassword(e.target.value)}
-            />
-            <div style={{ gridColumnStart: '1', paddingTop: '1vw' }}>
-              <Form.Button onClick={handleSubmit}>Submit</Form.Button>
+      <Container text style={{ paddingTop: '3vw' }}>
+        <Header inverted content="Update Information except your password.">
+          <Form inverted>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: '40% 40%',
+                columnGap: '3vw'
+              }}
+            >
+              <Form.Input
+                required
+                label="First Name"
+                name="fname"
+                placeholder={'Change Name'}
+                onChange={e => setFirstname(e.target.value)}
+              />
+              <Form.Input
+                label="Last Name"
+                name="lname"
+                placeholder={'Change Name'}
+                onChange={e => setLastname(e.target.value)}
+              />
+              <Form.Input
+                required
+                label="Email"
+                name="email"
+                placeholder={'Change Email'}
+                onChange={e => setEmail(e.target.value)}
+              />
+              <Form.Input
+                label="Password"
+                name="password"
+                placeholder="Enter Password to verify changes"
+                onChange={e => setPassword(e.target.value)}
+              />
+              <div style={{ gridColumnStart: '1', paddingTop: '1vw' }}>
+                <Form.Button onClick={handleSubmit}>Submit</Form.Button>
+              </div>
             </div>
-          </div>
-        </Form>
-      </Header>
+          </Form>
+        </Header>
+        <Header
+          inverted
+          content="If you want to change your password or you have any questions related to your account send us an email."
+        />
+      </Container>
     </div>
   )
 }
@@ -71,7 +76,4 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   updateUserProfile: val => dispatch(updateUserProfile(val))
 })
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Account)
+export default connect(mapStateToProps, mapDispatchToProps)(Account)

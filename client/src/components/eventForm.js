@@ -33,7 +33,6 @@ const EventForm = props => {
   useEffect(() => {
     tryConnect()
     getUserProfile()
-    console.log(active)
   }, [])
   const handleSubmit = () => {
     addEvent({
@@ -159,7 +158,4 @@ const mapDispatchToProps = dispatch => ({
   addEvent: val => dispatch(addEvent(val))
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(EventForm)
+export default connect(mapStateToProps, mapDispatchToProps)(EventForm)

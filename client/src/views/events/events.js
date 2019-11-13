@@ -8,7 +8,6 @@ const events = props => {
   const [width, setWidth] = useState(window.innerWidth)
 
   const { events, getEvents, loading } = props
-  console.log(loading)
 
   useEffect(() => {
     getEvents()
@@ -20,7 +19,6 @@ const events = props => {
   }, [])
 
   const mobile = width < 600
-  console.log(loading)
   return (
     <div style={{ padding: mobile ? '5vw 10vw' : '5vw 15vw' }}>
       <Dimmer active={loading}>
@@ -38,23 +36,31 @@ const events = props => {
         </Header>
       </Divider>
 
-      {events.map(item => (
-        <Eventitem
-          ticketID={item.ticketID}
-          key={item._id}
-          date={item.date}
-          month={item.month}
-          day={item.day}
-          time={item.time}
-          location={item.location}
-          title={item.title}
-          description={item.description}
-          sponsor={false}
-          eventName={item.eventName} //this is eventbrite(182012,-> name <-)
-          ticketStatus={item.ticketStatus}
-          mobile={mobile}
+      {events.length === 0 ? (
+        <Header
+          textAlign="center"
+          inverted
+          content="There are no events right now. Check back later!"
         />
-      ))}
+      ) : (
+        events.map(item => (
+          <Eventitem
+            ticketID={item.ticketID}
+            key={item._id}
+            date={item.date}
+            month={item.month}
+            day={item.day}
+            time={item.time}
+            location={item.location}
+            title={item.title}
+            description={item.description}
+            sponsor={false}
+            eventName={item.eventName} //this is eventbrite(182012,-> name <-)
+            ticketStatus={item.ticketStatus}
+            mobile={mobile}
+          />
+        ))
+      )}
     </div>
   )
 }

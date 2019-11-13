@@ -27,11 +27,14 @@ const Signin = props => {
     signUserIn({ email: email, password: password })
   }
 
-  useEffect(() => {
-    if (error) {
-      setSuccess(false)
-    }
-  }, [error])
+  useEffect(
+    () => {
+      if (error) {
+        setSuccess(false)
+      }
+    },
+    [error]
+  )
 
   return (
     <div>
@@ -96,6 +99,10 @@ const Signin = props => {
           >
             Not registered yet?
           </Button>
+          <Header
+            inverted
+            content="If you want to reset your password or you have any questions related to your account send us an email."
+          />
         </Grid.Column>
       </Grid>
     </div>
@@ -110,7 +117,4 @@ const mapDispatchToProps = dispatch => ({
   signUserIn: val => dispatch(signUserIn(val))
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Signin)
+export default connect(mapStateToProps, mapDispatchToProps)(Signin)

@@ -47,8 +47,6 @@ export function getEvents() {
     axios
       .get(`/events`)
       .then(res => {
-        console.log(res)
-
         dispatch({ type: 'GET_EVENTS', payload: res.data })
         dispatch({ type: 'LOADING', payload: false })
       })
@@ -67,8 +65,6 @@ export function getEventsAdmin() {
     axios
       .get(`/eventsAdmin`)
       .then(res => {
-        console.log(res.data)
-
         dispatch({ type: 'GET_EVENTS_ADMIN', payload: res.data })
         dispatch({ type: 'LOADING', payload: false })
       })
