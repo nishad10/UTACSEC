@@ -2,8 +2,9 @@ import React from 'react'
 import { Container, Divider, Header, Tab, Segment } from 'semantic-ui-react'
 
 import EventForm from '../../components/eventForm'
-import EventDelete from '../../components/eventDelete'
 import EventEdit from '../../components/eventEdit'
+import ReadMe from '../../components/readme'
+
 const Admin = props => {
   const panes = [
     {
@@ -15,18 +16,18 @@ const Admin = props => {
       )
     },
     {
-      menuItem: 'Events Delete',
-      render: () => (
-        <Tab.Pane style={{ background: 'black' }} attached={false}>
-          <EventDelete />
-        </Tab.Pane>
-      )
-    },
-    {
       menuItem: 'Events Edit',
       render: () => (
         <Tab.Pane style={{ background: 'black' }} attached={false}>
           <EventEdit />
+        </Tab.Pane>
+      )
+    },
+    {
+      menuItem: 'ReadMe!',
+      render: () => (
+        <Tab.Pane style={{ background: 'black' }} attached={false}>
+          <ReadMe />
         </Tab.Pane>
       )
     }

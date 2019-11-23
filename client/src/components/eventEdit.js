@@ -102,10 +102,8 @@ const EventEdit = props => {
                   display: 'flex'
                 }}
               >
-                <div style={{ color: '#5BC0BE' }}>Active :-</div>
-                {item.active
-                  ? 'Event is being shown on website'
-                  : 'Event is in database but not being shown on website'}
+                <div style={{ color: '#5BC0BE' }}>TicketStatus :-</div>
+                {item.ticketStatus ? 'RSVP is enabled' : 'RSVP is disabled'}
               </div>
               <div
                 style={{
@@ -115,8 +113,10 @@ const EventEdit = props => {
                   display: 'flex'
                 }}
               >
-                <div style={{ color: '#5BC0BE' }}>TicketStatus :-</div>
-                {item.ticketStatus ? 'RSVP is enabled' : 'RSVP is disabled'}
+                <div style={{ color: '#5BC0BE' }}>Active :-</div>
+                {item.active
+                  ? 'Event is being shown on website'
+                  : 'Event is in database but not being shown on website'}
               </div>
             </div>
 
@@ -154,15 +154,10 @@ const EventEdit = props => {
                 }
                 closeIcon
               >
-                <Header icon="chrome" content="Edit Event" />
+                <Header icon="edit" content="Edit Event" />
                 <Modal.Content>
                   <EditEventItem event={item} />
                 </Modal.Content>
-                <Modal.Actions>
-                  <Button color="green">
-                    <Icon name="checkmark" /> Save
-                  </Button>
-                </Modal.Actions>
               </Modal>
             </div>
           </div>

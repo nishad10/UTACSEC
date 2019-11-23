@@ -107,20 +107,14 @@ export function addEvent(data) {
       })
   }
 }
-
+// Need to add a loading dispatch here did not work before so removed it.
 export function editEvent(data) {
-  return function(dispatch) {
-    dispatch({ type: 'LOADING', payload: true })
-    axios
-      .post(`/eventedit`, data)
-      .then(res => {
-        dispatch({ type: 'LOADING', payload: false })
-      })
-      .catch(error => {
-        console.log(error)
-        dispatch({ type: 'LOADING', payload: false })
-      })
-  }
+  axios
+    .post(`/eventedit`, data)
+    .then(res => {})
+    .catch(error => {
+      console.log(error)
+    })
 }
 export function signUserUp(userObj) {
   return function(dispatch) {

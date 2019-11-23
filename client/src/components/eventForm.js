@@ -117,14 +117,21 @@ const EventForm = props => {
             onChange={e => setEventname(e.target.value)}
           />
 
-          <div style={{ gridColumnStart: '1' }}>
+          <div style={{ gridColumnStart: '1', gridColumnEnd: '3' }}>
             <Form.TextArea
               label="Description"
               placeholder="Tell us about the event..."
               onChange={e => setDescription(e.target.value)}
             />
           </div>
-          <div style={{ gridColumnStart: '1', paddingTop: '20px' }}>
+          <div
+            style={{
+              gridColumnStart: '1',
+              gridColumnEnd: '3',
+              paddingTop: '20px'
+            }}
+          >
+            {' '}
             <Form.Group>
               <label>Should Tickets be on sell?</label>
               <Form.Checkbox
@@ -133,7 +140,14 @@ const EventForm = props => {
               />
             </Form.Group>
           </div>
-          <div style={{ gridColumnStart: '1', paddingTop: '20px' }}>
+          <div
+            style={{
+              gridColumnStart: '1',
+              gridColumnEnd: '3',
+              paddingTop: '20px'
+            }}
+          >
+            {' '}
             <Form.Group>
               <label>Should the event Appear live immediately?</label>
               <Form.Checkbox

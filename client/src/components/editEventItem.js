@@ -59,9 +59,6 @@ const EditEventItem = props => {
 
   return (
     <div>
-      <Dimmer active={loading}>
-        <Loader active={loading}>Loading...</Loader>
-      </Dimmer>
       <Form inverted>
         <div
           style={{
@@ -124,7 +121,7 @@ const EditEventItem = props => {
             />
           </div>
 
-          <div style={{ gridColumnStart: '1' }}>
+          <div style={{ gridColumnStart: '1', gridColumnEnd: '3' }}>
             <Form.TextArea
               label="Description"
               placeholder="Tell us about the event..."
@@ -132,7 +129,13 @@ const EditEventItem = props => {
               onChange={e => setDescription(e.target.value)}
             />
           </div>
-          <div style={{ gridColumnStart: '1', paddingTop: '20px' }}>
+          <div
+            style={{
+              gridColumnStart: '1',
+              gridColumnEnd: '3',
+              paddingTop: '20px'
+            }}
+          >
             <Form.Group>
               <label>Should Tickets be on sell?</label>
               <Form.Checkbox
@@ -141,7 +144,13 @@ const EditEventItem = props => {
               />
             </Form.Group>
           </div>
-          <div style={{ gridColumnStart: '1', paddingTop: '20px' }}>
+          <div
+            style={{
+              gridColumnStart: '1',
+              gridColumnEnd: '3',
+              paddingTop: '20px'
+            }}
+          >
             <Form.Group>
               <label>Should the event Appear live immediately?</label>
               <Form.Checkbox
