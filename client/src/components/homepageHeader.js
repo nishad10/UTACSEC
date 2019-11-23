@@ -17,8 +17,18 @@ const HomepageHeader = props => {
           marginTop: mobile ? '1em' : '2.5em'
         }}
       />
-      <div style={{ display: 'flex', paddingRight: mobile ? '0vw' : '6vw', justifyContent: mobile ? '' : 'center' }}>
-        <Image size="tiny" src="/statics/favicon.ico" style={{ alignSelf: 'center', paddingRight: '10px' }} />
+      <div
+        style={{
+          display: 'flex',
+          paddingRight: mobile ? '0vw' : '6vw',
+          justifyContent: mobile ? '' : 'center'
+        }}
+      >
+        <Image
+          size="tiny"
+          src="/statics/favicon.ico"
+          style={{ alignSelf: 'center', paddingRight: '10px' }}
+        />
         <Header
           as="h2"
           content="Cyber Security Club"
@@ -32,22 +42,25 @@ const HomepageHeader = props => {
           }}
         />
       </div>
-      <Button
-        as={Link}
-        to="/joinnow"
-        animated
-        basic
-        color="green"
-        style={{
-          fontSize: mobile ? '0.8em' : '1.5em',
-          fontWeight: 'normal'
-        }}
+      <a
+        style={{ color: '#21ba45' }}
+        href="https://docs.google.com/forms/d/e/1FAIpQLSejy06lsYjchT5N34ImgAPdWw9CpmS0hrJ9R2tUbrVk-JCyHA/viewform?usp=sf_link"
       >
-        <Button.Content visible>Join Now</Button.Content>
-        <Button.Content hidden>
-          <Icon name="arrow right" />
-        </Button.Content>
-      </Button>
+        <Button
+          animated
+          basic
+          color="green"
+          style={{
+            fontSize: mobile ? '0.8em' : '1.5em',
+            fontWeight: 'normal'
+          }}
+        >
+          <Button.Content visible> Join Now</Button.Content>
+          <Button.Content hidden>
+            <Icon name="arrow right" />
+          </Button.Content>
+        </Button>
+      </a>
     </Container>
   )
 }

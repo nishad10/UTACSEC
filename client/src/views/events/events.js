@@ -58,6 +58,7 @@ const events = props => {
             eventName={item.eventName} //this is eventbrite(182012,-> name <-)
             ticketStatus={item.ticketStatus}
             mobile={mobile}
+            custom={item.custom}
           />
         ))
       )}

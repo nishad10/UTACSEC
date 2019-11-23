@@ -2,7 +2,8 @@ import React, { useEffect } from 'react'
 import ticketEnableDisable from '../functions/ticketEnableDisable'
 import SponsorBadge from './sponsorBadge'
 import eventBrite from '../components/eventBrite'
-import { Divider } from 'semantic-ui-react'
+import { Divider, Button, Icon } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 const Eventitem = ({
   date,
@@ -16,7 +17,8 @@ const Eventitem = ({
   eventName,
   ticketID,
   mobile,
-  ticketStatus
+  ticketStatus,
+  custom
 }) => {
   useEffect(() => {
     eventBrite(ticketID, eventName)
@@ -67,7 +69,22 @@ const Eventitem = ({
             </div>
           </div>
           <div style={{ display: 'flex', paddingTop: '10px' }}>
-            {ticketEnableDisable(true, eventName, mobile)}
+            {custom ? (
+              <Button
+                style={{
+                  fontSize: mobile ? '3.2vw' : '1vw',
+                  float: 'right',
+                  background: '#DE6E4B'
+                }}
+                as={Link}
+                to="/form"
+              >
+                RSVP
+                <Icon name="right chevron" />
+              </Button>
+            ) : (
+              ticketEnableDisable(true, eventName, mobile)
+            )}
           </div>
         </div>
       </div>
@@ -118,7 +135,26 @@ const Eventitem = ({
             from {time}
           </div>
         </div>
-        {ticketEnableDisable(ticketStatus, eventName, mobile)}
+        {custom ? (
+          <a
+            style={{ color: 'black' }}
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdTXSUa3NhTxwdvva3XPNPH1NtozCIy7V9WTsx10vyXrm5NyQ/viewform?usp=sf_link"
+          >
+            {' '}
+            <Button
+              style={{
+                fontSize: mobile ? '3.2vw' : '1vw',
+                float: 'right',
+                background: '#DE6E4B'
+              }}
+            >
+              RSVP
+              <Icon name="right chevron" />
+            </Button>{' '}
+          </a>
+        ) : (
+          ticketEnableDisable(ticketStatus, eventName, mobile)
+        )}
       </div>
     </div>
   )
