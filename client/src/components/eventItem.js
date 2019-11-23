@@ -70,18 +70,22 @@ const Eventitem = ({
           </div>
           <div style={{ display: 'flex', paddingTop: '10px' }}>
             {custom ? (
-              <Button
-                style={{
-                  fontSize: mobile ? '3.2vw' : '1vw',
-                  float: 'right',
-                  background: '#DE6E4B'
-                }}
-                as={Link}
-                to="/form"
+              <a
+                style={{ color: 'black' }}
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdTXSUa3NhTxwdvva3XPNPH1NtozCIy7V9WTsx10vyXrm5NyQ/viewform?usp=sf_link"
               >
-                RSVP
-                <Icon name="right chevron" />
-              </Button>
+                {' '}
+                <Button
+                  style={{
+                    fontSize: mobile ? '3.2vw' : '1vw',
+                    float: 'right',
+                    background: '#DE6E4B'
+                  }}
+                >
+                  RSVP
+                  <Icon name="right chevron" />
+                </Button>
+              </a>
             ) : (
               ticketEnableDisable(true, eventName, mobile)
             )}
