@@ -96,9 +96,23 @@ export function addEvent(data) {
   // const { history } = this.props
   return function(dispatch) {
     dispatch({ type: 'LOADING', payload: true })
-    // Submit email/password to server
     axios
       .post(`/eventsadd`, data)
+      .then(res => {
+        dispatch({ type: 'LOADING', payload: false })
+      })
+      .catch(error => {
+        console.log(error)
+        dispatch({ type: 'LOADING', payload: false })
+      })
+  }
+}
+
+export function editEvent(data) {
+  return function(dispatch) {
+    dispatch({ type: 'LOADING', payload: true })
+    axios
+      .post(`/eventedit`, data)
       .then(res => {
         dispatch({ type: 'LOADING', payload: false })
       })

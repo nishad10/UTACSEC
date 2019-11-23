@@ -3,6 +3,7 @@ import { Container, Divider, Header, Tab, Segment } from 'semantic-ui-react'
 
 import EventForm from '../../components/eventForm'
 import EventDelete from '../../components/eventDelete'
+import EventEdit from '../../components/eventEdit'
 const Admin = props => {
   const panes = [
     {
@@ -22,10 +23,10 @@ const Admin = props => {
       )
     },
     {
-      menuItem: 'Coming Soon',
+      menuItem: 'Events Edit',
       render: () => (
         <Tab.Pane style={{ background: 'black' }} attached={false}>
-          Coming Soon
+          <EventEdit />
         </Tab.Pane>
       )
     }

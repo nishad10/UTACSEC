@@ -5,13 +5,14 @@ import {
   Dimmer,
   Loader,
   Button,
-  Icon
+  Icon,
+  Modal
 } from 'semantic-ui-react'
 import { getEventsAdmin, deleteEvent } from '../actions'
 import { connect } from 'react-redux'
 import axios from 'axios'
-
-const EventDelete = props => {
+import EditEventItem from './editEventItem'
+const EventEdit = props => {
   const [width, setWidth] = useState(window.innerWidth)
   const [profile, setProfile] = useState({})
 
@@ -36,7 +37,7 @@ const EventDelete = props => {
   }, [])
   const mobile = width < 600
   return (
-    <div style={{ padding: mobile ? '5vw 5vw' : '5vw 10vw' }}>
+    <div style={{ padding: mobile ? '0' : '5vw 10vw' }}>
       <Dimmer active={loading}>
         <Loader active={loading}>Loading...</Loader>
       </Dimmer>
@@ -48,7 +49,7 @@ const EventDelete = props => {
             fontSize: mobile ? '4vw' : '1.5vw'
           }}
         >
-          Delete
+          RSVP Now
         </Header>
       </Divider>
 
@@ -63,29 +64,45 @@ const EventDelete = props => {
                   color: '#DE6E4B',
                   fontSize: '25px',
                   fontWeight: 'bold',
-                  paddingBottom: '10px'
+                  paddingBottom: '10px',
+                  display: 'flex'
                 }}
               >
+                <div style={{ color: '#5BC0BE' }}>Title :-</div>
                 {item.title}
               </div>
-              <div style={{ color: 'white' }}>{item.description}</div>
               <div
                 style={{
-                  color: '#5BC0BE',
+                  color: '#DE6E4B',
                   fontSize: '14px',
                   fontWeight: 'bold',
                   paddingBottom: '10px'
                 }}
               >
-                Database ID:{item._id}
+                <div style={{ color: '#5BC0BE' }}>Description :-</div>
+                {item.description}
+              </div>
+              <div
+                style={{
+                  color: '#DE6E4B',
+                  fontSize: '14px',
+                  fontWeight: 'bold',
+                  paddingBottom: '10px',
+                  display: 'flex'
+                }}
+              >
+                <div style={{ color: '#5BC0BE' }}>Database ID :-</div>
+                {item._id}
               </div>
               <div
                 style={{
                   color: '#DE6E4B',
                   fontSize: '18px',
-                  paddingBottom: '10px'
+                  paddingBottom: '10px',
+                  display: 'flex'
                 }}
               >
+                <div style={{ color: '#5BC0BE' }}>Active :-</div>
                 {item.active
                   ? 'Event is being shown on website'
                   : 'Event is in database but not being shown on website'}
@@ -94,18 +111,22 @@ const EventDelete = props => {
                 style={{
                   color: '#DE6E4B',
                   fontSize: '18px',
-                  paddingBottom: '10px'
+                  paddingBottom: '10px',
+                  display: 'flex'
                 }}
               >
+                <div style={{ color: '#5BC0BE' }}>TicketStatus :-</div>
                 {item.ticketStatus ? 'RSVP is enabled' : 'RSVP is disabled'}
               </div>
             </div>
+
             <div>
               <Button
                 value={item._id}
                 onClick={e => handleDelete(e.target.value)}
                 style={{
                   fontSize: mobile ? '10px' : '1em',
+                  marginBottom: '20px',
                   float: 'right',
                   background: '#DE6E4B',
                   display: 'flex'
@@ -114,6 +135,35 @@ const EventDelete = props => {
                 Delete
                 <Icon name="right chevron" />
               </Button>
+              <Modal
+                basic
+                centered
+                size="tiny"
+                trigger={
+                  <Button
+                    style={{
+                      fontSize: mobile ? '10px' : '1em',
+                      float: 'right',
+                      background: '#DE6E4B',
+                      display: 'flex'
+                    }}
+                  >
+                    Edit
+                    <Icon name="right chevron" />
+                  </Button>
+                }
+                closeIcon
+              >
+                <Header icon="chrome" content="Edit Event" />
+                <Modal.Content>
+                  <EditEventItem event={item} />
+                </Modal.Content>
+                <Modal.Actions>
+                  <Button color="green">
+                    <Icon name="checkmark" /> Save
+                  </Button>
+                </Modal.Actions>
+              </Modal>
             </div>
           </div>
         </div>
@@ -130,4 +180,4 @@ const mapDispatchToProps = dispatch => ({
   getEventsAdmin: () => dispatch(getEventsAdmin()),
   deleteEvent: val => dispatch(deleteEvent(val))
 })
-export default connect(mapStateToProps, mapDispatchToProps)(EventDelete)
+export default connect(mapStateToProps, mapDispatchToProps)(EventEdit)

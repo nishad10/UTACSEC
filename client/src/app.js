@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
-import { Router, Route, Redirect } from 'react-router-dom'
+import { Router, Route, Redirect, HashRouter } from 'react-router-dom'
 import Poll from './views/poll'
 import reduxThunk from 'redux-thunk'
 
@@ -27,7 +27,7 @@ import { getProfile } from './actions'
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore)
 const store = createStoreWithMiddleware(reducers)
 const token = localStorage.getItem('auth_jwt_token')
-
+//    <Router history={history}>
 // if we have a token, consider the user to be signed in
 if (token) {
   store.dispatch({ type: AUTH_USER })
@@ -37,7 +37,7 @@ if (token) {
 }
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={history}>
+    <HashRouter>
       <App>
         <Route exact path="/" component={Home} />
         <Route path="/joinnow" component={Join} />
@@ -52,7 +52,7 @@ ReactDOM.render(
         <Route path="/flag" component={Poll} />
         <Route path="/form" component={Form} />
       </App>
-    </Router>
+    </HashRouter>
   </Provider>,
   document.getElementById('root')
 )
