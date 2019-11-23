@@ -17,6 +17,7 @@ import Signup from './views/auth/signup'
 import Signout from './views/auth/signout'
 import Join from './views/Join/Join.js'
 import Admin from './views/admin/admin'
+import Form from './views/Form/form'
 import RequireAuth from './views/auth/require_auth'
 import reducers from './reducers'
 import { AUTH_USER } from './constants/types'
@@ -49,6 +50,7 @@ ReactDOM.render(
         <Route path="/signup" component={Signup} />
         <Route path="/signout" component={Signout} />
         <Route path="/flag" component={Poll} />
+        <Route path="/form" component={Form} />
       </App>
     </Router>
   </Provider>,
