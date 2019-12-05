@@ -140,6 +140,65 @@ const Recruit = () => {
           </Button>
         </a>
       </Segment>
+      <Segment
+        inverted
+        style={{
+          width: '100%',
+          margin: mobile ? '20px 0px' : '20px 0'
+        }}
+      >
+        <div>
+          <Header
+            as="h3"
+            style={{ fontSize: '25px', color: '#de6e4b' }}
+            inverted
+            textAlign="center"
+          >
+            IT Maintainence
+          </Header>
+        </div>
+
+        <Segment inverted style={{ fontSize: mobile ? '14px' : '20px' }}>
+          <List bulleted relaxed>
+            <List.Item>
+              Have interest and knowledge of cybersecurity and related topics.{' '}
+            </List.Item>
+            <List.Item>
+              Be able to hold a meeting as the main speaker if need arises.{' '}
+            </List.Item>
+            <List.Item>
+              Should have taken the Network+ or similar exam or is studying for
+              one.
+            </List.Item>
+            <List.Item>
+              Have knowledge of servers, their setup and maintainence.
+            </List.Item>
+            <List.Item>
+              Help with manageing different types of hardware and maintaining
+              them.
+            </List.Item>
+            <List.Item>
+              Knows how to setup a FTP server specifically.{' '}
+            </List.Item>
+            <List.Item>Has some kind of homelab already setup.</List.Item>
+          </List>
+        </Segment>
+        <a
+          style={{ color: 'black' }}
+          href="https://docs.google.com/forms/d/e/1FAIpQLSc2wMD5oWLsw9n-r3lbj6He2oKOWDMMYFMQydk8kmQhcD3L5A/viewform?usp=sf_link"
+        >
+          <Button
+            style={{
+              fontSize: mobile ? '3.2vw' : '1vw',
+              float: mobile ? '' : 'right',
+              background: '#DE6E4B'
+            }}
+          >
+            Apply
+            <Icon name="right chevron" />
+          </Button>
+        </a>
+      </Segment>
     </div>
   )
 }

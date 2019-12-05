@@ -71,7 +71,7 @@ const HomepageHeader = props => {
       >
         <Link to="/recruit">
           <h1 style={{ fontSize: mobile ? '18px' : '24px', color: '#de6e4b' }}>
-            2 New officer positions are availaible. Apply Now!
+            3 New officer positions are availaible. Apply Now!
           </h1>
         </Link>
       </div>
