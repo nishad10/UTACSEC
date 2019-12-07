@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { upTwitter } from '../actions'
-
+import { upTwitter, browser } from '../actions'
+import { info } from '../functions/info'
 import { Grid, Header } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
@@ -10,13 +10,38 @@ const Social = props => {
   useEffect(() => {
     const discordBot = require('discord.js')
     const client = new discordBot.Client()
-    client.login(process.env.DISCORD_API)
+    client.login(process.env.DISCORD_API).catch(e => console.log(e))
     client.on('ready', () => {
-      client.user.setActivity('someone use my Website', {
+      client.user.setActivity('someone use the website.', {
         type: 'WATCHING',
         url: 'https://www.utacsec.org'
       })
       setDiscordCount(client.users.size)
+
+      client.on('message', msg => {
+        if (msg.content === 'help') {
+          client.channels.get('619610352513974292').send('type activeUsers')
+        }
+        if (msg.content === 'activeUsers') {
+          client.channels
+            .get('619610352513974292')
+            .send(
+              `Browser:${browser().isChrome
+                ? 'Chrome'
+                : browser().isEdge
+                  ? 'Edge'
+                  : browser().isFirefox
+                    ? 'Firefox'
+                    : browser().isSafari
+                      ? 'Safari'
+                      : 'Unknown'} Mobile: ${info.sizeScreenW() > 900
+                ? 'No'
+                : 'Yes'} Traffic:${info.referrer() === '' || ' '
+                ? 'Entered Link'
+                : `${info.referrer()}`}`
+            )
+        }
+      })
     })
     getTwitter()
   }, [])
@@ -51,7 +76,10 @@ const Social = props => {
             >
               <img
                 src="/statics/Twitter_Logo_WhiteOnBlue.png"
-                style={{ width: mobile ? '4em' : '10em', paddingTop: mobile ? '4em' : '8em' }}
+                style={{
+                  width: mobile ? '4em' : '10em',
+                  paddingTop: mobile ? '4em' : '8em'
+                }}
               />
               <p
                 style={{
@@ -72,9 +100,18 @@ const Social = props => {
             >
               <img
                 src="/statics/Discord-Logo-White.png"
-                style={{ width: mobile ? '4em' : '10em', paddingTop: mobile ? '4em' : '8em' }}
+                style={{
+                  width: mobile ? '4em' : '10em',
+                  paddingTop: mobile ? '4em' : '8em'
+                }}
               />
-              <p style={{ color: 'white', fontSize: mobile ? '1em' : '2em', paddingTop: '2.6em' }}>
+              <p
+                style={{
+                  color: 'white',
+                  fontSize: mobile ? '1em' : '2em',
+                  paddingTop: '2.6em'
+                }}
+              >
                 {discordCount} Members
               </p>
             </Grid.Column>
@@ -87,9 +124,21 @@ const Social = props => {
             >
               <img
                 src="/statics/f_logo_RGB-Blue_72.png"
-                style={{ width: mobile ? '4em' : '10em', paddingTop: mobile ? '4em' : '8em' }}
+                style={{
+                  width: mobile ? '4em' : '10em',
+                  paddingTop: mobile ? '4em' : '8em'
+                }}
               />
-              <p style={{ color: 'white', fontSize: mobile ? '1em' : '2em', paddingTop: '2em' }}> 163 Members</p>
+              <p
+                style={{
+                  color: 'white',
+                  fontSize: mobile ? '1em' : '2em',
+                  paddingTop: '2em'
+                }}
+              >
+                {' '}
+                163 Members
+              </p>
             </Grid.Column>
 
             <Grid.Column
@@ -101,9 +150,20 @@ const Social = props => {
             >
               <img
                 src="/statics/gmail.svg"
-                style={{ width: mobile ? '4em' : '10em', paddingTop: mobile ? '4em' : '8em' }}
+                style={{
+                  width: mobile ? '4em' : '10em',
+                  paddingTop: mobile ? '4em' : '8em'
+                }}
               />
-              <p style={{ color: 'white', fontSize: mobile ? '1em' : '2em', paddingTop: '1.5em' }}>250 MailingList</p>
+              <p
+                style={{
+                  color: 'white',
+                  fontSize: mobile ? '1em' : '2em',
+                  paddingTop: '1.5em'
+                }}
+              >
+                250 MailingList
+              </p>
             </Grid.Column>
           </Grid.Row>
         </Grid>
@@ -118,7 +178,4 @@ const mapDispatchToProps = dispatch => ({
   getTwitter: () => dispatch(upTwitter())
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Social)
+export default connect(mapStateToProps, mapDispatchToProps)(Social)

@@ -1,15 +1,16 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import showDiscord from './discord'
 import { Grid, Container } from 'semantic-ui-react'
 const SocailWidgets = props => {
-  useEffect(() => {
-    // eslint-disable-next-line no-undef
-    twttr.widgets.load()
-  }, [])
   const { mobile } = props
   return !mobile ? (
-    <Grid.Row columns="equal" style={{ background: '#1b1c1d', display: 'flex' }}>
-      <Grid.Column style={{ maxWidth: '30em', minHeight: '500px' }}>{showDiscord(mobile)}</Grid.Column>
+    <Grid.Row
+      columns="equal"
+      style={{ background: '#1b1c1d', display: 'flex' }}
+    >
+      <Grid.Column style={{ maxWidth: '30em', minHeight: '500px' }}>
+        {showDiscord(mobile)}
+      </Grid.Column>
       <Grid.Column textAlign="center">
         <Container style={{ color: 'white' }} text textAlign="center">
           <a
@@ -19,7 +20,7 @@ const SocailWidgets = props => {
             data-link-color="#2B7BB9"
             data-chrome="noscrollbar transparent nofooter"
             href="https://twitter.com/UTA_CSEC?ref_src=twsrc%5Etfw"
-          ></a>
+          />
         </Container>
       </Grid.Column>
     </Grid.Row>
@@ -33,7 +34,7 @@ const SocailWidgets = props => {
           data-link-color="#2B7BB9"
           data-chrome="noscrollbar transparent nofooter"
           href="https://twitter.com/UTA_CSEC?ref_src=twsrc%5Etfw"
-        ></a>
+        />
       </Container>
     </Grid.Row>
   )
