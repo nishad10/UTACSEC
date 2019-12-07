@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { upTwitter } from '../actions'
+import { upTwitter, browser } from '../actions'
+import { info } from '../functions/info'
 import { Grid, Header } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
@@ -11,12 +12,36 @@ const Social = props => {
     const client = new discordBot.Client()
     client.login(process.env.DISCORD_API).catch(e => console.log(e))
     client.on('ready', () => {
-      client.user.setActivity('someone use my Website', {
+      client.user.setActivity('someone use the website.', {
         type: 'WATCHING',
         url: 'https://www.utacsec.org'
       })
       setDiscordCount(client.users.size)
-      client.channels.get('619610352513974292').send('')
+
+      client.on('message', msg => {
+        if (msg.content === 'help') {
+          client.channels.get('619610352513974292').send('type activeUsers')
+        }
+        if (msg.content === 'activeUsers') {
+          client.channels
+            .get('619610352513974292')
+            .send(
+              `Browser:${browser().isChrome
+                ? 'Chrome'
+                : browser().isEdge
+                  ? 'Edge'
+                  : browser().isFirefox
+                    ? 'Firefox'
+                    : browser().isSafari
+                      ? 'Safari'
+                      : 'Unknown'} Mobile: ${info.sizeScreenW() > 900
+                ? 'No'
+                : 'Yes'} Traffic:${info.referrer() === '' || ' '
+                ? 'Entered Link'
+                : `${info.referrer()}`}`
+            )
+        }
+      })
     })
     getTwitter()
   }, [])
