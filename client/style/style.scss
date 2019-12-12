@@ -95,3 +95,10 @@ body {
 .customRibbon a {
   background: black;
 }
+
+.recruitAnimate {
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-name: bounceIn;
+  color: #de6e4b;
+}
