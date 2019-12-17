@@ -95,10 +95,65 @@ body {
 .customRibbon a {
   background: black;
 }
-
-.recruitAnimate {
-  animation-duration: 1.5s;
-  animation-iteration-count: infinite;
-  animation-name: bounceIn;
-  color: #de6e4b;
+/*
+.line-1 {
+  position: relative;
+  top: 50%;
+  width: 10em;
+  margin: 0 auto;
+  border-right: 2px solid green;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  transform: translateY(-50%);
+}*/
+/*
+// Animation 
+.textName {
+  position: relative;
+  display: inline-block;
+  font-family: Monaco, Arial, Helvetica, sans-serif;
+  line-height: 24px;
+  font-size: 24px;
+  color: white;
+}*/
+/*
+.textName::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  right: -10px;
+  display: inline-block;
+  background-color: #606060;
+  vertical-align: top;
+  width: 5px;
+  height: ;
+ 
+  -webkit-animation: blink 1s step-end infinite;
+  animation: blink 1s step-end infinite;
 }
+
+@-webkit-keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+*/

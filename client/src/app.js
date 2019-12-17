@@ -39,18 +39,17 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <App>
-        <Route exact path="/" component={Home} />
-        <Route path="/joinnow" component={Join} />
-        <Route path="/events" component={Events} />
-        <Route path="/officers" component={Officers} />
-        <Route path="/about" component={About} />
-        <Route path="/account" component={RequireAuth(Account)} />
-        <Route path="/admin" component={RequireAuth(Admin)} />
-        <Route path="/signin" component={Signin} />
-        <Route path="/signup" component={Signup} />
-        <Route path="/signout" component={Signout} />
-        <Route path="/flag" component={Poll} />
-        <Route path="/recruit" component={Recruit} />
+        <Route exact path='/' component={Home} />
+        <Route path='/joinnow' component={Join} />
+        <Route path='/events' component={Events} />
+        <Route path='/officers' component={Officers} />
+        <Route path='/about' component={About} />
+        <Route path='/account' component={RequireAuth(Account)} />
+        <Route path='/admin' component={RequireAuth(Admin)} />
+        <Route path='/signin' component={Signin} />
+        <Route path='/signup' component={Signup} />
+        <Route path='/signout' component={Signout} />
+        <Route path='/flag' component={Poll} />
       </App>
     </Router>
   </Provider>,
