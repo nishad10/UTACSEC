@@ -44,7 +44,7 @@ const Officers = () => {
         position={'Co-President'}
         email={'erika.leal@mavs.uta.edu'}
         description={
-          'Hey I am Erika and I am the treasurer for the club. I handle all the funds to keep this club moving. I am a PhD student for Dr. Ming with my research focused on packed malware right now. I also did my undergraduate in computer science.'
+          'Hey I am Erika and I am the co-president for the club. I will be doing my best to keep this club moving. I am a PhD student for Dr. Ming with my research focused on packed malware right now. I also did my undergraduate in computer science.'
         }
         imgSource={'/statics/favicon.ico'}
       />
@@ -53,7 +53,7 @@ const Officers = () => {
         position={'Co-President'}
         email={'mario.oliveros@mavs.uta.edu'}
         description={
-          'I am Mario, and I am the Social and Activities Chair for the Cybersecurity Club. I am in charge of organizing and running our activities and events, recruiting, and other social aspects of the club. This is my first year at UTA as a transfer student in Computer Science. Before this, i received an Associates in Business (IT concentration). I have some knowledge in cybersecurity, mostly focusing on social engineering, hardware, and OPSEC.'
+          'I am Mario, and I am the co-president for the Cybersecurity Club. I will be organizing and running our activities and events, recruiting, and taking care of other aspects of the club. This is my first year at UTA as a transfer student in Computer Science. Before this, i received an Associates in Business (IT concentration). I have some knowledge in cybersecurity, mostly focusing on social engineering, hardware, and OPSEC.'
         }
         imgSource={'/statics/mario.jpg'}
       />
@@ -68,17 +68,17 @@ const Officers = () => {
         imgSource={'/statics/nishad.jpg'}
       />
       <OfficerItemMobile
-        name={'Christian'}
+        name={'Christian Plaue'}
         position={'Secretary'}
-        email={'christian@mavs.uta.edu'}
+        email={' christian.plaue@mavs.uta.edu'}
         description={
           'Howdy everyone, I’m Christian. I’m a senior INSY student. I’m focused on being a SOC analyst and investigator. Currently working on my certifications while finishing my degree. I also like talking about business and helping with understanding technology. Feel free to reach out! As your Secretary, if you have any questions about recruitment, marketing, or outreach let me know!'
         }
         imgSource={'/statics/christian.jpg'}
       />
       <OfficerItemMobile
-        name={'Stephanie'}
-        position={'Nguyen'}
+        name={'Stephanie Nguyen'}
+        position={'Treasurer'}
         email={'stephanie.nguyen3@mavs.uta.edu'}
         description={
           'Hello! My name is Stephanie and I am the treasurer for the Cybersecurity Club at UTA. I am studying to get my bachelors of Computer Science; some of my interests include software engineering, cyber security/privacy, etc. As treasurer, I will be responsible for managing the club budget/fund, as well as keeping detailed records of all financial transactions of CSEC.'
@@ -118,7 +118,7 @@ const Officers = () => {
           position={'Co-President'}
           email={'erika.leal@mavs.uta.edu'}
           description={
-            'Hey I am Erika and I am the treasurer for the club. I handle all the funds to keep this club moving. I am a PhD student for Dr. Ming with my research focused on packed malware right now. I also did my undergraduate in computer science.'
+            'Hey I am Erika and I am the co-president for the club. I will be doing my best to keep this club moving. I am a PhD student for Dr. Ming with my research focused on packed malware right now. I also did my undergraduate in computer science.'
           }
           imgSource={'/statics/favicon.ico'}
         />
@@ -128,7 +128,7 @@ const Officers = () => {
           position={'Co-President'}
           email={'mario.oliveros@mavs.uta.edu'}
           description={
-            'I am Mario, and I am the Social and Activities Chair for the Cybersecurity Club. I am in charge of organizing and running our activities and events, recruiting, and other social aspects of the club. This is my first year at UTA as a transfer student in Computer Science. Before this, i received an Associates in Business (IT concentration). I have some knowledge in cybersecurity, mostly focusing on social engineering, hardware, and OPSEC.'
+            'I am Mario, and I am the co-president for the Cybersecurity Club. I will be organizing and running our activities and events, recruiting, and taking care of other aspects of the club. This is my first year at UTA as a transfer student in Computer Science. Before this, i received an Associates in Business (IT concentration). I have some knowledge in cybersecurity, mostly focusing on social engineering, hardware, and OPSEC.'
           }
           imgSource={'/statics/mario.jpg'}
         />
@@ -144,9 +144,9 @@ const Officers = () => {
         />
         <Divider inverted style={{ margin: '1vw 15vw' }} />
         <OfficerItem
-          name={'Christian'}
+          name={'Christian Plaue'}
           position={'Secretary'}
-          email={'christian@mavs.uta.edu'}
+          email={'christian.plaue@mavs.uta.edu'}
           description={
             'Howdy everyone, I’m Christian. I’m a senior INSY student. I’m focused on being a SOC analyst and investigator. Currently working on my certifications while finishing my degree. I also like talking about business and helping with understanding technology. Feel free to reach out! As your Secretary, if you have any questions about recruitment, marketing, or outreach let me know!'
           }
