@@ -173,7 +173,7 @@ export function upTwitter() {
   }
 }
 export function getProfile() {
-  axios
+  return axios
     .get(`https://utacsecapi.herokuapp.com/user/profile`)
     .then(r => {
       return r.data
@@ -207,7 +207,7 @@ export const browser = () => ({
 
   // Edge 20+
   isEdge:
-    !/*@cc_on!@*/ (false || !!document.documentMode) && !!window.StyleMedia,
+    !(/*@cc_on!@*/ (false || !!document.documentMode)) && !!window.StyleMedia,
 
   // Chrome 1 - 71
   isChrome:

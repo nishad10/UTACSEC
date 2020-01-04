@@ -14,10 +14,8 @@ const Account = props => {
     updateUserProfile({ firstName, lastName, discordID })
   }
   useEffect(() => {
-    console.log(getProfile())
     getProfile()
       .then(profile => {
-        console.log(profile)
         setEmail(profile.email)
         setFirstname(profile.name.first)
         setLastname(profile.name.last)
