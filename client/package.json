@@ -4,7 +4,7 @@
   "description": "Website for UTA CSEC Club",
   "main": "index.js",
   "scripts": {
-    "dev": "npm ls react && webpack-dev-server --open --config webpack.dev.js",
+    "dev": "webpack-dev-server --open --config webpack.dev.js",
     "start": "serve ../docs",
     "build": "rm -rf ../docs && webpack --config webpack.prod.js && npm run copy:static && cp _redirects ../docs",
     "copy:static": "cp -rf ./src/statics ../docs"
