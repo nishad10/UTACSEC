@@ -44,9 +44,9 @@ const Officers = () => {
         position={"Co-President"}
         email={"erika.leal@mavs.uta.edu"}
         description={
-          "Hey I am Erika and I am the co-president for the club. I will be doing my best to keep this club moving. I am a PhD student for Dr. Ming with my research focused on packed malware right now. I also did my undergraduate in computer science."
+          "Hi there, I’m Co-president of CSEC and a PhD candidate. Computer Science is my passion, it has opened so many doors and avenues which have ultimately led me to cyber security.  My goal as president is to make cyber security fun and accessible to students while inspiring new white hats to fight cybercrime."
         }
-        imgSource={"/statics/favicon.ico"}
+        imgSource={"/statics/erika.jpg"}
       />
       <OfficerItemMobile
         name={"Mario Oliveros"}
@@ -94,6 +94,15 @@ const Officers = () => {
         }
         imgSource={"/statics/favicon.ico"}
       />
+      <OfficerItemMobile
+        name={"Alexis Spano"}
+        position={"Design"}
+        email={"alexis.spano@mavs.uta.edu"}
+        description={
+          "Hi, I'm Alexis and I am in charge of all the sweet designs you see like the posters or our logo! I am a Linguistics majors, but I studied graphic design for over 3 years before changing my major. I am not knowledgeable at all in cyber security other than what I've picked up here and there in the club."
+        }
+        imgSource={"/statics/alexis.jpg"}
+      />
     </div>
   ) : (
     <div>
@@ -127,9 +136,9 @@ const Officers = () => {
           position={"Co-President"}
           email={"erika.leal@mavs.uta.edu"}
           description={
-            "Hey I am Erika and I am the co-president for the club. I will be doing my best to keep this club moving. I am a PhD student for Dr. Ming with my research focused on packed malware right now. I also did my undergraduate in computer science."
+            "Hi there, I’m Co-president of CSEC and a PhD candidate. Computer Science is my passion, it has opened so many doors and avenues which have ultimately led me to cyber security.  My goal as president is to make cyber security fun and accessible to students while inspiring new white hats to fight cybercrime."
           }
-          imgSource={"/statics/favicon.ico"}
+          imgSource={"/statics/erika.jpg"}
         />
         <Divider inverted style={{ margin: "1vw 15vw" }} />
         <OfficerItem
@@ -180,6 +189,16 @@ const Officers = () => {
             "Hello! My name is Stephanie and I am the treasurer for the Cybersecurity Club at UTA. I am studying to get my bachelors of Computer Science; some of my interests include software engineering, cyber security/privacy, etc. As treasurer, I will be responsible for managing the club budget/fund, as well as keeping detailed records of all financial transactions of CSEC."
           }
           imgSource={"/statics/favicon.ico"}
+        />
+        <Divider inverted style={{ margin: "1vw 15vw" }} />
+        <OfficerItem
+          name={"Alexis Spano"}
+          position={"Design"}
+          email={"alexis.spano@mavs.uta.edu"}
+          description={
+            "Hi, I'm Alexis and I am in charge of all the sweet designs you see like the posters or our logo! I am a Linguistics majors, but I studied graphic design for over 3 years before changing my major. I am not knowledgeable at all in cyber security other than what I've picked up here and there in the club."
+          }
+          imgSource={"/statics/alexis.jpg"}
         />
       </Grid>
     </div>
