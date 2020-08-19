@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --open --config webpack.dev.js",
-    "start": "serve ../docs",
-    "build": "rm -rf ../docs && webpack --config webpack.prod.js && npm run copy:static && cp _redirects ../docs",
-    "copy:static": "cp -rf ./src/statics ../docs"
+    "start": "serve ./docs",
+    "build": "rm -rf ./docs && webpack --config webpack.prod.js && npm run copy:static && cp _redirects ./docs",
+    "copy:static": "cp -rf ./src/statics ./docs"
   },
   "author": "nishad10",
   "license": "MIT",

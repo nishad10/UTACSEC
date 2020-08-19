@@ -18,12 +18,6 @@ const EventForm = props => {
   const [ticketStatus, setTicketStatus] = useState(false)
   const [ticketID, setTicketID] = useState('')
   const [eventName, setEventname] = useState('')
-  const [status, setStatus] = useState('')
-
-  const tryConnect = () =>
-    axios
-      .get(`https://utacsecapi.herokuapp.com/auth-ping`)
-      .then(r => setStatus(r.data))
 
   const getUserProfile = () =>
     axios.get(`https://utacsecapi.herokuapp.com/user/profile`).then(r => {
@@ -31,7 +25,6 @@ const EventForm = props => {
     })
 
   useEffect(() => {
-    tryConnect()
     getUserProfile()
   }, [])
   const handleSubmit = () => {
