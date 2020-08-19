@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from 'react'
-import { Grid, Divider, Header, Container } from 'semantic-ui-react'
-import HomepageHeader from '../../components/homepageHeader'
-import Social from '../../components/social'
-import MeetingFooter from '../../components/meetingFooter'
-import SocialWidgets from '../../components/socialwidgets'
+import React, { useState, useEffect } from 'react';
+import { Grid, Divider, Header, Container } from 'semantic-ui-react';
+import HomepageHeader from '../../components/homepageHeader';
+import Social from '../../components/social';
+import MeetingFooter from '../../components/meetingFooter';
+import SocialWidgets from '../../components/socialwidgets';
 
-const Home = props => {
-  const [width, setWidth] = useState(window.innerWidth)
+const Home = (props) => {
+  const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     const handleWindowSizeChange = () => {
-      setWidth(window.innerWidth)
-    }
-    window.addEventListener('resize', handleWindowSizeChange)
-  }, [])
-  const mobile = width < 600
+      setWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleWindowSizeChange);
+  }, []);
+  const mobile = width < 600;
 
   return (
     <div>
@@ -22,7 +22,7 @@ const Home = props => {
         <Grid.Row>
           <HomepageHeader mobile={mobile} />
         </Grid.Row>
-        <Divider inverted style={{ margin: '6em 7em' }} />
+        <Divider inverted style={{ margin: '2.5em' }} />
         <Social mobile={mobile} />
         <Divider inverted style={{ margin: '5em 7em' }} />
         <SocialWidgets mobile={mobile} />
@@ -36,7 +36,7 @@ const Home = props => {
               style={{
                 fontSize: mobile ? '2em' : '4em',
                 fontWeight: 'normal',
-                marginBottom: mobile ? '0.5em' : '1em'
+                marginBottom: mobile ? '0.5em' : '1em',
               }}
             />
             <Header
@@ -46,7 +46,7 @@ const Home = props => {
               inverted
               style={{
                 fontSize: mobile ? '1em' : '1.5em',
-                fontWeight: 'normal'
+                fontWeight: 'normal',
               }}
             />
           </Container>
@@ -57,6 +57,6 @@ const Home = props => {
         </Grid.Row>
       </Grid>
     </div>
-  )
-}
-export default Home
+  );
+};
+export default Home;
