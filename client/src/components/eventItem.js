@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react'
-import ticketEnableDisable from '../functions/ticketEnableDisable'
-import SponsorBadge from './sponsorBadge'
-import eventBrite from '../components/eventBrite'
-import { Divider, Button, Icon } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react';
+import ticketEnableDisable from '../functions/ticketEnableDisable';
+import SponsorBadge from './sponsorBadge';
+import eventBrite from '../components/eventBrite';
+import { Divider, Button, Icon } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 const Eventitem = ({
   date,
@@ -18,11 +18,13 @@ const Eventitem = ({
   ticketID,
   mobile,
   ticketStatus,
-  custom
+  url,
+  custom,
 }) => {
   useEffect(() => {
-    eventBrite(ticketID, eventName)
-  }, [])
+    eventBrite(ticketID, eventName);
+  }, []);
+  console.log(url);
   return mobile ? (
     <div>
       <Divider inverted style={{ margin: '3vw 10vw' }} />
@@ -36,7 +38,7 @@ const Eventitem = ({
               textAlign: 'center',
               lineHeight: '1.5em',
               paddingRight: '1em',
-              color: '#DE6E4B'
+              color: '#DE6E4B',
             }}
           >
             <div style={{ fontSize: '30px' }}>{date}</div>
@@ -48,7 +50,7 @@ const Eventitem = ({
               fontSize: '25px',
               fontWeight: 'bold',
               paddingBottom: '10px',
-              alignSelf: 'center'
+              alignSelf: 'center',
             }}
           >
             {title}
@@ -70,19 +72,16 @@ const Eventitem = ({
           </div>
           <div style={{ display: 'flex', paddingTop: '10px' }}>
             {custom ? (
-              <a
-                style={{ color: 'black' }}
-                href="https://docs.google.com/forms/d/e/1FAIpQLSdTXSUa3NhTxwdvva3XPNPH1NtozCIy7V9WTsx10vyXrm5NyQ/viewform?usp=sf_link"
-              >
+              <a style={{ color: 'black' }} href={url}>
                 {' '}
                 <Button
                   style={{
                     fontSize: mobile ? '3.2vw' : '1vw',
                     float: 'right',
-                    background: '#DE6E4B'
+                    background: '#DE6E4B',
                   }}
                 >
-                  RSVP
+                  {custom ? 'Join now!' : 'RSVP'}
                   <Icon name="right chevron" />
                 </Button>
               </a>
@@ -98,7 +97,7 @@ const Eventitem = ({
       style={{
         display: 'grid',
         color: 'white',
-        gridTemplateColumns: '25% 75%'
+        gridTemplateColumns: '25% 75%',
       }}
     >
       <div
@@ -107,7 +106,7 @@ const Eventitem = ({
           textAlign: 'center',
           lineHeight: '2.5em',
           paddingRight: '1em',
-          color: '#DE6E4B'
+          color: '#DE6E4B',
         }}
       >
         <div style={{ fontSize: '35px' }}>{date}</div>
@@ -124,7 +123,7 @@ const Eventitem = ({
             color: '#DE6E4B',
             fontSize: '25px',
             fontWeight: 'bold',
-            paddingBottom: '10px'
+            paddingBottom: '10px',
           }}
         >
           {title}
@@ -140,19 +139,16 @@ const Eventitem = ({
           </div>
         </div>
         {custom ? (
-          <a
-            style={{ color: 'black' }}
-            href="https://docs.google.com/forms/d/e/1FAIpQLSdTXSUa3NhTxwdvva3XPNPH1NtozCIy7V9WTsx10vyXrm5NyQ/viewform?usp=sf_link"
-          >
+          <a style={{ color: 'black' }} href={url}>
             {' '}
             <Button
               style={{
                 fontSize: mobile ? '3.2vw' : '1vw',
                 float: 'right',
-                background: '#DE6E4B'
+                background: '#DE6E4B',
               }}
             >
-              RSVP
+              {custom ? 'Join now!' : 'RSVP'}
               <Icon name="right chevron" />
             </Button>{' '}
           </a>
@@ -161,7 +157,7 @@ const Eventitem = ({
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Eventitem
+export default Eventitem;

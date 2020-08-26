@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import {
   Header,
   Divider,
@@ -6,36 +6,36 @@ import {
   Loader,
   Button,
   Icon,
-  Modal
-} from 'semantic-ui-react'
-import { getEventsAdmin, deleteEvent } from '../actions'
-import { connect } from 'react-redux'
-import axios from 'axios'
-import EditEventItem from './editEventItem'
-const EventEdit = props => {
-  const [width, setWidth] = useState(window.innerWidth)
-  const [profile, setProfile] = useState({})
+  Modal,
+} from 'semantic-ui-react';
+import { getEventsAdmin, deleteEvent } from '../actions';
+import { connect } from 'react-redux';
+import axios from 'axios';
+import EditEventItem from './editEventItem';
+const EventEdit = (props) => {
+  const [width, setWidth] = useState(window.innerWidth);
+  const [profile, setProfile] = useState({});
 
-  const { events, getEventsAdmin, loading, deleteEvent } = props
+  const { events, getEventsAdmin, loading, deleteEvent } = props;
 
-  const handleDelete = id => {
-    deleteEvent({ id, profile })
-  }
+  const handleDelete = (id) => {
+    deleteEvent({ id, profile });
+  };
   const getUserProfile = () =>
-    axios.get(`https://utacsecapi.herokuapp.com/user/profile`).then(r => {
-      setProfile(r.data)
-    })
+    axios.get(`https://utacsecapi.herokuapp.com/user/profile`).then((r) => {
+      setProfile(r.data);
+    });
 
   useEffect(() => {
-    getUserProfile()
-    getEventsAdmin()
+    getUserProfile();
+    getEventsAdmin();
 
     const handleWindowSizeChange = () => {
-      setWidth(window.innerWidth)
-    }
-    window.addEventListener('resize', handleWindowSizeChange)
-  }, [])
-  const mobile = width < 600
+      setWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleWindowSizeChange);
+  }, []);
+  const mobile = width < 600;
   return (
     <div style={{ padding: mobile ? '0' : '5vw 10vw' }}>
       <Dimmer active={loading}>
@@ -46,14 +46,14 @@ const EventEdit = props => {
           as="h4"
           style={{
             color: 'rgb(158, 158, 158)',
-            fontSize: mobile ? '4vw' : '1.5vw'
+            fontSize: mobile ? '4vw' : '1.5vw',
           }}
         >
           RSVP Now
         </Header>
       </Divider>
 
-      {events.map(item => (
+      {events.map((item) => (
         // eslint-disable-next-line react/jsx-key
         <div style={{}}>
           <Divider inverted style={{ margin: '3vw 10vw' }} />
@@ -65,7 +65,7 @@ const EventEdit = props => {
                   fontSize: '25px',
                   fontWeight: 'bold',
                   paddingBottom: '10px',
-                  display: 'flex'
+                  display: 'flex',
                 }}
               >
                 <div style={{ color: '#5BC0BE' }}>Title :-</div>
@@ -76,7 +76,7 @@ const EventEdit = props => {
                   color: '#DE6E4B',
                   fontSize: '14px',
                   fontWeight: 'bold',
-                  paddingBottom: '10px'
+                  paddingBottom: '10px',
                 }}
               >
                 <div style={{ color: '#5BC0BE' }}>Description :-</div>
@@ -88,7 +88,7 @@ const EventEdit = props => {
                   fontSize: '14px',
                   fontWeight: 'bold',
                   paddingBottom: '10px',
-                  display: 'flex'
+                  display: 'flex',
                 }}
               >
                 <div style={{ color: '#5BC0BE' }}>Database ID :-</div>
@@ -99,7 +99,7 @@ const EventEdit = props => {
                   color: '#DE6E4B',
                   fontSize: '18px',
                   paddingBottom: '10px',
-                  display: 'flex'
+                  display: 'flex',
                 }}
               >
                 <div style={{ color: '#5BC0BE' }}>TicketStatus :-</div>
@@ -110,7 +110,7 @@ const EventEdit = props => {
                   color: '#DE6E4B',
                   fontSize: '18px',
                   paddingBottom: '10px',
-                  display: 'flex'
+                  display: 'flex',
                 }}
               >
                 <div style={{ color: '#5BC0BE' }}>Active :-</div>
@@ -119,17 +119,29 @@ const EventEdit = props => {
                   : 'Event is in database but not being shown on website'}
               </div>
             </div>
-
+            <a style={{ color: 'black' }} href={item.url}>
+              {' '}
+              <Button
+                style={{
+                  fontSize: mobile ? '3.2vw' : '1vw',
+                  float: 'right',
+                  background: '#DE6E4B',
+                }}
+              >
+                RSVP
+                <Icon name="right chevron" />
+              </Button>
+            </a>
             <div>
               <Button
                 value={item._id}
-                onClick={e => handleDelete(e.target.value)}
+                onClick={(e) => handleDelete(e.target.value)}
                 style={{
                   fontSize: mobile ? '10px' : '1em',
                   marginBottom: '20px',
                   float: 'right',
                   background: '#DE6E4B',
-                  display: 'flex'
+                  display: 'flex',
                 }}
               >
                 Delete
@@ -145,7 +157,7 @@ const EventEdit = props => {
                       fontSize: mobile ? '10px' : '1em',
                       float: 'right',
                       background: '#DE6E4B',
-                      display: 'flex'
+                      display: 'flex',
                     }}
                   >
                     Edit
@@ -164,15 +176,15 @@ const EventEdit = props => {
         </div>
       ))}
     </div>
-  )
-}
-const mapStateToProps = state => ({
+  );
+};
+const mapStateToProps = (state) => ({
   events: state.general.eventsAdmin,
-  loading: state.general.loading
-})
+  loading: state.general.loading,
+});
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   getEventsAdmin: () => dispatch(getEventsAdmin()),
-  deleteEvent: val => dispatch(deleteEvent(val))
-})
-export default connect(mapStateToProps, mapDispatchToProps)(EventEdit)
+  deleteEvent: (val) => dispatch(deleteEvent(val)),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(EventEdit);
