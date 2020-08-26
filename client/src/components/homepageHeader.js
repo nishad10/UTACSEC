@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Icon, Header, Container, Image } from 'semantic-ui-react';
+import { Button, Icon, Header, Image } from 'semantic-ui-react';
 
 const HomepageHeader = (props) => {
   const { mobile } = props;

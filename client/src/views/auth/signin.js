@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import { connect } from 'react-redux'
-import { signUserIn } from '../../actions'
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { signUserIn } from '../../actions';
 import {
   Button,
   Segment,
@@ -9,32 +9,29 @@ import {
   Form,
   Dimmer,
   Loader,
-  Message
-} from 'semantic-ui-react'
-import history from '../../history'
+  Message,
+} from 'semantic-ui-react';
+import history from '../../history';
 
-const Signin = props => {
-  const { signUserIn, error, loading } = props
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [success, setSuccess] = useState(true)
+const Signin = (props) => {
+  const { signUserIn, error, loading } = props;
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [success, setSuccess] = useState(true);
 
   const handleRegister = () => {
-    history.push('/signup')
-  }
+    history.push('/signup');
+  };
 
   const handleSubmit = () => {
-    signUserIn({ email: email, password: password })
-  }
+    signUserIn({ email: email, password: password });
+  };
 
-  useEffect(
-    () => {
-      if (error) {
-        setSuccess(false)
-      }
-    },
-    [error]
-  )
+  useEffect(() => {
+    if (error) {
+      setSuccess(false);
+    }
+  }, [error]);
 
   return (
     <div>
@@ -57,14 +54,14 @@ const Signin = props => {
           <Form size="large" style={{ marginBottom: '1em' }} error={!success}>
             <Segment stacked>
               <Form.Input
-                onChange={e => setEmail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
                 fluid
                 icon="user"
                 iconPosition="left"
                 placeholder="E-mail address"
               />
               <Form.Input
-                onChange={e => setPassword(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
                 fluid
                 icon="lock"
                 iconPosition="left"
@@ -106,15 +103,15 @@ const Signin = props => {
         </Grid.Column>
       </Grid>
     </div>
-  )
-}
+  );
+};
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   error: state.auth.error,
-  loading: state.general.loading
-})
-const mapDispatchToProps = dispatch => ({
-  signUserIn: val => dispatch(signUserIn(val))
-})
+  loading: state.general.loading,
+});
+const mapDispatchToProps = (dispatch) => ({
+  signUserIn: (val) => dispatch(signUserIn(val)),
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(Signin)
+export default connect(mapStateToProps, mapDispatchToProps)(Signin);

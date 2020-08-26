@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const GoogleForm = ({ id }) => (
   <iframe
@@ -10,6 +10,6 @@ const GoogleForm = ({ id }) => (
   >
     Loading…
   </iframe>
-)
+);
 
-export default GoogleForm
+export default GoogleForm;

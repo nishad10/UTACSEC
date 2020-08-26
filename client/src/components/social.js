@@ -1,50 +1,52 @@
-import React, { useEffect, useState } from 'react'
-import { upTwitter, browser } from '../actions'
-import { info } from '../functions/info'
-import { Grid, Header } from 'semantic-ui-react'
-import { connect } from 'react-redux'
+import React, { useEffect, useState } from 'react';
+import { upTwitter, browser } from '../actions';
+import { info } from '../functions/info';
+import { Grid, Header } from 'semantic-ui-react';
+import { connect } from 'react-redux';
 
-const Social = props => {
-  const { getTwitter, twitterCount, mobile } = props
-  const [discordCount, setDiscordCount] = useState(0)
+const Social = (props) => {
+  const { getTwitter, twitterCount, mobile } = props;
+  const [discordCount, setDiscordCount] = useState(0);
   useEffect(() => {
-    const discordBot = require('discord.js')
-    const client = new discordBot.Client()
-    client.login(process.env.DISCORD_API).catch(e => console.log(e))
+    const discordBot = require('discord.js');
+    const client = new discordBot.Client();
+    client.login(process.env.DISCORD_API).catch((e) => console.log(e));
     client.on('ready', () => {
       client.user.setActivity('someone use the website.', {
         type: 'WATCHING',
-        url: 'https://www.utacsec.org'
-      })
-      setDiscordCount(client.users.size)
+        url: 'https://www.utacsec.org',
+      });
+      setDiscordCount(client.users.size);
 
-      client.on('message', msg => {
+      client.on('message', (msg) => {
         if (msg.content === 'help') {
-          client.channels.get('619610352513974292').send('type activeUsers')
+          client.channels.get('619610352513974292').send('type activeUsers');
         }
         if (msg.content === 'activeUsers') {
           client.channels
             .get('619610352513974292')
             .send(
-              `Browser:${browser().isChrome
-                ? 'Chrome'
-                : browser().isEdge
+              `Browser:${
+                browser().isChrome
+                  ? 'Chrome'
+                  : browser().isEdge
                   ? 'Edge'
                   : browser().isFirefox
-                    ? 'Firefox'
-                    : browser().isSafari
-                      ? 'Safari'
-                      : 'Unknown'} Mobile: ${info.sizeScreenW() > 900
-                ? 'No'
-                : 'Yes'} Traffic:${info.referrer() === '' || ' '
-                ? 'Entered Link'
-                : `${info.referrer()}`}`
-            )
+                  ? 'Firefox'
+                  : browser().isSafari
+                  ? 'Safari'
+                  : 'Unknown'
+              } Mobile: ${info.sizeScreenW() > 900 ? 'No' : 'Yes'} Traffic:${
+                info.referrer() === '' || ' '
+                  ? 'Entered Link'
+                  : `${info.referrer()}`
+              }`
+            );
         }
-      })
-    })
-    getTwitter()
-  }, [])
+      });
+    });
+    getTwitter();
+  }, []);
 
   return (
     <Grid.Row>
@@ -57,7 +59,7 @@ const Social = props => {
           style={{
             fontSize: mobile ? '2em' : '4em',
             fontWeight: 'normal',
-            marginBottom: mobile ? '2em' : '2.5em'
+            marginBottom: mobile ? '2em' : '2.5em',
           }}
         />
 
@@ -78,14 +80,14 @@ const Social = props => {
                 src="/statics/Twitter_Logo_WhiteOnBlue.png"
                 style={{
                   width: mobile ? '4em' : '10em',
-                  paddingTop: mobile ? '4em' : '8em'
+                  paddingTop: mobile ? '4em' : '8em',
                 }}
               />
               <p
                 style={{
                   color: 'white',
                   fontSize: mobile ? '1em' : '2em',
-                  paddingTop: mobile ? '3em' : '3em'
+                  paddingTop: '2.6em',
                 }}
               >
                 {twitterCount} Followers
@@ -102,14 +104,14 @@ const Social = props => {
                 src="/statics/Discord-Logo-White.png"
                 style={{
                   width: mobile ? '4em' : '10em',
-                  paddingTop: mobile ? '4em' : '8em'
+                  paddingTop: mobile ? '4em' : '8em',
                 }}
               />
               <p
                 style={{
                   color: 'white',
                   fontSize: mobile ? '1em' : '2em',
-                  paddingTop: '2.6em'
+                  paddingTop: '2.6em',
                 }}
               >
                 {discordCount} Members
@@ -126,18 +128,18 @@ const Social = props => {
                 src="/statics/f_logo_RGB-Blue_72.png"
                 style={{
                   width: mobile ? '4em' : '10em',
-                  paddingTop: mobile ? '4em' : '8em'
+                  paddingTop: mobile ? '4em' : '8em',
                 }}
               />
               <p
                 style={{
                   color: 'white',
                   fontSize: mobile ? '1em' : '2em',
-                  paddingTop: '2em'
+                  paddingTop: '2.6em',
                 }}
               >
                 {' '}
-                163 Members
+                165 Members
               </p>
             </Grid.Column>
 
@@ -152,14 +154,14 @@ const Social = props => {
                 src="/statics/gmail.svg"
                 style={{
                   width: mobile ? '4em' : '10em',
-                  paddingTop: mobile ? '4em' : '8em'
+                  paddingTop: mobile ? '4em' : '8em',
                 }}
               />
               <p
                 style={{
                   color: 'white',
                   fontSize: mobile ? '1em' : '2em',
-                  paddingTop: '1.5em'
+                  paddingTop: '4em',
                 }}
               >
                 250 MailingList
@@ -169,13 +171,13 @@ const Social = props => {
         </Grid>
       </div>
     </Grid.Row>
-  )
-}
-const mapStateToProps = state => ({
-  twitterCount: state.general.twitterFollowers
-})
-const mapDispatchToProps = dispatch => ({
-  getTwitter: () => dispatch(upTwitter())
-})
+  );
+};
+const mapStateToProps = (state) => ({
+  twitterCount: state.general.twitterFollowers,
+});
+const mapDispatchToProps = (dispatch) => ({
+  getTwitter: () => dispatch(upTwitter()),
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(Social)
+export default connect(mapStateToProps, mapDispatchToProps)(Social);

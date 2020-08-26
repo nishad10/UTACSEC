@@ -1,11 +1,12 @@
-import React from 'react'
-import { Container, Divider, Header, Tab, Segment } from 'semantic-ui-react'
+/* eslint-disable react/display-name */
+import React from 'react';
+import { Container, Divider, Header, Tab } from 'semantic-ui-react';
 
-import EventForm from '../../components/eventForm'
-import EventEdit from '../../components/eventEdit'
-import ReadMe from '../../components/readme'
+import EventForm from '../../components/eventForm';
+import EventEdit from '../../components/eventEdit';
+import ReadMe from '../../components/readme';
 
-const Admin = props => {
+const Admin = (props) => {
   const panes = [
     {
       menuItem: 'Events Add',
@@ -13,7 +14,7 @@ const Admin = props => {
         <Tab.Pane style={{ background: 'black' }} attached={false}>
           <EventForm />
         </Tab.Pane>
-      )
+      ),
     },
     {
       menuItem: 'Events Edit',
@@ -21,7 +22,7 @@ const Admin = props => {
         <Tab.Pane style={{ background: 'black' }} attached={false}>
           <EventEdit />
         </Tab.Pane>
-      )
+      ),
     },
     {
       menuItem: 'ReadMe!',
@@ -29,9 +30,9 @@ const Admin = props => {
         <Tab.Pane style={{ background: 'black' }} attached={false}>
           <ReadMe />
         </Tab.Pane>
-      )
-    }
-  ]
+      ),
+    },
+  ];
   return (
     <Container>
       <Divider hidden />
@@ -45,12 +46,12 @@ const Admin = props => {
           attached: false,
           tabular: false,
           pointing: true,
-          secondary: true
+          secondary: true,
         }}
         panes={panes}
       />
     </Container>
-  )
-}
+  );
+};
 
-export default Admin
+export default Admin;

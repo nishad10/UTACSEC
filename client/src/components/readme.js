@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Accordion, Header, Segment, Icon } from 'semantic-ui-react';
+import { Accordion, Header, Segment, Icon } from 'semantic-ui-react';
 
 export default class ReadMe extends Component {
   constructor(props) {
@@ -43,7 +43,7 @@ export default class ReadMe extends Component {
                 <Accordion.Content active={activeIndex === 0}>
                   <p>
                     Appears on the very top, weekly meetings are usually in the
-                    format "Weekly Meeting - Topic" where Topic is the topic of
+                    format [Weekly Meeting - Topic] where Topic is the topic of
                     discussion in that meeting. For Example: Weekly Meeting
                     Penetration Testing
                   </p>

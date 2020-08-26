@@ -1,5 +1,5 @@
-import React from 'react'
-import { Button, Icon, Header, Modal } from 'semantic-ui-react'
+import React from 'react';
+import { Button, Icon, Header, Modal } from 'semantic-ui-react';
 
 const ticketEnableDisable = (confirm, trigger, mobile) => {
   return confirm ? (
@@ -7,7 +7,7 @@ const ticketEnableDisable = (confirm, trigger, mobile) => {
       style={{
         fontSize: mobile ? '3.2vw' : '1vw',
         float: 'right',
-        background: '#DE6E4B'
+        background: '#DE6E4B',
       }}
       id={trigger}
     >
@@ -24,7 +24,7 @@ const ticketEnableDisable = (confirm, trigger, mobile) => {
           style={{
             fontSize: mobile ? '3.2vw' : '1vw',
             float: 'right',
-            background: '#DE6E4B'
+            background: '#DE6E4B',
           }}
         >
           RSVP
@@ -41,6 +41,6 @@ const ticketEnableDisable = (confirm, trigger, mobile) => {
         </p>
       </Modal.Content>
     </Modal>
-  )
-}
-export default ticketEnableDisable
+  );
+};
+export default ticketEnableDisable;

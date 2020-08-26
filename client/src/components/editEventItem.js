@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Dimmer, Loader } from 'semantic-ui-react';
+import { Form } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { editEvent } from '../actions/';
 import axios from 'axios';
 
 const EditEventItem = (props) => {
-  const { event, loading } = props;
+  const { event } = props;
   const [profile, setProfile] = useState({});
   const [title, setTitle] = useState('');
   const [date, setDate] = useState('');

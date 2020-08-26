@@ -3,80 +3,80 @@ export const info = {
   timezone: new Date().getTimezoneOffset() / 60,
 
   pageon() {
-    return window.location.pathname
+    return window.location.pathname;
   },
   referrer() {
-    return document.referrer
+    return document.referrer;
   },
   previousSites() {
-    return history.length
+    return history.length;
   },
 
   browserName() {
-    return navigator.appName
+    return navigator.appName;
   },
   browserEngine() {
-    return navigator.product
+    return navigator.product;
   },
   browserVersion1a() {
-    return navigator.appVersion
+    return navigator.appVersion;
   },
   browserVersion1b() {
-    return navigator.userAgent
+    return navigator.userAgent;
   },
   browserLanguage() {
-    return navigator.language
+    return navigator.language;
   },
   browserOnline() {
-    return navigator.onLine
+    return navigator.onLine;
   },
   browserPlatform() {
-    return navigator.platform
+    return navigator.platform;
   },
   javaEnabled() {
-    return navigator.javaEnabled()
+    return navigator.javaEnabled();
   },
   dataCookiesEnabled() {
-    return navigator.cookieEnabled
+    return navigator.cookieEnabled;
   },
   dataCookies1() {
-    return document.cookie
+    return document.cookie;
   },
   dataCookies2() {
-    return decodeURIComponent(document.cookie.split(';'))
+    return decodeURIComponent(document.cookie.split(';'));
   },
   dataStorage() {
-    return localStorage
+    return localStorage;
   },
 
   sizeScreenW() {
-    return screen.width
+    return screen.width;
   },
   sizeScreenH() {
-    return screen.height
+    return screen.height;
   },
   sizeDocW() {
-    return document.width
+    return document.width;
   },
   sizeDocH() {
-    return document.height
+    return document.height;
   },
   sizeInW() {
-    return innerWidth
+    return innerWidth;
   },
   sizeInH() {
-    return innerHeight
+    return innerHeight;
   },
   sizeAvailW() {
-    return screen.availWidth
+    return screen.availWidth;
   },
   sizeAvailH() {
-    return screen.availHeight
+    return screen.availHeight;
   },
   scrColorDepth() {
-    return screen.colorDepth
+    return screen.colorDepth;
   },
   scrPixelDepth() {
-    return screen.pixelDepth
-  }
-}
+    return screen.pixelDepth;
+  },
+};

@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import ResponsiveContainer from '../components/responsive'
+import React, { Component } from 'react';
+import ResponsiveContainer from '../components/responsive';
 
 export default class App extends Component {
   render() {
@@ -9,6 +9,6 @@ export default class App extends Component {
           <div className="cointainer">{this.props.children}</div>
         </ResponsiveContainer>
       </div>
-    )
+    );
   }
 }
