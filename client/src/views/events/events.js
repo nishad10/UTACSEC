@@ -1,24 +1,24 @@
-import React, { useEffect, useState } from 'react'
-import { Header, Divider, Dimmer, Loader, ItemMeta } from 'semantic-ui-react'
-import Eventitem from '../../components/eventItem'
-import { getEvents } from '../../actions'
-import { connect } from 'react-redux'
+import React, { useEffect, useState } from 'react';
+import { Header, Divider, Dimmer, Loader, ItemMeta } from 'semantic-ui-react';
+import Eventitem from '../../components/eventItem';
+import { getEvents } from '../../actions';
+import { connect } from 'react-redux';
 
-const events = props => {
-  const [width, setWidth] = useState(window.innerWidth)
+const events = (props) => {
+  const [width, setWidth] = useState(window.innerWidth);
 
-  const { events, getEvents, loading } = props
+  const { events, getEvents, loading } = props;
 
   useEffect(() => {
-    getEvents()
+    getEvents();
 
     const handleWindowSizeChange = () => {
-      setWidth(window.innerWidth)
-    }
-    window.addEventListener('resize', handleWindowSizeChange)
-  }, [])
+      setWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleWindowSizeChange);
+  }, []);
 
-  const mobile = width < 600
+  const mobile = width < 600;
   return (
     <div style={{ padding: mobile ? '5vw 10vw' : '5vw 15vw' }}>
       <Dimmer active={loading}>
@@ -29,7 +29,7 @@ const events = props => {
           as="h4"
           style={{
             color: 'rgb(158, 158, 158)',
-            fontSize: mobile ? '4vw' : '1.5vw'
+            fontSize: mobile ? '4vw' : '1.5vw',
           }}
         >
           RSVP Now
@@ -43,7 +43,7 @@ const events = props => {
           content="There are no events right now. Check back later!"
         />
       ) : (
-        events.map(item => (
+        events.map((item) => (
           <Eventitem
             ticketID={item.ticketID}
             key={item._id}
@@ -59,18 +59,19 @@ const events = props => {
             ticketStatus={item.ticketStatus}
             mobile={mobile}
             custom={item.custom}
+            url={item.url}
           />
         ))
       )}
     </div>
-  )
-}
-const mapStateToProps = state => ({
+  );
+};
+const mapStateToProps = (state) => ({
   events: state.general.events,
-  loading: state.general.loading
-})
+  loading: state.general.loading,
+});
 
-const mapDispatchToProps = dispatch => ({
-  getEvents: () => dispatch(getEvents())
-})
-export default connect(mapStateToProps, mapDispatchToProps)(events)
+const mapDispatchToProps = (dispatch) => ({
+  getEvents: () => dispatch(getEvents()),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(events);
