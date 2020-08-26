@@ -18,6 +18,8 @@ const EventForm = (props) => {
   const [ticketStatus, setTicketStatus] = useState(false);
   const [ticketID, setTicketID] = useState('');
   const [eventName, setEventname] = useState('');
+  const [url, setURL] = useState('');
+  const [custom, setCustom] = useState(false);
 
   const getUserProfile = () =>
     axios.get(`https://utacsecapi.herokuapp.com/user/profile`).then((r) => {
@@ -41,6 +43,8 @@ const EventForm = (props) => {
       active,
       ticketStatus,
       profile,
+      custom,
+      url,
     });
   };
 
@@ -104,28 +108,40 @@ const EventForm = (props) => {
           >
             {' '}
             <Form.Group>
-              <label>Should Tickets be on sell?</label>
+              <label>Is this a custom event with non eventbrite link?</label>
               <Form.Checkbox
-                checked={ticketStatus}
-                onClick={() => setTicketStatus(!ticketStatus)}
+                checked={custom}
+                onClick={() => setCustom(!custom)}
               />
             </Form.Group>
           </div>
-          <div style={{ gridColumnStart: '1' }}>
+          {!custom ? (
+            <div style={{ gridColumnStart: '1' }}>
+              <Form.Input
+                label="EventBrite ID"
+                name="eventBrite"
+                placeholder="77972898037"
+                onChange={(e) => setTicketID(e.target.value)}
+              />
+            </div>
+          ) : (
+            <div>
+              <Form.Input
+                label="Button Redirect URL"
+                name="buttonurl"
+                placeholder="www.externallink.com"
+                onChange={(e) => setURL(e.target.value)}
+              />
+            </div>
+          )}
+          {!custom ? (
             <Form.Input
-              label="EventBrite ID"
-              name="eventBrite"
-              placeholder="77972898037"
-              onChange={(e) => setTicketID(e.target.value)}
+              label="Event Name"
+              name="eventName"
+              placeholder="anything oneword example weekly/halloween"
+              onChange={(e) => setEventname(e.target.value)}
             />
-          </div>
-          <Form.Input
-            label="Event Name"
-            name="eventName"
-            placeholder="anything oneword example weekly/halloween"
-            onChange={(e) => setEventname(e.target.value)}
-          />
-
+          ) : null}
           <div style={{ gridColumnStart: '1', gridColumnEnd: '3' }}>
             <Form.TextArea
               label="Description"
@@ -133,22 +149,24 @@ const EventForm = (props) => {
               onChange={(e) => setDescription(e.target.value)}
             />
           </div>
-          <div
-            style={{
-              gridColumnStart: '1',
-              gridColumnEnd: '3',
-              paddingTop: '20px',
-            }}
-          >
-            {' '}
-            <Form.Group>
-              <label>Should Tickets be on sell?</label>
-              <Form.Checkbox
-                checked={ticketStatus}
-                onClick={() => setTicketStatus(!ticketStatus)}
-              />
-            </Form.Group>
-          </div>
+          {!custom ? (
+            <div
+              style={{
+                gridColumnStart: '1',
+                gridColumnEnd: '3',
+                paddingTop: '20px',
+              }}
+            >
+              {' '}
+              <Form.Group>
+                <label>Should Tickets be on sell?</label>
+                <Form.Checkbox
+                  checked={ticketStatus}
+                  onClick={() => setTicketStatus(!ticketStatus)}
+                />
+              </Form.Group>
+            </div>
+          ) : null}
           <div
             style={{
               gridColumnStart: '1',
