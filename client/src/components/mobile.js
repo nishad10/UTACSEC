@@ -1,54 +1,54 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import * as actions from '../actions'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
+import { Link } from 'react-router-dom';
 import {
   Menu,
   Icon,
   Sidebar,
   Responsive,
   Container,
-  Segment
-} from 'semantic-ui-react'
-import axios from 'axios'
+  Segment,
+} from 'semantic-ui-react';
+import axios from 'axios';
 
 class MobileContainer extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       activeItem: 'home',
       mobile: false,
       sidebarOpened: false,
-      profile: {}
-    }
-    this.handleItemClick = this.handleItemClick.bind(this)
+      profile: {},
+    };
+    this.handleItemClick = this.handleItemClick.bind(this);
     // this.handleStack = this.handleStack.bind(this)
-    this.getWidth = this.getWidth.bind(this)
-    this.handleSidebarHide = this.handleSidebarHide.bind(this)
-    this.handleToggle = this.handleToggle.bind(this)
+    this.getWidth = this.getWidth.bind(this);
+    this.handleSidebarHide = this.handleSidebarHide.bind(this);
+    this.handleToggle = this.handleToggle.bind(this);
   }
   UNSAFE_componentWillMount() {
-    axios.get(`https://utacsecapi.herokuapp.com/user/profile`).then(r => {
-      this.setState({ profile: r.data })
-    })
+    axios.get(`https://utacsecapi.herokuapp.com/user/profile`).then((r) => {
+      this.setState({ profile: r.data });
+    });
   }
   handleItemClick(e, { name }) {
-    this.setState({ activeItem: name })
-    this.handleSidebarHide()
+    this.setState({ activeItem: name });
+    this.handleSidebarHide();
   }
 
   handleSidebarHide() {
-    this.setState({ sidebarOpened: false })
+    this.setState({ sidebarOpened: false });
   }
 
   handleToggle() {
-    this.setState({ sidebarOpened: true })
+    this.setState({ sidebarOpened: true });
   }
 
   getWidth() {
-    const isSSR = typeof window === 'undefined'
+    const isSSR = typeof window === 'undefined';
 
-    return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth
+    return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth;
   }
 
   renderSignButton(activeItem, profile) {
@@ -72,7 +72,7 @@ class MobileContainer extends Component {
             SignOut
           </Menu.Item>
         </Menu.Menu>
-      )
+      );
     } else {
       return (
         <Menu.Menu position="right" inverted icon="labeled">
@@ -97,14 +97,14 @@ class MobileContainer extends Component {
             SignUp
           </Menu.Item>
         </Menu.Menu>
-      )
+      );
     }
   }
 
   render() {
-    const { children } = this.props
+    const { children } = this.props;
 
-    const { activeItem, sidebarOpened, profile } = this.state
+    const { activeItem, sidebarOpened, profile } = this.state;
 
     return (
       <Responsive
@@ -176,11 +176,11 @@ class MobileContainer extends Component {
           {children}
         </Sidebar.Pusher>
       </Responsive>
-    )
+    );
   }
 }
-const mapStateToProps = state => ({
-  authenticated: state.auth.authenticated
-})
+const mapStateToProps = (state) => ({
+  authenticated: state.auth.authenticated,
+});
 
-export default connect(mapStateToProps, actions)(MobileContainer)
+export default connect(mapStateToProps, actions)(MobileContainer);

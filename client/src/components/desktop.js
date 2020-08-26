@@ -1,26 +1,36 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import * as actions from '../actions'
-import { Link } from 'react-router-dom'
-import axios from 'axios'
-import { Menu, Icon, Responsive, Container, Visibility } from 'semantic-ui-react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import {
+  Menu,
+  Icon,
+  Responsive,
+  Container,
+  Visibility,
+} from 'semantic-ui-react';
 class DesktopContainer extends Component {
   constructor(props) {
-    super(props)
-    this.state = { activeItem: 'home', mobile: false, sidebarOpened: false, profile: {} }
-    this.handleItemClick = this.handleItemClick.bind(this)
-    // this.handleStack = this.handleStack.bind(this)
-    this.getWidth = this.getWidth.bind(this)
-    this.hideFixedMenu = this.hideFixedMenu.bind(this)
-    this.showFixedMenu = this.showFixedMenu.bind(this)
+    super(props);
+    this.state = {
+      activeItem: 'home',
+      mobile: false,
+      sidebarOpened: false,
+      profile: {},
+    };
+    this.handleItemClick = this.handleItemClick.bind(this);
+    this.getWidth = this.getWidth.bind(this);
+    this.hideFixedMenu = this.hideFixedMenu.bind(this);
+    this.showFixedMenu = this.showFixedMenu.bind(this);
   }
   UNSAFE_componentWillMount() {
-    axios.get(`https://utacsecapi.herokuapp.com/user/profile`).then(r => {
-      this.setState({ profile: r.data })
-    })
+    axios.get(`https://utacsecapi.herokuapp.com/user/profile`).then((r) => {
+      this.setState({ profile: r.data });
+    });
   }
   handleItemClick(e, { name }) {
-    this.setState({ activeItem: name })
+    this.setState({ activeItem: name });
   }
   renderSignButton(activeItem, profile) {
     if (this.props.authenticated) {
@@ -43,7 +53,7 @@ class DesktopContainer extends Component {
             SignOut
           </Menu.Item>
         </Menu.Menu>
-      )
+      );
     } else {
       return (
         <Menu.Menu position="right" inverted icon="labeled">
@@ -68,37 +78,55 @@ class DesktopContainer extends Component {
             SignUp
           </Menu.Item>
         </Menu.Menu>
-      )
+      );
     }
   }
   hideFixedMenu() {
-    this.setState({ fixed: false })
+    this.setState({ fixed: false });
   }
   showFixedMenu() {
-    this.setState({ fixed: true })
+    this.setState({ fixed: true });
   }
   getWidth() {
-    const isSSR = typeof window === 'undefined'
+    const isSSR = typeof window === 'undefined';
 
-    return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth
+    return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth;
   }
   render() {
-    const { children } = this.props
-    const { fixed, activeItem, profile } = this.state
+    const { children } = this.props;
+    const { fixed, activeItem, profile } = this.state;
     return (
-      <Responsive getWidth={this.getWidth} minWidth={Responsive.onlyTablet.minWidth}>
-        <Visibility once={false} onBottomPassed={this.showFixedMenu} onBottomPassedReverse={this.hideFixedMenu}>
+      <Responsive
+        getWidth={this.getWidth}
+        minWidth={Responsive.onlyTablet.minWidth}
+      >
+        <Visibility
+          once={false}
+          onBottomPassed={this.showFixedMenu}
+          onBottomPassedReverse={this.hideFixedMenu}
+        >
           <Menu
             fixed={fixed ? 'top' : null}
             inverted
-            style={{ background: fixed ? '#1b1c1d' : 'black', color: 'white', minHeight: '3.5em', paddingTop: '1em' }}
+            style={{
+              background: fixed ? '#1b1c1d' : 'black',
+              color: 'white',
+              minHeight: '3.5em',
+              paddingTop: '1em',
+            }}
             pointing
             secondary
             //tabular={fixed}
             size="large"
           >
             <Container>
-              <Menu.Item active={activeItem === 'home'} onClick={this.handleItemClick} as={Link} to="/" name="home" />
+              <Menu.Item
+                active={activeItem === 'home'}
+                onClick={this.handleItemClick}
+                as={Link}
+                to="/"
+                name="home"
+              />
               <Menu.Item
                 active={activeItem === 'events'}
                 onClick={this.handleItemClick}
@@ -134,14 +162,11 @@ class DesktopContainer extends Component {
 
         {children}
       </Responsive>
-    )
+    );
   }
 }
-const mapStateToProps = state => ({
-  authenticated: state.auth.authenticated
-})
+const mapStateToProps = (state) => ({
+  authenticated: state.auth.authenticated,
+});
 
-export default connect(
-  mapStateToProps,
-  actions
-)(DesktopContainer)
+export default connect(mapStateToProps, actions)(DesktopContainer);

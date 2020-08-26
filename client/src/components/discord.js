@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
-import Iframe from 'react-iframe'
-const showDiscord = isMobile => {
+import React, { Component } from 'react';
+import Iframe from 'react-iframe';
+const showDiscord = (isMobile) => {
   if (isMobile) {
-    return
-  } else return <Discord />
-}
+    return;
+  } else return <Discord />;
+};
 class Discord extends Component {
   componentDidMount() {}
 
@@ -17,8 +17,8 @@ class Discord extends Component {
         width="100%"
         height="100%"
       ></Iframe>
-    )
+    );
   }
 }
 
-export default showDiscord
+export default showDiscord;

@@ -4,8 +4,8 @@ const eventBrite = (id, name) => {
     eventId: id,
     modal: true,
     modalTriggerElementId: `${name}`,
-    onOrderComplete: console.log('Order Done')
-  })
-}
+    onOrderComplete: console.log('Order Done'),
+  });
+};
 
-export default eventBrite
+export default eventBrite;

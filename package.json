@@ -1,5 +1,5 @@
 {
-  "name": "UTACSEC",
+  "name": "utacsec",
   "version": "0.0.1",
   "description": "Website for UTA CSEC Club",
   "main": "index.js",
@@ -20,9 +20,9 @@
   "author": "nishad10",
   "license": "MIT",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/nishad10/UTACESC"
   },
-  "homepage": "",
+  "homepage": "https://www.utacsec.org",
   "devDependencies": {
     "eslint": "^4.14.0",
     "eslint-config-logux": "^17.0.0",

@@ -3,7 +3,6 @@ import ticketEnableDisable from '../functions/ticketEnableDisable';
 import SponsorBadge from './sponsorBadge';
 import eventBrite from '../components/eventBrite';
 import { Divider, Button, Icon } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
 
 const Eventitem = ({
   date,

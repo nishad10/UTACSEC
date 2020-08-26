@@ -1,7 +1,13 @@
-import React from 'react'
-import { Image, Card, Divider, Header, Modal } from 'semantic-ui-react'
+import React from 'react';
+import { Image, Card, Divider, Header, Modal } from 'semantic-ui-react';
 
-const OfficerItemMobile = ({ name, position, email, description, imgSource }) => {
+const OfficerItemMobile = ({
+  name,
+  position,
+  email,
+  description,
+  imgSource,
+}) => {
   return (
     <Modal
       basic
@@ -17,17 +23,27 @@ const OfficerItemMobile = ({ name, position, email, description, imgSource }) =>
                   as: 'div',
                   style: { background: 'rgb(91, 192, 190)', fontSize: '2.5vw' },
                   content: 'Click for Info',
-                  ribbon: true
+                  ribbon: true,
                 }}
               />
               <Card.Content>
-                <Card.Header style={{ fontSize: '18px' }}>{position}</Card.Header>
+                <Card.Header style={{ fontSize: '18px' }}>
+                  {position}
+                </Card.Header>
               </Card.Content>
               <Card.Content extra style={{ fontSize: '14px' }}>
                 {email}
               </Card.Content>
             </Card>
-            <Header inverted style={{ margin: '0', color: '#DE6E4B', fontSize: '25px', textAlign: 'center' }}>
+            <Header
+              inverted
+              style={{
+                margin: '0',
+                color: '#DE6E4B',
+                fontSize: '25px',
+                textAlign: 'center',
+              }}
+            >
               {' '}
               {name}
             </Header>
@@ -42,6 +58,6 @@ const OfficerItemMobile = ({ name, position, email, description, imgSource }) =>
         <p>{description}</p>
       </Modal.Content>
     </Modal>
-  )
-}
-export default OfficerItemMobile
+  );
+};
+export default OfficerItemMobile;

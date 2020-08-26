@@ -1,8 +1,8 @@
-import React from 'react'
-import showDiscord from './discord'
-import { Grid, Container } from 'semantic-ui-react'
-const SocailWidgets = props => {
-  const { mobile } = props
+import React from 'react';
+import showDiscord from './discord';
+import { Grid, Container } from 'semantic-ui-react';
+const SocailWidgets = (props) => {
+  const { mobile } = props;
   return !mobile ? (
     <Grid.Row
       columns="equal"
@@ -37,6 +37,6 @@ const SocailWidgets = props => {
         />
       </Container>
     </Grid.Row>
-  )
-}
-export default SocailWidgets
+  );
+};
+export default SocailWidgets;

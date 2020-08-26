@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Header, Divider, Dimmer, Loader, ItemMeta } from 'semantic-ui-react';
+import { Header, Divider, Dimmer, Loader } from 'semantic-ui-react';
 import Eventitem from '../../components/eventItem';
 import { getEvents } from '../../actions';
 import { connect } from 'react-redux';

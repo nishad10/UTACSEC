@@ -1,10 +1,10 @@
-import React from 'react'
-import { Container } from 'semantic-ui-react'
-import Activities from '../../components/activities'
-import TopicsCovered from '../../components/topicsCovered'
-import Faq from '../../components/faq'
+import React from 'react';
+import { Container } from 'semantic-ui-react';
+import Activities from '../../components/activities';
+import TopicsCovered from '../../components/topicsCovered';
+import Faq from '../../components/faq';
 
-const About = props => {
+const About = (props) => {
   return (
     <div>
       <Container text style={{ paddingTop: '5vw' }}>
@@ -17,7 +17,7 @@ const About = props => {
         <Faq />
       </Container>
     </div>
-  )
-}
+  );
+};
 
-export default About
+export default About;

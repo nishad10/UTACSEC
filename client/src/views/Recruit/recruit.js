@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import { Header, Segment, List, Button, Icon } from 'semantic-ui-react'
+import React, { useEffect, useState } from 'react';
+import { Header, Segment, List, Button, Icon } from 'semantic-ui-react';
 
+// Keeping this component for future recruiting opportunities for new officers.
 const Recruit = () => {
-  const [width, setWidth] = useState(window.innerWidth)
+  const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     const handleWindowSizeChange = () => {
-      setWidth(window.innerWidth)
-    }
-    window.addEventListener('resize', handleWindowSizeChange)
-  }, [])
-  const mobile = width < 600
+      setWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleWindowSizeChange);
+  }, []);
+  const mobile = width < 600;
   return (
     <div
       style={
@@ -20,7 +21,7 @@ const Recruit = () => {
               display: 'grid',
               gridTemplateColumns: '40% 40%',
               paddingTop: '50px',
-              justifyContent: 'space-evenly'
+              justifyContent: 'space-evenly',
             }
       }
     >
@@ -28,7 +29,7 @@ const Recruit = () => {
         inverted
         style={{
           width: '100%',
-          margin: mobile ? '20px 0px' : '0'
+          margin: mobile ? '20px 0px' : '0',
         }}
       >
         <div>
@@ -74,7 +75,7 @@ const Recruit = () => {
             style={{
               fontSize: mobile ? '3.2vw' : '1vw',
               float: mobile ? '' : 'right',
-              background: '#DE6E4B'
+              background: '#DE6E4B',
             }}
           >
             Apply
@@ -86,7 +87,7 @@ const Recruit = () => {
         inverted
         style={{
           width: '100%',
-          margin: mobile ? '20px 0px' : '0'
+          margin: mobile ? '20px 0px' : '0',
         }}
       >
         <Header
@@ -132,7 +133,7 @@ const Recruit = () => {
             style={{
               fontSize: mobile ? '3.2vw' : '1vw',
               float: mobile ? '' : 'right',
-              background: '#DE6E4B'
+              background: '#DE6E4B',
             }}
           >
             Apply
@@ -144,7 +145,7 @@ const Recruit = () => {
         inverted
         style={{
           width: '100%',
-          margin: mobile ? '20px 0px' : '20px 0'
+          margin: mobile ? '20px 0px' : '20px 0',
         }}
       >
         <div>
@@ -191,7 +192,7 @@ const Recruit = () => {
             style={{
               fontSize: mobile ? '3.2vw' : '1vw',
               float: mobile ? '' : 'right',
-              background: '#DE6E4B'
+              background: '#DE6E4B',
             }}
           >
             Apply
@@ -200,7 +201,7 @@ const Recruit = () => {
         </a>
       </Segment>
     </div>
-  )
-}
+  );
+};
 
-export default Recruit
+export default Recruit;
