@@ -93,7 +93,7 @@ const Officers = () => {
         imgSource={'/statics/diego.JPG'}
       />
       <OfficerItemMobile
-        name={'Stephanie Nguyen'}
+        name={'Steph Nguyen'}
         position={'Treasurer'}
         email={'stephanie.nguyen3@mavs.uta.edu'}
         description={
@@ -205,7 +205,7 @@ const Officers = () => {
         <Divider inverted style={{ margin: '1vw 15vw 1vw 15vw' }} />
 
         <OfficerItem
-          name={'Stephanie Nguyen'}
+          name={'Steph Nguyen'}
           position={'Treasurer'}
           email={'stephanie.nguyen3@mavs.uta.edu'}
           description={
