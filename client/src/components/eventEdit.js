@@ -8,7 +8,7 @@ import {
   Icon,
   Modal,
 } from 'semantic-ui-react';
-import { getEventsAdmin, deleteEvent } from '../actions';
+import { getEventsAdmin, deleteEvent, pastEvent } from '../actions';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import EditEventItem from './editEventItem';
@@ -16,10 +16,14 @@ const EventEdit = (props) => {
   const [width, setWidth] = useState(window.innerWidth);
   const [profile, setProfile] = useState({});
 
-  const { events, getEventsAdmin, loading, deleteEvent } = props;
+  const { events, getEventsAdmin, loading, deleteEvent, pastEvent } = props;
 
   const handleDelete = (id) => {
     deleteEvent({ id, profile });
+  };
+  const handlePastEvent = (id) => {
+    console.log('inn');
+    pastEvent({ id, profile });
   };
   const getUserProfile = () =>
     axios.get(`https://utacsecapi.herokuapp.com/user/profile`).then((r) => {
@@ -118,6 +122,17 @@ const EventEdit = (props) => {
                   ? 'Event is being shown on website'
                   : 'Event is in database but not being shown on website'}
               </div>
+              <div
+                style={{
+                  color: '#DE6E4B',
+                  fontSize: '18px',
+                  paddingBottom: '10px',
+                  display: 'flex',
+                }}
+              >
+                <div style={{ color: '#5BC0BE' }}>PastEvent :-</div>
+                {item.past === true ? 'Part of past events' : 'Current event'}
+              </div>
             </div>
             <a style={{ color: 'black' }} href={item.url}>
               {' '}
@@ -147,6 +162,22 @@ const EventEdit = (props) => {
                 Delete
                 <Icon name="right chevron" />
               </Button>
+              {item.past !== true ? (
+                <Button
+                  value={item._id}
+                  onClick={(e) => handlePastEvent(e.target.value)}
+                  style={{
+                    fontSize: mobile ? '10px' : '1em',
+                    marginBottom: '20px',
+                    float: 'right',
+                    background: '#DE6E4B',
+                    display: 'flex',
+                  }}
+                >
+                  PastEvent
+                  <Icon name="right chevron" />
+                </Button>
+              ) : null}
               <Modal
                 basic
                 centered
@@ -186,5 +217,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   getEventsAdmin: () => dispatch(getEventsAdmin()),
   deleteEvent: (val) => dispatch(deleteEvent(val)),
+  pastEvent: (val) => dispatch(pastEvent(val)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(EventEdit);

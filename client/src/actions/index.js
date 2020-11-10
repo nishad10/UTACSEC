@@ -91,6 +91,26 @@ export function deleteEvent(data) {
   };
 }
 
+export function pastEvent(data) {
+  console.log('innn');
+  // const { history } = this.props
+  return function (dispatch) {
+    console.log('in');
+    dispatch({ type: 'LOADING', payload: true });
+    // Submit email/password to server
+    axios
+      .post(`/eventsPast`, data)
+      .then((res) => {
+        dispatch({ type: 'LOADING', payload: false });
+        history.push('/events');
+      })
+      .catch((error) => {
+        console.log(error);
+        dispatch({ type: 'LOADING', payload: false });
+      });
+  };
+}
+
 export function addEvent(data) {
   // const { history } = this.props
   return function (dispatch) {
