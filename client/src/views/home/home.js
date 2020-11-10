@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Grid, Divider, Header, Container } from 'semantic-ui-react';
+import { Grid, Divider, Header, Container, Image } from 'semantic-ui-react';
 import HomepageHeader from '../../components/homepageHeader';
 import Social from '../../components/social';
 import MeetingFooter from '../../components/meetingFooter';
@@ -39,16 +39,7 @@ const Home = (props) => {
                 marginBottom: mobile ? '0.5em' : '1em',
               }}
             />
-            <Header
-              as="h1"
-              content="  We are looking for Sponsors for our Non-Profit Club.If you would like to have your logo on the website in this section by sponsoring us for special one time
-              events or for other types of long term sponsorships, please send us an email or get in contact with us. "
-              inverted
-              style={{
-                fontSize: mobile ? '1em' : '1.5em',
-                fontWeight: 'normal',
-              }}
-            />
+            <Image centered src="/statics/ISACA.png" />
           </Container>
         </Grid.Row>
         <Divider inverted style={{ margin: '5em 7em' }} />
