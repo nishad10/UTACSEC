@@ -16,7 +16,7 @@ const Social = (props) => {
         type: 'WATCHING',
         url: 'https://www.utacsec.org',
       });
-      setDiscordCount(client.users.size);
+      setDiscordCount(client.guilds.entries().next().value[1].memberCount);
 
       client.on('message', (msg) => {
         if (msg.content === 'help') {
