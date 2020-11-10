@@ -99,6 +99,7 @@ export function addEvent(data) {
       .post(`/eventsadd`, data)
       .then((res) => {
         dispatch({ type: 'LOADING', payload: false });
+        history.push('/events');
       })
       .catch((error) => {
         console.log(error);
@@ -110,7 +111,9 @@ export function addEvent(data) {
 export function editEvent(data) {
   axios
     .post(`/eventedit`, data)
-    .then((res) => {})
+    .then((res) => {
+      history.push('/events');
+    })
     .catch((error) => {
       console.log(error);
     });
